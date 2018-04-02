@@ -7,10 +7,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static(`${__dirname}/public`));
-
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/public/index.html`);
+    res.status(200).json({message: 'API OK'});
 });
 
 app.listen(PORT, () => {
