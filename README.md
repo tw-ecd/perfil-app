@@ -1,6 +1,12 @@
-# AurasApp
+# Auras
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+## API
+[![Build Status](https://travis-ci.org/caiobsouza/su-auras.svg?branch=master)](https://travis-ci.org/caiobsouza/su-auras)
+
+[API code base](https://github.com/caiobsouza/su-auras/tree/api)
+
+## Project URL
+https://caiobsouza.github.io/su-auras/
 
 ## Development server
 
