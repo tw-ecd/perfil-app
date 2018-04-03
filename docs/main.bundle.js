@@ -142,14 +142,14 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/photo-taker/photo-taker.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  photo-taker works!\n</p>\n<div id=\"p5-canvas\"></div>"
+module.exports = "<div class=\"tablet\">\n  <div class=\"content\">\n    <div class=\"intro-text\">Clique na foto para ver sua aura</div>\n    <div id=\"p5-canvas\" class=\"photo-preview-container\"></div>\n\n    <div class=\"button-container invisible\">\n      <div class=\"button button-retake\">\n        <i class=\"fas fa-sync-alt\"></i>\n      </div>\n\n      <div class=\"button button-share\">\n        <i class=\"fas fa-share\"></i>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
 /***/ "./src/app/photo-taker/photo-taker.component.scss":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".tablet {\n  height: 100vh;\n  max-height: 133vw;\n  max-width: 75vh;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 0;\n  margin: 0 auto;\n  border: 2px #000 solid; }\n\n.content {\n  width: 100%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 16px; }\n\n.intro-text {\n  text-align: left;\n  padding: 24px 4px;\n  font-size: 18px;\n  font: normal 24px 'Raleway', 'Arial';\n  color: #888;\n  background-color: white; }\n\n.photo-preview-container {\n  width: 100%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  margin: 0 auto;\n  text-align: center;\n  padding: 0; }\n\n.button-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.button {\n  width: 45%;\n  margin: 2.5%;\n  padding: 4px 0;\n  background-color: #000;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  cursor: pointer;\n  -webkit-transition: background-color 0.1s linear;\n  transition: background-color 0.1s linear; }\n\n.button:hover {\n  background-color: #666; }\n\n.invisible {\n  display: none; }\n"
 
 /***/ }),
 

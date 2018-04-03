@@ -3,7 +3,7 @@ webpackJsonp(["styles"],{
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/sass-loader/lib/loader.js??ref--8-3!./src/styles.scss":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "html {\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 18px; }\n\nstrong {\n  font-weight: bold; }\n\nem {\n  font-style: italic; }\n\ns {\n  text-decoration: line-through; }\n\nbody {\n  margin: 0;\n  padding: 0;\n  min-height: 100vh; }\n\na {\n  font: 900 24px 'Raleway', 'Arial';\n  color: #eee;\n  cursor: pointer;\n  text-decoration: none;\n  text-transform: uppercase;\n  -webkit-transition: color 0.1s linear;\n  transition: color 0.1s linear; }\n\na:visited {\n  color: #eee; }\n\na:hover {\n  color: #eee; }\n"
 
 /***/ }),
 
