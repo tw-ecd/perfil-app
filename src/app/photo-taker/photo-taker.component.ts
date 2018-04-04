@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 declare var p5: any;
 
@@ -11,87 +11,88 @@ export class PhotoTakerComponent implements OnInit {
 
   constructor() { }
 
+  @ViewChild('processingCanvas') processingCanvas: ElementRef;
+
+  pictureNotTaken = true;
+  capture: any;
+  captureImage: any;
+  brightnessMask: any;
+  processingCanvasWidth: number;
+  auraMaskUrl: String = "assets/aura-corner.png";
+
   ngOnInit(): void {
-    const photo = new p5(this.sketch);
+    const photo = new p5(this.sketch.bind(this));
   }
 
-  sketch(p) {
+  sketch(processing) {
+    this.processingCanvasWidth = this.processingCanvas.nativeElement.offsetWidth;
+    
+    let resultAura;
+    let cornerAura;
 
-    var canvasDiv = document.getElementById('p5-canvas');
-    var canvasDivWidth = canvasDiv.offsetWidth;
-    var buttonsDiv = document.getElementsByClassName('button-container')[0];
-    var retakeButtonDiv = document.getElementsByClassName('button-retake')[0];
-    var shareButtonDiv = document.getElementsByClassName('button-share')[0];
-
-    var capture, bCapture, captureImage;
-    var cornerAura, brightnessMask, resultAura;
-
-    var x = 100;
-    var y = 100;
-
-    p.preload = () => {
-      canvasDiv.onclick = takePicture;
-      cornerAura = p.loadImage("assets/aura-corner.png");
+    processing.preload = () => {
+      this.processingCanvas.nativeElement.onclick = takePicture;
+      cornerAura = processing.loadImage(this.auraMaskUrl);
     }
 
-    p.setup = () => {
+    processing.setup = () => {
 
-      var cnv = p.createCanvas(400, 600);
-      cnv.parent('p5-canvas');
+      let canvas = processing.createCanvas(400, 600);
+      canvas.parent('p5-canvas');
 
-      capture = p.createCapture(p.VIDEO);
-      capture.size(960, 720);
-      capture.hide();
-      bCapture = true;
+      this.capture = processing.createCapture(processing.VIDEO);
+      this.capture.size(960, 720);
+      this.capture.hide();
 
-      captureImage = p.createImage(capture.width, capture.height);
-      brightnessMask = p.createGraphics(p.width, p.height);
-      brightnessMask.pixelDensity(1);
-      resultAura = p.createGraphics(p.width, p.height);
+      this.captureImage = processing.createImage(this.capture.width, this.capture.height);
+      this.brightnessMask = processing.createGraphics(processing.width, processing.height);
+      this.brightnessMask.pixelDensity(1);
+      resultAura = processing.createGraphics(processing.width, processing.height);
       resultAura.pixelDensity(1);
 
-      p.imageMode(p.CENTER);
+      processing.imageMode(processing.CENTER);
     };
 
-    p.draw = () => {
-      p.background(0);
-      if (bCapture) {
-        captureImage.copy(capture,
-          0, 0, capture.width, capture.height,
-          0, 0, captureImage.width, captureImage.height);
+    processing.draw = () => {
+      processing.background(0);
 
-        adjustBrightnessContrast(captureImage, 255);
-        p.image(captureImage, p.width / 2, p.height / 2);
-      } else {
-        p.image(resultAura, p.width / 2, p.height / 2, p.width, p.height);
+      if (this.pictureNotTaken) {
+        this.captureImage.copy(this.capture,
+          0, 0, this.capture.width, this.capture.height,
+          0, 0, this.captureImage.width, this.captureImage.height);
 
-      };
+        adjustBrightnessContrast(this.captureImage, 255);
+        processing.image(this.captureImage, processing.width / 2, processing.height / 2);
+        return;
+      }
+
+      processing.image(resultAura, processing.width / 2, processing.height / 2, processing.width, processing.height);
     };
 
-    function drawAuras(bground) {
-      resultAura.imageMode(p.CENTER);
+    const drawAuras = (background) => {
+      resultAura.imageMode(processing.CENTER);
 
       resultAura.push();
       resultAura.translate(resultAura.width / 2, resultAura.height / 2);
 
       resultAura.noTint();
-      resultAura.image(bground, 0, 0);
+      resultAura.image(background, 0, 0);
 
-      for (var i = 0; i < 8; i++) {
-        if (p.random(1.0) > 0.4) {
+      for (let i = 0; i < 8; i++) {
+        if (processing.random(1.0) > 0.4) {
           resultAura.push();
-          resultAura.rotate(p.TWO_PI * i / 8.0 + p.random(1.0) * p.PI / 8.0);
+          resultAura.rotate(processing.TWO_PI * i / 8.0 + processing.random(1.0) * processing.PI / 8.0);
 
-          if (p.random(1) < 0.333) {
+          if (processing.random(1) < 0.333) {
             resultAura.tint(0, 0, 150, 200);
-          } else if (p.random(1) < 0.66) {
+          } else if (processing.random(1) < 0.66) {
             resultAura.tint(0, 150, 0, 200);
           } else {
             resultAura.tint(150, 0, 0, 200);
           }
 
-          resultAura.translate(-resultAura.width / p.random(2, 8),
-            -resultAura.height / p.random(2, 8));
+          resultAura.translate(-resultAura.width / processing.random(2, 8),
+            -resultAura.height / processing.random(2, 8));
           resultAura.image(cornerAura, 0, 0, resultAura.width, resultAura.height);
 
           resultAura.tint(255, 200);
@@ -103,12 +104,12 @@ export class PhotoTakerComponent implements OnInit {
       resultAura.pop();
     }
 
-    function takePicture() {
-      bCapture = false;
-      canvasDiv.onclick = function () { };
+    const takePicture = () => {
+      this.pictureNotTaken = false;
 
-      drawAuras(captureImage);
-      // buttonsDiv.style.display = "flex";
+      this.processingCanvas.nativeElement.onclick = function () { };
+
+      drawAuras(this.captureImage);
 
       // retakeButtonDiv.onclick = function() {
       //   bCapture = true;
@@ -122,21 +123,21 @@ export class PhotoTakerComponent implements OnInit {
       // }
     }
 
-    function adjustBrightnessContrast(pimg, value) {
-      var original = p.createImage(pimg.width, pimg.height);
+    const adjustBrightnessContrast = (pimg, value) => {
+      let original = processing.createImage(pimg.width, pimg.height);
       original.copy(pimg,
         0, 0, pimg.width, pimg.height,
         0, 0, original.width, original.height);
 
-      brightnessMask.background(value);
+      this.brightnessMask.background(value);
 
-      pimg.blend(brightnessMask,
-        0, 0, brightnessMask.width, brightnessMask.height,
-        0, 0, pimg.width, pimg.height, p.DARKEST);
+      pimg.blend(this.brightnessMask,
+        0, 0, this.brightnessMask.width, this.brightnessMask.height,
+        0, 0, pimg.width, pimg.height, processing.DARKEST);
 
       pimg.blend(original,
         0, 0, original.width, original.height,
-        0, 0, pimg.width, pimg.height, p.NORMAL);
+        0, 0, pimg.width, pimg.height, processing.NORMAL);
     }
   }
 

@@ -1,15 +1,15 @@
 <div class="tablet">
   <div class="content">
     <div class="intro-text">Clique na foto para ver sua aura</div>
-    <div id="p5-canvas" class="photo-preview-container"></div>
+    <div #processingCanvas id="p5-canvas" class="photo-preview-container"></div>
 
-    <div class="button-container invisible">
+    <div class="button-container" *ngIf="!pictureNotTaken">
       <div class="button button-retake">
-        <i class="fas fa-sync-alt"></i>
+        <i class="fa fa-refresh" aria-hidden="true"></i>
       </div>
 
       <div class="button button-share">
-        <i class="fas fa-share"></i>
+        <i class="fa fa-share"></i>
       </div>
     </div>
   </div>
