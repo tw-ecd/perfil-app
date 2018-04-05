@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 //routes
 const person = require('./routes/person');
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(()
     console.log('Connected to database') 
 });
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
