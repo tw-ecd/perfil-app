@@ -1,6 +1,4 @@
 
-const mongoose = require("mongoose");
-const Person = require('../../routes/person');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../index');
@@ -14,6 +12,7 @@ let personObject = {
 };
 
 describe('People', () => {
+
     describe('/GET person', () => {
         it('it should return all people on database', (done) => {
           chai.request(server)
@@ -30,6 +29,23 @@ describe('People', () => {
         it('it should create a new person on database', (done) => {
           chai.request(server)
               .post('/person')
+              .send(personObject)
+              .end((err, res) => {
+                  res.should.have.status(201);
+                  res.body.should.be.a('object');
+                  res.body.should.have.property('success');
+                  res.body.should.have.property('data');
+                  res.body.should.have.property('message');
+                  res.body.success.should.be.true;
+                done();
+              });
+        });
+    });
+
+    describe('/DELETE person', () => {
+        it('it should remove the newly created user', (done) => {
+          chai.request(server)
+              .del('/person')
               .send(personObject)
               .end((err, res) => {
                   res.should.have.status(201);

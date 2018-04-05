@@ -1,20 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-
-const PersonSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email:
-        {
-            type: String,
-            required: true
-        }
-},{collection: 'person'});
-
-const Person = mongoose.model('person', PersonSchema);
+const Person = require('../models/person.model');
 
 router.get('/', (req, res) => {
     Person.find().then(
