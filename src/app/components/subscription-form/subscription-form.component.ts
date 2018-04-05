@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PersonService } from '../../providers/person.service';
+import { Person } from '../../models/person.model';
+
 @Component({
   selector: 'app-subscription-form',
   templateUrl: './subscription-form.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubscriptionFormComponent implements OnInit {
 
-  constructor() { }
+  people: Person[];
+
+  constructor(private personService: PersonService) { }
 
   ngOnInit() {
+    
   }
+
+  
 
 }
