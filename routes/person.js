@@ -32,4 +32,15 @@ router.post('/', function (req, res) {
         });
 });
 
+router.delete('/:id', function (req, res) {
+    Person.remove({_id: req.params.id}, 
+        (result) => {
+            res.status(204).send({ success: true, message: 'Pessoa removida!', data: result })
+        },
+        (err) => {
+            res.status(500).send({ success: false, message: 'Erro ao tentar remover pessoa. Tente novamente!', data: err });
+        });
+});
+
+
 module.exports = router;

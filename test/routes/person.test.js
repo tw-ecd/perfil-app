@@ -1,4 +1,4 @@
-
+const Person = require('../../models/person.model');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../index');
@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-let personObject = {
+let personObject = new Person({
     name: "teste",
     email: "t@t.com"
-};
+});
 
 describe('People', () => {
 
@@ -45,15 +45,10 @@ describe('People', () => {
     describe('/DELETE person', () => {
         it('it should remove the newly created user', (done) => {
           chai.request(server)
-              .del('/person')
-              .send(personObject)
+              .del('/person/' + personObject.id)
               .end((err, res) => {
-                  res.should.have.status(201);
+                  res.should.have.status(204);
                   res.body.should.be.a('object');
-                  res.body.should.have.property('success');
-                  res.body.should.have.property('data');
-                  res.body.should.have.property('message');
-                  res.body.success.should.be.true;
                 done();
               });
         });
