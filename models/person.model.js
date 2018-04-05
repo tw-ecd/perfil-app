@@ -9,7 +9,11 @@ const PersonSchema = new mongoose.Schema({
         {
             type: String,
             required: true
-        }
+        },
+    company:
+    {
+        type: String
+    }
 },{collection: 'person'});
 
 const Person = mongoose.model('person', PersonSchema);

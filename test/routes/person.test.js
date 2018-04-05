@@ -8,7 +8,8 @@ chai.use(chaiHttp);
 
 let personObject = new Person({
     name: "teste",
-    email: "t@t.com"
+    email: "t@t.com",
+    company: "TW"
 });
 
 describe('People', () => {
