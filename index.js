@@ -19,7 +19,9 @@ app.get('/', (req, res) => {
 
 app.use('/person', person);
 
-app.listen(PORT, () => {
+let server = app.listen(PORT, () => {
     console.log(`Listening @ ${PORT}`);
 });
+
+module.exports = server
 
