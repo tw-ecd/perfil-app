@@ -8,7 +8,9 @@ const person = require('./routes/person');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(() => { console.log('FUNFOU') });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(() => { 
+    console.log('Connected to database') 
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
