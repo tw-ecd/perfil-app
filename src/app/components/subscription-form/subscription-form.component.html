@@ -1,8 +1,19 @@
-<p>
-  subscription-form works!
-</p>
-<ul>
-  <li *ngFor="let person of people">
-    {{person.name}}
-  </li>
-</ul>
+<div class="row justify-content-center">
+  <div class="col-md-9 col-lg-6">
+    <form [formGroup]="personForm">
+      <div class="form-group">
+        <label>Nome:</label>
+        <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.invalid && name.dirty}">
+      </div>
+      <div class="form-group">
+        <label>E-mail:</label>
+        <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty}" formControlName="email" [email]="true">
+      </div>
+      <div class="form-group">
+        <label>Empresa:</label>
+        <input class="form-control" formControlName="company" [ngClass]="{'is-invalid': company.invalid && company.dirty}">
+      </div>
+    </form>
+    <button type="button" [disabled]="personForm.invalid" class="btn btn-info" (click)="save()">Next</button>
+  </div>
+</div>
