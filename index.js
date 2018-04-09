@@ -5,6 +5,7 @@ const cors = require('cors');
 
 //routes
 const person = require('./routes/person');
+const feeling = require('./routes/feeling');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/person', person);
+app.use('/feeling', feeling);
 
 let server = app.listen(PORT, () => {
     console.log(`Listening @ ${PORT}`);
