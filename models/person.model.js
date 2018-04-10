@@ -1,20 +1,31 @@
 const mongoose = require('mongoose');
+const crc = require('crc');
+
+const generateId  = () => {
+    return crc.crc32(new Date().toISOString()).toString(36).toUpperCase();
+}
 
 const PersonSchema = new mongoose.Schema({
-    name: {
+    _id:{
         type: String,
-        required: true
+        'default': generateId
+    },
+    name: {
+        type: String
     },
     email:
         {
-            type: String,
-            required: true
+            type: String
         },
     company:
-    {
-        type: String
-    }
-},{collection: 'person'});
+        {
+            type: String
+        },
+    role:
+        {
+            type: String
+        }
+});
 
 const Person = mongoose.model('person', PersonSchema);
 
