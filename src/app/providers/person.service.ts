@@ -6,7 +6,7 @@ import { Person } from '../models/person.model';
 @Injectable()
 export class PersonService {
 
-  private baseUrl = "https://su-auras.herokuapp.com/person"
+  private baseUrl = "https://su-auras.herokuapp.com/person/"
 
   constructor(private http: HttpClient) { 
   }
@@ -18,5 +18,11 @@ export class PersonService {
   add(person: Person){
     return this.http.post<Person>(this.baseUrl, person);
   }
+  
+  update(person: Person){
+    return this.http.put<Person>(this.baseUrl + person._id, person);
+  }
+
+
 
 }

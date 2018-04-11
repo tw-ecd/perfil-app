@@ -23,7 +23,8 @@ export class SubscriptionFormComponent implements OnInit {
     this.personForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      company: ['', Validators.required]
+      company: ['', Validators.required],
+      role: ['', Validators.required]
     });
   }
 
@@ -32,7 +33,7 @@ export class SubscriptionFormComponent implements OnInit {
       return false;
 
     const newPerson: Person = this.personForm.value;
-    this.personService.add(newPerson)
+    this.personService.update(newPerson)
       .subscribe(result => console.log(result), err => console.log(err));
   }
 
@@ -46,6 +47,10 @@ export class SubscriptionFormComponent implements OnInit {
 
   get company(){
     return this.personForm.get('company'); 
+  }
+
+  get role(){
+    return this.personForm.get('role'); 
   }
 
 }
