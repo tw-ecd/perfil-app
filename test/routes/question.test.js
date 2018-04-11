@@ -1,36 +1,56 @@
 const chai = require('chai');
-const should = chai.should();
+const expect = chai.expect;
 const sinon = require('sinon');
-const mongoose = require('mongoose');
 require('sinon-mongoose');
-const Question = require('../../models/question.model');
+const proxyquire = require('proxyquire');
+const supertest = require('supertest');
+const express = require('express');
 
 const resultJson = {
-    quantity: 1, 
+    quantity: 2,
     questions: [
-    {
-        description: "pergunta",
-        order: 1,
-        isLast: true
-    }
-]};
+        {
+            description: "pergunta 1",
+            order: 1,
+            isLast: false
+        },
+        {
+            description: "pergunta 2",
+            order: 2,
+            isLast: true
+        }
+    ]
+};
 
 describe('Questions', () => {
     describe('/GET questions', () => {
-        it('it should return all questions', (done) => {
-            const questionMock = sinon.mock(Question);
-            const expectedResult = { status: true, data: resultJson};
+        let app, findStub, request, route;
 
-            questionMock.expects('find').yields(null, expectedResult);
-            Question.find(function (err, result) {
-                questionMock.verify();
-                questionMock.restore();
-                result.status.should.be.true;
-                result.data.questions.should.be.an('array');
-                result.data.quantity.should.be.equal(1);
-                done();
+        beforeEach(() => {
+            findStub = sinon.stub();
+            app = express();
+            questionRoute = proxyquire('../../routes/question', {
+                '../models/question.model' : {
+                    find: findStub
+                }
             });
+            questionRoute(app);
+            request = supertest(app);
+        });
+
+        it('it should return all questions', (done) => {
+            findStub.resolves(resultJson);
+
+            request
+                .get('/questions')
+                .expect('Content-Type', /json/)
+                .expect(200, function(err, res) {
+                    expect(res.body.questions).to.deep.equal(resultJson);
+                });
+                done();
         });
     });
+
+    
 });
 

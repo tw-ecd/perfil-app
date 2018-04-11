@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/person', person);
-app.use('/questions', question);
+question(app);
 
 
 let server = app.listen(PORT, () => {
