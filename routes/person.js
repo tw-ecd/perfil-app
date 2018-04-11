@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     Person.find().then(
         (result) => {
             res.json(result);
-        }, (err) => {   
+        }, (err) => {
             res.send({ success: false, message: 'Erro recuperar item', data: err });
         });
 });
@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
     Person.findById(req.params.id).then(
         (result) => {
             res.json(result);
-        }, (err) => {   
+        }, (err) => {
             res.send({ success: false, message: 'Erro recuperar item', data: err });
         });
 });
@@ -32,8 +32,25 @@ router.post('/', function (req, res) {
         });
 });
 
+router.put('/:id', function (req, res) {
+    let person = new Person(req.body);
+
+    Person.findOneAndUpdate(req.params.id, {
+        name: req.body.name,
+        email: req.body.email,
+        company: req.body.company,
+        role: req.body.role
+    },
+        (result) => {
+            res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result })
+        },
+        (err) => {
+            res.status(500).send({ success: false, message: 'Erro ao tentar atualizar pessoa. Tente novamente!', data: err });
+        });
+});
+
 router.delete('/:id', function (req, res) {
-    Person.remove({_id: req.params.id}, 
+    Person.remove({ _id: req.params.id },
         (result) => {
             res.status(204).send({ success: true, message: 'Pessoa removida!', data: result })
         },

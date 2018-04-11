@@ -46,15 +46,36 @@ describe('People', () => {
                 done();
             });
         });
+    });
 
+
+
+    describe('/PUT person', () => {
+        it('should update a person with their details', (done) => {
+            const personMock = sinon.mock(Person);
+            const person = sinon.mock(new Person({
+                role: 'CEO'
+            })).object;
+
+            let expectedResult = { status: true, data: person };
+            personMock.expects('findByIdAndUpdate').yields(null, expectedResult);
+
+            Person.findByIdAndUpdate(person._id, { role: 'CEO' }, function (err, result) {
+                personMock.verify();
+                personMock.restore();
+                result.status.should.be.true;
+                result.data.role.should.be.equals('CEO');
+                done();
+            });
+        });
     });
 
     describe('/DELETE person', () => {
         it('it should remove the newly created user', (done) => {
             let personMock = sinon.mock(Person);
-            let expectedResult = {status: true};
-            personMock.expects('remove').withArgs({_id: 12345}).yields(null, expectedResult);
-            Person.remove({_id: 12345}, (err, result)=>{
+            let expectedResult = { status: true };
+            personMock.expects('remove').withArgs({ _id: 12345 }).yields(null, expectedResult);
+            Person.remove({ _id: 12345 }, (err, result) => {
                 personMock.verify();
                 personMock.restore();
                 result.status.should.be.true;
@@ -63,4 +84,6 @@ describe('People', () => {
 
         });
     });
+
+
 });
