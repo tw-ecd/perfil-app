@@ -1,3 +1,5 @@
+require('dotenv').load();
+
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -16,8 +18,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(()
 });
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ limit: '5mb', extended: false }));
+app.use(bodyParser.json({ limit: '5mb' }));
 
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'API OK' });

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const Person = require('../models/person.model');
+const FlickrService = require('../services/flickr.service');
 
 router.get('/', (req, res) => {
     Person.find().then(
@@ -59,5 +60,18 @@ router.delete('/:id', function (req, res) {
         });
 });
 
+router.post('/:id/photo', function(req, res) {
+    console.log('from post');
+
+    var flickerService = new FlickrService(req.body);
+    flickerService.updatePersonData(function(err, data) {
+        if(err) {
+            res.status(500).send({ success: false, message: 'Erro ao tentar atualizar imagem.', data: err });
+        } else {
+            console.log(data);
+            res.status(200).send({ success: true, message: 'Imagem atualizada!', data: data })
+        }
+    });
+});
 
 module.exports = router;

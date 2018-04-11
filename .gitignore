@@ -1,1 +1,6 @@
+.DS_Store
+rundb.sh
 **/node_modules
+.env
+temp.png
+temp.jpg

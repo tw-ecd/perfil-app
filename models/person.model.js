@@ -6,25 +6,31 @@ const generateId  = () => {
 }
 
 const PersonSchema = new mongoose.Schema({
-    _id:{
+    _id: {
         type: String,
         'default': generateId
     },
     name: {
         type: String
     },
-    email:
-        {
-            type: String
-        },
-    company:
-        {
-            type: String
-        },
-    role:
-        {
-            type: String
-        }
+    email: {
+        type: String
+    },
+    company: {
+        type: String
+    },
+    role: {
+        type: String
+    },
+    accepted_conditions: {
+        type: Boolean
+    },
+    flickr_url: {
+        type: String
+    },
+    datetime: {
+        type: Date
+    }
 });
 
 const Person = mongoose.model('person', PersonSchema);
