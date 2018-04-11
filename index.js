@@ -5,6 +5,7 @@ const cors = require('cors');
 
 //routes
 const person = require('./routes/person');
+const question = require('./routes/question');
 
 
 const PORT = process.env.PORT || 5000;
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/person', person);
+app.use('/questions', question);
 
 
 let server = app.listen(PORT, () => {
