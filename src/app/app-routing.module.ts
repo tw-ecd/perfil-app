@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PhotoTakerComponent } from './components/photo-taker/photo-taker.component';
 import { SubscriptionFormComponent } from './components/subscription-form/subscription-form.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PhotoTakerComponent
+    component: HomeComponent
   },
   {
-    path: 'subscribe',
+    path: 'subscribe/:id',
     component: SubscriptionFormComponent
   }
 ];

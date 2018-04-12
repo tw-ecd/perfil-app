@@ -6,15 +6,20 @@ import { PhotoTakerComponent } from './photo-taker/photo-taker.component';
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
 
 import { PersonService } from '../providers/person.service';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from '../app-routing.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   declarations: [
     PhotoTakerComponent,
-    SubscriptionFormComponent
+    SubscriptionFormComponent,
+    HomeComponent
   ],
   providers: [PersonService]
 })

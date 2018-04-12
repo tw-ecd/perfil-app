@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, EmailValidator } from '@angular/for
 
 import { PersonService } from '../../providers/person.service';
 import { Person } from '../../models/person.model';
+import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subscription-form',
@@ -13,10 +14,13 @@ export class SubscriptionFormComponent implements OnInit {
 
   personForm: FormGroup;
 
-  constructor(private personService: PersonService, private fb: FormBuilder) { }
+  constructor(private personService: PersonService, private fb: FormBuilder, private activedRoute: ActivatedRoute) { }
+
+  private _id: String;
 
   ngOnInit() {
     this.createForm();
+    this.activedRoute.params.subscribe(params => this._id = params.id);
   }
 
   createForm() {
@@ -32,7 +36,9 @@ export class SubscriptionFormComponent implements OnInit {
     if (this.personForm.invalid)
       return false;
 
-    const newPerson: Person = this.personForm.value;
+    let newPerson: Person = this.personForm.value;
+    newPerson._id = this._id;
+    
     this.personService.update(newPerson)
       .subscribe(result => console.log(result), err => console.log(err));
   }
