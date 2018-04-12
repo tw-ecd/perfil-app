@@ -22,6 +22,9 @@ const PersonSchema = new mongoose.Schema({
     role: {
         type: String
     },
+    profile: {
+        type: String
+    },
     accepted_conditions: {
         type: Boolean
     },
