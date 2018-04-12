@@ -63,17 +63,26 @@ router.delete('/:id', function (req, res) {
 });
 
 router.post('/:id/photo', function(req, res) {
-    console.log('from post');
+    const sendError = function(err) {
+        res.status(500).send({ success: false, message: 'Erro ao tentar subir imagem.', data: err });
+    }
 
-    var flickerService = new FlickrService(req.body);
-    flickerService.updatePersonData(function(err, data) {
-        if(err) {
-            res.status(500).send({ success: false, message: 'Erro ao tentar atualizar imagem.', data: err });
-        } else {
-            console.log(data);
-            res.status(200).send({ success: true, message: 'Imagem atualizada!', data: data })
-        }
-    });
+    const flickerService = new FlickrService(req.body);
+
+    flickerService.uploadImage().then(
+        (result) => {
+            Person.findOneAndUpdate({ _id: req.params.id }, result,
+                (result) => {
+                    if(!result) {
+                        sendError(result);
+                    } else {
+                        res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result })
+                    }
+                },
+                (err) => {
+                    sendError(err);
+                });
+        }, sendError);
 });
 
 module.exports = router;
