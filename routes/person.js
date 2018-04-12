@@ -43,7 +43,7 @@ router.put('/:id', function (req, res) {
         email: req.body.email,
         company: req.body.company,
         role: req.body.role
-    },
+    }).then(
         (result) => {
             res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result })
         },
@@ -53,7 +53,7 @@ router.put('/:id', function (req, res) {
 });
 
 router.delete('/:id', function (req, res) {
-    Person.remove({ _id: req.params.id },
+    Person.remove({ _id: req.params.id }).then(
         (result) => {
             res.status(204).send({ success: true, message: 'Pessoa removida!', data: result })
         },
@@ -71,17 +71,10 @@ router.post('/:id/photo', function(req, res) {
 
     flickerService.uploadImage().then(
         (result) => {
-            Person.findOneAndUpdate({ _id: req.params.id }, result,
+            Person.findOneAndUpdate({ _id: req.params.id }, result).then(
                 (result) => {
-                    if(!result) {
-                        sendError(result);
-                    } else {
-                        res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result })
-                    }
-                },
-                (err) => {
-                    sendError(err);
-                });
+                    res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result })
+                }, sendError);
         }, sendError);
 });
 
