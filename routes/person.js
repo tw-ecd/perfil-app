@@ -9,16 +9,20 @@ router.get('/', (req, res) => {
         (result) => {
             res.json(result);
         }, (err) => {
-            res.send({ success: false, message: 'Erro recuperar item', data: err });
+            res.status(500).send({ success: false, message: 'Erro recuperar item', data: err });
         });
 });
 
 router.get('/:id', (req, res) => {
     Person.findById(req.params.id).then(
         (result) => {
-            res.json(result);
+            if(!result) {
+              res.status(500).send({ success: false, message: 'Id não encontrado', data: result });
+            } else {
+              res.json(result);
+            }
         }, (err) => {
-            res.send({ success: false, message: 'Erro recuperar item', data: err });
+            res.status(500).send({ success: false, message: 'Erro recuperar item', data: err });
         });
 });
 
@@ -34,9 +38,7 @@ router.post('/', function (req, res) {
 });
 
 router.put('/:id', function (req, res) {
-    let person = new Person(req.body);
-
-    Person.findOneAndUpdate(req.params.id, {
+    Person.findOneAndUpdate({ _id: req.params.id }, {
         name: req.body.name,
         email: req.body.email,
         company: req.body.company,
