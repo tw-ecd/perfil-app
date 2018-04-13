@@ -21,7 +21,7 @@ export class PersonService {
     return this.http.post<ResponseModel<Person>>(this.baseUrl, person);
   }
 
-  addEmpty(){
+  addEmpty() {
     return this.http.post<ResponseModel<Person>>(this.baseUrl, {
       name: null,
       email: null,
@@ -30,7 +30,7 @@ export class PersonService {
     });
   }
 
-  update(person: Person){
+  update(person: Person) {
     return this.http.put<ResponseModel<Person>>(this.baseUrl + person._id, person);
   }
 

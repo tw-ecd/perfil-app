@@ -18,7 +18,7 @@ export class PhotoTakerComponent implements OnInit {
   captureImage: any;
   brightnessMask: any;
   processingCanvasWidth: number;
-  auraMaskUrl: String = "assets/aura-corner.png";
+  auraMaskUrl: String = 'assets/aura-corner.png';
 
   ngOnInit(): void {
     const photo = new p5(this.sketch.bind(this));
@@ -26,18 +26,18 @@ export class PhotoTakerComponent implements OnInit {
 
   sketch(processing) {
     this.processingCanvasWidth = this.processingCanvas.nativeElement.offsetWidth;
-    
+
     let resultAura;
     let cornerAura;
 
     processing.preload = () => {
       this.processingCanvas.nativeElement.onclick = takePicture;
       cornerAura = processing.loadImage(this.auraMaskUrl);
-    }
+    };
 
     processing.setup = () => {
 
-      let canvas = processing.createCanvas(400, 600);
+      const canvas = processing.createCanvas(400, 600);
       canvas.parent('p5-canvas');
 
       this.capture = processing.createCapture(processing.VIDEO);
@@ -102,7 +102,7 @@ export class PhotoTakerComponent implements OnInit {
         }
       }
       resultAura.pop();
-    }
+    };
 
     const takePicture = () => {
       this.pictureNotTaken = false;
@@ -121,10 +121,10 @@ export class PhotoTakerComponent implements OnInit {
       //   p.resizeCanvas(canvasDivWidth/3, canvasDivWidth/3);
       //   buttonsDiv.style.display = "none";
       // }
-    }
+    };
 
     const adjustBrightnessContrast = (pimg, value) => {
-      let original = processing.createImage(pimg.width, pimg.height);
+      const original = processing.createImage(pimg.width, pimg.height);
       original.copy(pimg,
         0, 0, pimg.width, pimg.height,
         0, 0, original.width, original.height);
@@ -138,7 +138,7 @@ export class PhotoTakerComponent implements OnInit {
       pimg.blend(original,
         0, 0, original.width, original.height,
         0, 0, pimg.width, pimg.height, processing.NORMAL);
-    }
+    };
   }
 
 }

@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  start(){
+  start() {
     this.personService.addEmpty().subscribe(response => {
       this.router.navigateByUrl('/subscribe/' + response.data._id);
     });

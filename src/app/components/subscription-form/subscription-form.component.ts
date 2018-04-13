@@ -33,30 +33,31 @@ export class SubscriptionFormComponent implements OnInit {
   }
 
   save() {
-    if (this.personForm.invalid)
+    if (this.personForm.invalid) {
       return false;
+    }
 
-    let newPerson: Person = this.personForm.value;
+    const newPerson: Person = this.personForm.value;
     newPerson._id = this._id;
-    
+
     this.personService.update(newPerson)
       .subscribe(result => console.log(result), err => console.log(err));
   }
 
-  get name() { 
-    return this.personForm.get('name'); 
+  get name() {
+    return this.personForm.get('name');
   }
 
-  get email() { 
-    return this.personForm.get('email'); 
+  get email() {
+    return this.personForm.get('email');
   }
 
-  get company(){
-    return this.personForm.get('company'); 
+  get company() {
+    return this.personForm.get('company');
   }
 
-  get role(){
-    return this.personForm.get('role'); 
+  get role() {
+    return this.personForm.get('role');
   }
 
 }

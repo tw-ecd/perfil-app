@@ -17,10 +17,10 @@ export class QuestionComponent implements OnInit {
     this.fetchFeelings();
   }
 
-  fetchFeelings(){
+  fetchFeelings() {
     this.feelingService.getAll()
       .subscribe(
-        result => this.feelings = result, 
+        result => this.feelings = result,
         err => console.log(err));
   }
 
