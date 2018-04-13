@@ -12,6 +12,7 @@ import { QuizzComponent } from './quizz/quizz.component';
 import { PersonService } from '../providers/person.service';
 import { QuestionService } from '../providers/question.service';
 import { AppGlobals } from '../app-globals.service';
+import { QuestionComponent } from './question/question.component';
 
 
 
@@ -25,6 +26,7 @@ import { AppGlobals } from '../app-globals.service';
     PhotoTakerComponent,
     SubscriptionFormComponent,
     HomeComponent,
+    QuestionComponent,
     QuizzComponent
   ],
   providers: [PersonService, QuestionService, AppGlobals]

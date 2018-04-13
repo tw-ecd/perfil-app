@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FeelingService } from '../../providers/feeling.service';
-import { Feeling } from '../../models/feeling.model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Option } from '../../models/option.model';
+import { QuestionService } from '../../providers/question.service';
+import { Question } from '../../models/question.model';
+
 
 @Component({
   selector: 'app-question',
@@ -9,19 +11,31 @@ import { Feeling } from '../../models/feeling.model';
 })
 export class QuestionComponent implements OnInit {
 
-  feelings: Feeling[];
+  private _id: String;
+  private question: Question;
 
-  constructor(private feelingService: FeelingService) { }
+  constructor(private questionService: QuestionService) { }
 
-  ngOnInit() {
-    this.fetchFeelings();
+  @Input()
+  set questionId(id: string) {
+    this._id = (id && id.trim()) || '<no id set>';
   }
 
-  fetchFeelings() {
-    this.feelingService.getAll()
+  @Output() selected = new EventEmitter<Option>();
+
+  ngOnInit() {
+    this.fetch();
+  }
+
+  fetch() {
+    this.questionService.get(this._id)
       .subscribe(
-        result => this.feelings = result,
+        question => this.question = question,
         err => console.log(err));
+  }
+
+  selectOption(selectedOption: Option) {
+    this.selected.emit(selectedOption);
   }
 
 }

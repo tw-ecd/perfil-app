@@ -7,3 +7,8 @@ export interface Question {
     active: boolean;
     options: Option[];
 }
+
+export interface AllQuestions {
+    quantity: number;
+    questions: Question[];
+}
