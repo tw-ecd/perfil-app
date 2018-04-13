@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Person } from '../models/person.model';
-import { Observable } from 'rxjs/Observable';
 import { ResponseModel } from '../models/response.model';
+import { AppGlobals } from '../app-globals.service';
 
 @Injectable()
 export class PersonService {
 
-  private baseUrl = "https://su-auras.herokuapp.com/person/"
+  private baseUrl = this.globals.apiURL + '/person/';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private globals: AppGlobals) {
   }
 
   getAll() {
