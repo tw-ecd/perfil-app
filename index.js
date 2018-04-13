@@ -5,9 +5,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-//routes
-const person = require('./routes/person');
-const question = require('./routes/question');
 
 
 const PORT = process.env.PORT || 5000;
@@ -16,6 +13,10 @@ const app = express();
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(() => { 
     console.log('Connected to database') 
 });
+
+//routes
+const person = require('./routes/person');
+const question = require('./routes/question');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: false }));

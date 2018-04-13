@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+require('./option.model');
 
 const QuestionSchemas = new mongoose.Schema({
     description: {
@@ -15,7 +16,7 @@ const QuestionSchemas = new mongoose.Schema({
         required: true
     },
     options: {
-        type: [{ type: Schema.Types.ObjectId, ref: 'Option' }]
+        type: [{ type: Schema.Types.ObjectId, ref: 'option' }]
     }
 });
 
