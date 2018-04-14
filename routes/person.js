@@ -78,4 +78,21 @@ router.post('/:id/photo', function(req, res) {
         }, sendError);
 });
 
+router.get('/photos/:since', (req, res) => {
+    var searchQuery = {
+        $and: [
+            { "datetime" : { $gt : req.params.since } },
+            { "accepted_conditions" : true }
+        ]
+    };
+
+    Person.find(searchQuery, { flickr_url: 1, profile: 1, datetime: 1 })
+        .sort({ "datetime" : -1 })
+        .then((result) => {
+            res.json(result);
+        }, (err) => {
+            res.status(500).send({ success: false, message: 'Erro na busca', data: err });
+        });
+});
+
 module.exports = router;
