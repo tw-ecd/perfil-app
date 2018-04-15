@@ -4,3 +4,5 @@ rundb.sh
 .env
 temp.png
 temp.jpg
+dist/
+docs/
