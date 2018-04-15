@@ -5,12 +5,9 @@ export class AppGlobals {
 
   private api_url = 'https://su-auras.herokuapp.com';
 
-  constructor() {
-  }
-
+  constructor() { }
 
   public get apiURL(): string {
     return this.api_url;
   }
-
 }
