@@ -6,12 +6,8 @@ const OptionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    seismic: {
-        type: String,
-        required: true
-    },
-    occupation: {
-        type: String,
+    value:{
+        type: Number,
         required: true
     }
 });

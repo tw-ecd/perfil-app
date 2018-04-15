@@ -17,6 +17,14 @@ const QuestionSchemas = new mongoose.Schema({
     },
     options: {
         type: [{ type: Schema.Types.ObjectId, ref: 'option' }]
+    },
+    type:{
+        type: String,
+        required: true
+    },
+    weight:{
+        type: Number,
+        required: true
     }
 });
 
