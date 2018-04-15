@@ -34,6 +34,7 @@ export class PersonService {
     return this.http.put<ResponseModel<Person>>(this.baseUrl + person._id, person);
   }
 
-
-
+  get(id: String) {
+    return this.http.get<Person>(this.baseUrl + id);
+  }
 }
