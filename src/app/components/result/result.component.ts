@@ -14,13 +14,9 @@ import { MetaTags } from '../../../config/meta-tags';
 })
 export class ResultComponent implements OnInit {
 
-  private id: string;
-  private person;
+  id: string;
+  person;
   private href: string;
-
-  private facebookShareUrl = '';
-  private twitterShareUrl = '';
-  private linkedinShareUrl = '';
 
   constructor(@Inject(APP_BASE_HREF) private baseHref: string,
                private personService: PersonService,

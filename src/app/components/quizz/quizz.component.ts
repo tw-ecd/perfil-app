@@ -9,7 +9,7 @@ import { Question } from '../../models/question.model';
 })
 export class QuizzComponent implements OnInit {
 
-  private questions: Question[];
+  questions: Question[];
   private quantity: number;
 
   constructor(private questionService: QuestionService) { }

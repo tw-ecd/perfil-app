@@ -12,7 +12,7 @@ import { Question } from '../../models/question.model';
 export class QuestionComponent implements OnInit {
 
   private _id: String;
-  private question: Question;
+  question: Question;
 
   constructor(private questionService: QuestionService) { }
 
