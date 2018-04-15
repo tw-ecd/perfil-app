@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from '../app-routing.module';
 
-import { PhotoTakerComponent } from './photo-taker/photo-taker.component';
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
 import { HomeComponent } from './home/home.component';
 import { QuizzComponent } from './quizz/quizz.component';
@@ -24,7 +23,6 @@ import { QuestionComponent } from './question/question.component';
     AppRoutingModule
   ],
   declarations: [
-    PhotoTakerComponent,
     SubscriptionFormComponent,
     HomeComponent,
     QuestionComponent,

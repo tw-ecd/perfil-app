@@ -23,10 +23,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/font-awesome/css/font-awesome.min.css"
       ],
-      "scripts": [
-        "../node_modules/p5/lib/p5.min.js",
-        "../node_modules/p5/lib/addons/p5.dom.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
