@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, EmailValidator } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, EmailValidator, AbstractControl } from '@angular/forms';
 
 import { PersonService } from '../../providers/person.service';
 import { Person } from '../../models/person.model';
@@ -44,6 +44,10 @@ export class SubscriptionFormComponent implements OnInit {
       .subscribe(result => console.log(result), err => console.log(err));
   }
 
+  clear(control: AbstractControl) {
+    control.reset();
+  }
+
   get name() {
     return this.personForm.get('name');
   }
@@ -59,5 +63,6 @@ export class SubscriptionFormComponent implements OnInit {
   get role() {
     return this.personForm.get('role');
   }
+
 
 }

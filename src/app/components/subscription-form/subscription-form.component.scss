@@ -15,7 +15,7 @@ div.subscription-component {
         font-weight: 300;
         line-height: 28px;
         text-align: left;
-        span.bold{
+        span.bold {
             font-weight: 700;
         }
     }
@@ -24,29 +24,55 @@ div.subscription-component {
         background: #fff;
         border-radius: 5px;
         box-shadow: 0px 0px 18px 0px #0000003b;
+        .form-group {
+            position: relative;
+            margin-bottom: 2rem;
+            small.text-danger {
+                font-family: "Open Sans";
+                position: absolute;
+                text-transform: uppercase;
+            }
+            i {
+                position: absolute;
+                top: .55rem;
+                right: 0;
+                font-size: 1.2rem;
+                color: #495057;
+            }
+        }
         input {
             $color: #979797;
+            $invalid-color: #D0021B;
             border: none;
             border-radius: 0;
             border-bottom: 1px solid $color;
             padding-left: 0;
-            margin-bottom: 2rem;
             color: #495057;
             text-transform: uppercase;
+            margin-bottom: 3px;
             &::placeholder {
                 /* Chrome, Firefox, Opera, Safari 10.1+ */
                 color: $color;
                 opacity: .7;
                 /* Firefox */
             }
+            &:focus {
+                box-shadow: none;
+            }
+            &.ng-dirty.ng-invalid {
+                color: $invalid-color;
+                border-bottom: 1px solid $invalid-color;
+                &::placeholder {
+                    color: $invalid-color;
+                }
+            }
         }
     }
-
     .button-box {
         text-align: center;
         margin: 2rem 0;
-        .btn{
-            color:#fff;
+        .btn {
+            color: #fff;
         }
     }
 }

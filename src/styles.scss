@@ -28,6 +28,11 @@ app-subscription-form {
     display: block;
 }
 
+.button-box .btn-lg {
+    font-size: 2rem;
+    padding: .5rem 1.2rem;
+}
+
 @mixin mask($from,
 $to) {
     $plain: $from;
