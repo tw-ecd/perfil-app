@@ -5,14 +5,14 @@
 <div class="result-container" *ngIf="person">
   <p>Hello {{ person.name }}</p>
 
-  <div class="result-not-ready" *ngIf="!person.flickr_url">
+  <div class="result-not-ready" *ngIf="!person.image_url">
     <p>Tire sua foto com o código: {{ person._id }} </p>
   </div>
 
-  <div class="result-ready" *ngIf="person.flickr_url">
+  <div class="result-ready" *ngIf="person.image_url">
     <div class="result-photo-container">
       <div class="result-photo"
-           [style.background-image]="'url(' + person.flickr_url + ')'"></div>
+           [style.background-image]="'url(' + person.image_url + ')'"></div>
     </div>
 
     <div class="result-text">
