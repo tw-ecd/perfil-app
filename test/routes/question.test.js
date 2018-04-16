@@ -34,7 +34,6 @@ describe('Questions', () => {
         app = express();
         questionRoute = proxyquire('../../routes/question', {
             '../models/question.model': questionStub
-            
         });
         questionRoute(app);
         request = supertest(app);
@@ -47,9 +46,7 @@ describe('Questions', () => {
       })
 
     describe('/GET questions', () => {
-
         it('should return all questions', (done) => {
-            
             questionStub.find.resolves(questions);
 
             request
@@ -90,6 +87,7 @@ describe('Questions', () => {
         });
     });
 
-
+    describe('/PUT questions/:id/option', () => {
+    });
 });
 

@@ -62,6 +62,24 @@ router.delete('/:id', function (req, res) {
         });
 });
 
+router.put('/:id/answer/:optionId', function(req,res){
+    Person.findByIdAndUpdate(req.params.id, 
+        {$push: {
+            answers: req.params.optionId}
+        }).then(
+            (result) => {
+                if(!result) {
+                    res.status(500).send({ success: false, message: 'Id não encontrado', data: result });
+                } else {
+                    res.status(201).send({ success: true, message: 'Resposta adicionada com sucesso!', data: result })
+                  }
+            },
+            (err) => {
+                res.status(500).send({ success: false, message: '', data: err });
+            }
+        )
+});
+
 router.post('/:id/photo', function(req, res) {
     const sendError = function(err) {
         res.status(500).send({ success: false, message: 'Erro ao tentar subir imagem.', data: err });

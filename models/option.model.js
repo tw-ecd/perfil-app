@@ -9,6 +9,9 @@ const OptionSchema = new mongoose.Schema({
     value:{
         type: Number,
         required: true
+    },
+    questionId: {
+        type: Schema.Types.ObjectId, ref: 'question'
     }
 });
 
