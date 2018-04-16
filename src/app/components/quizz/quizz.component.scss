@@ -1,0 +1,20 @@
+.quizz-component {
+    background: rgba(249, 40, 16, 1);
+    height: 100%;
+    .question {
+        height: 93%;
+    }
+    .dots {
+        height: 7%;
+        p {
+            width: 100%;
+            text-align: center;
+            >i {
+                font-size: 1.4rem;
+                margin: 0 .5rem;
+                color: #fff;
+            }
+        }
+    }
+    
+}
