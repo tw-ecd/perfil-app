@@ -29,7 +29,7 @@ const PersonSchema = new mongoose.Schema({
     accepted_conditions: {
         type: Boolean
     },
-    flickr_url: {
+    image_url: {
         type: String
     },
     datetime: {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const Person = require('../models/person.model');
-const FlickrService = require('../services/flickr.service');
+const ImageService = require('../services/image.service.js');
 
 router.get('/', (req, res) => {
     Person.find().then(
@@ -85,15 +85,18 @@ router.post('/:id/photo', function(req, res) {
         res.status(500).send({ success: false, message: 'Erro ao tentar subir imagem.', data: err });
     }
 
-    const flickerService = new FlickrService(req.body);
+    const imageService = new ImageService(req.body);
 
-    flickerService.uploadImage().then(
-        (result) => {
+    imageService.uploadImage((err, result) => {
+        if(err) {
+            sendError(err);
+        } else {
             Person.findOneAndUpdate({ _id: req.params.id }, result).then(
                 (result) => {
                     res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result })
                 }, sendError);
-        }, sendError);
+        }
+    });
 });
 
 router.get('/photos/:since', (req, res) => {
@@ -104,7 +107,7 @@ router.get('/photos/:since', (req, res) => {
         ]
     };
 
-    Person.find(searchQuery, { flickr_url: 1, profile: 1, datetime: 1 })
+    Person.find(searchQuery, { image_url: 1, profile: 1, datetime: 1 })
         .sort({ "datetime" : -1 })
         .then((result) => {
             res.json(result);
