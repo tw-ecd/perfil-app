@@ -86,3 +86,18 @@ $to) {
         color: #000 !important;
     }
 }
+
+.mask-yellow {
+    @include mask(rgb(122, 107, 7),
+    rgb(185, 165, 39));
+    .dots i.active {
+        color: #000 !important;
+    }
+}
+
+.mask-coral {
+    @include mask(rgb(118, 19, 72), rgb(195, 19, 46));
+    .dots i.active {
+        color: #000 !important;
+    }
+}

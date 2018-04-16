@@ -10,6 +10,14 @@ import { Question } from '../../models/question.model';
 export class QuizzComponent implements OnInit {
 
   private quantity: number;
+  private colors = [
+    'mask-solarized',
+    'mask-purple',
+    'mask-yellow',
+    'mask-blue',
+    'mask-green',
+    'mask-coral'
+  ]
 
   questions: Question[];
   dots = [];
@@ -17,7 +25,7 @@ export class QuizzComponent implements OnInit {
   constructor(private questionService: QuestionService, private renderer: Renderer) { }
 
   ngOnInit() {
-    this.renderer.setElementClass(document.body, 'mask-purple', true);
+    this.setRandomColor();
     this.fetch();
   }
 
@@ -30,6 +38,11 @@ export class QuizzComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  setRandomColor() {
+    const colorName = this.colors[Math.floor(Math.random() * 6)];
+    this.renderer.setElementClass(document.body, colorName, true);
   }
 
   onSelected(event: any) {

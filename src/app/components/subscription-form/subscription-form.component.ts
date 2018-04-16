@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, EmailValidator, AbstractControl } f
 
 import { PersonService } from '../../providers/person.service';
 import { Person } from '../../models/person.model';
-import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { ActivatedRouteSnapshot, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-subscription-form',
@@ -14,7 +14,7 @@ export class SubscriptionFormComponent implements OnInit {
 
   personForm: FormGroup;
 
-  constructor(private personService: PersonService, private fb: FormBuilder, private activedRoute: ActivatedRoute, private renderer: Renderer) { }
+  constructor(private personService: PersonService, private fb: FormBuilder, private activedRoute: ActivatedRoute, private renderer: Renderer, private router: Router) { }
 
   private _id: String;
 
@@ -42,7 +42,9 @@ export class SubscriptionFormComponent implements OnInit {
     newPerson._id = this._id;
 
     this.personService.update(newPerson)
-      .subscribe(result => console.log(result), err => console.log(err));
+      .subscribe(
+        result => this.router.navigateByUrl('/quizz/' + this._id),
+        err => console.log(err));
   }
 
   clear(control: AbstractControl) {
