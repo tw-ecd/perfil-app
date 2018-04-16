@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonService } from '../../providers/person.service';
 
@@ -10,9 +10,11 @@ import { PersonService } from '../../providers/person.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private personService: PersonService) { }
+  constructor(private router: Router, private personService: PersonService, private renderer: Renderer) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.renderer.setElementClass(document.body, 'mask-blue', true);
+  }
 
   start() {
     this.personService.addEmpty().subscribe(response => {

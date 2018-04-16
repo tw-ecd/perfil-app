@@ -1,4 +1,4 @@
-<div class="quizz-component mask-solarized"> 
+<div class="quizz-component"> 
     <div class="question" *ngFor="let question of questions; let i=index">
         <app-question [questionId]="question._id" (selected)="onSelected($event)"></app-question>
     </div>

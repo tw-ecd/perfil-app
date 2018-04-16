@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, EmailValidator, AbstractControl } from '@angular/forms';
 
 import { PersonService } from '../../providers/person.service';
@@ -14,11 +14,12 @@ export class SubscriptionFormComponent implements OnInit {
 
   personForm: FormGroup;
 
-  constructor(private personService: PersonService, private fb: FormBuilder, private activedRoute: ActivatedRoute) { }
+  constructor(private personService: PersonService, private fb: FormBuilder, private activedRoute: ActivatedRoute, private renderer: Renderer) { }
 
   private _id: String;
 
   ngOnInit() {
+    this.renderer.setElementClass(document.body, 'mask-white', true);
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
   }

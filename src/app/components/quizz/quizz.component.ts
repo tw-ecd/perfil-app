@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { QuestionService } from '../../providers/question.service';
 import { Question } from '../../models/question.model';
 
@@ -14,9 +14,10 @@ export class QuizzComponent implements OnInit {
   questions: Question[];
   dots = [];
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private questionService: QuestionService, private renderer: Renderer) { }
 
   ngOnInit() {
+    this.renderer.setElementClass(document.body, 'mask-purple', true);
     this.fetch();
   }
 
