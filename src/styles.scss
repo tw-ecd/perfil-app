@@ -75,7 +75,7 @@ $to) {
     @include mask(#253e8c,
     #309ec7);
     .dots i.active {
-        color: #309ec7 !important;
+        color: #253e8c !important;
     }
 }
 
@@ -91,13 +91,13 @@ $to) {
     @include mask(rgb(122, 107, 7),
     rgb(185, 165, 39));
     .dots i.active {
-        color: #000 !important;
+        color: rgb(122, 107, 7) !important;
     }
 }
 
 .mask-coral {
     @include mask(rgb(118, 19, 72), rgb(195, 19, 46));
     .dots i.active {
-        color: #000 !important;
+        color: rgb(118, 19, 72) !important;
     }
 }
