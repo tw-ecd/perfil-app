@@ -1,0 +1,13 @@
+ThoughtWorks: Inove Com Coragem
+
+Agora só falta tirar a sua foto e registrar a imagem da sua aura.
+Veja abaixo algumas instruções.
+
+Seu código é:
+{{user._id}}
+
+Para captura da imagem
+1. Procure o iPad na área de fotos do nosso estande
+2. Use o código para fazer login
+3. Toque na bola de vidro para tirar uma foto
+4. Siga as instruções na tela para revisar a foto e nossos termos de autorização de uso
