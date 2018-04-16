@@ -1,10 +1,65 @@
-html,
-body {
+html {
     height: 100%;
+    background: url('assets/nuvem.png');
+    background-size: cover;
 }
 
-app-root .container-fluid {
-    padding-left: 0;
-    padding-right: 0;
+body {
+    background: none !important;
     height: 100%;
+    overflow: hidden;
+}
+
+app-root {
+    height: 100%;
+    display: block;
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+        height: 100%;
+    }
+}
+
+app-home,
+app-quizz,
+app-subscription-form {
+    height: 100%;
+    display: block;
+}
+
+@mixin mask($from,
+$to) {
+    $plain: $from;
+    $gradient-from: rgba($plain, .9);
+    $gradient-to: rgba($to, .85);
+    background: $plain;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, $gradient-from 49%, $gradient-to 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, $gradient-from 49%, $gradient-to 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, $gradient-from 49%, $gradient-to 100%);
+}
+
+.mask-solarized {
+    @include mask(#f81e0d,
+    #fec434);
+    .dots i.active{
+        color: #f81e0d !important;
+    }
+}
+
+.mask-purple {
+    @include mask(rgb(107, 3, 199),
+    #c84df7);
+    .dots i.active{
+        color: rgb(107, 3, 199) !important;
+    }
+}
+
+.mask-green{
+    @include mask(#538e0f, lighten(#ceff20, 10%));
+    .dots i.active{
+        color: #538e0f !important;
+    }
 }

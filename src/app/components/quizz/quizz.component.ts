@@ -9,9 +9,10 @@ import { Question } from '../../models/question.model';
 })
 export class QuizzComponent implements OnInit {
 
-  questions: Question[];
   private quantity: number;
-  private crumbs = [];
+
+  questions: Question[];
+  dots = [];
 
   constructor(private questionService: QuestionService) { }
 
@@ -24,7 +25,7 @@ export class QuizzComponent implements OnInit {
       all => {
         this.quantity = all.quantity;
         this.questions = all.questions;
-        this.crumbs = Array(all.quantity).fill(1);
+        this.dots = Array(all.quantity).fill(1);
       },
       err => console.log(err)
     );
