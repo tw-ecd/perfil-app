@@ -11,6 +11,7 @@ export class QuizzComponent implements OnInit {
 
   questions: Question[];
   private quantity: number;
+  private crumbs = [];
 
   constructor(private questionService: QuestionService) { }
 
@@ -23,6 +24,7 @@ export class QuizzComponent implements OnInit {
       all => {
         this.quantity = all.quantity;
         this.questions = all.questions;
+        this.crumbs = Array(all.quantity).fill(1);
       },
       err => console.log(err)
     );

@@ -1,0 +1,33 @@
+div.home-component {
+    background: url('../../../assets/rectangle@2x.png');
+    height: 100%;
+
+    div.content {
+        margin-top: 15%;
+    }
+
+    img.tw-logo {
+        width: 75%;
+        margin-bottom: -3%;
+    }
+
+    h2,
+    h3 {
+        font-family: 'Open Sans', sans-serif;
+        color: #fff;
+        font-size: 1.7rem;
+    }
+
+    .button-box {
+        margin: 70% 0% 20% 0;
+        .btn {
+            margin: 2% 0;
+            color: #334373;
+            cursor: pointer;
+
+            + h3{
+                margin-top: 7%;
+            }
+        }
+    }
+}

@@ -1,5 +1,10 @@
 <div class="row justify-content-center">
     <div class="col-xs-12 col-md-9 col-lg-6">
+        <div class="breadcrumb">
+            <div class="bread-block" *ngFor="let i of bread">
+                {{bread.length}}
+            </div>
+        </div>
         <div class="question" *ngFor="let question of questions; let i=index">
             <app-question [questionId]="question._id" (selected)="onSelected($event)"></app-question>
         </div>
