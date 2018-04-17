@@ -8,11 +8,12 @@ const proxyquire = require('proxyquire');
 const supertest = require('supertest');
 const express = require('express');
 const Question = require('../../models/question.model');
+const Option = require('../../models/option.model');
 
 describe('Questions', () => {
 
     let app;
-    let findStub, findByIdStub, populateStub, questionStub;
+    let populateStub, questionStub, optionStub;
     let request, mongoResponse;
     let questions = [];
 
@@ -28,21 +29,30 @@ describe('Questions', () => {
             find: sinon.stub(),
             findById: sinon.stub().callsFake(() => {
                 return populateStub;
-            })
+            }),
+            findOneAndUpdate: sinon.stub()
+        },
+
+        optionStub = {
+            create: sinon.stub()
         }
 
         app = express();
         questionRoute = proxyquire('../../routes/question', {
-            '../models/question.model': questionStub
+            '../models/question.model': questionStub,
+            '../models/option.model': optionStub
         });
         questionRoute(app);
         request = supertest(app);
     });
 
     beforeEach(() => {
-        questionStub.find.resetHistory();
         populateStub.populate.resetHistory();
         questionStub.findById.resetHistory();
+        questionStub.find.resetHistory();
+        questionStub.findOneAndUpdate.resetHistory();
+        optionStub.create.resetHistory();
+
       })
 
     describe('/GET questions', () => {
@@ -53,6 +63,7 @@ describe('Questions', () => {
                 .get('/questions')
                 .expect('Content-Type', /json/)
                 .expect(200, function (err, res) {
+                    expect(err).to.be.null;
                     expect(res.body.questions).to.be.an('array');
                     expect(res.body.quantity).to.be.equal(1);
                     done();
@@ -67,6 +78,7 @@ describe('Questions', () => {
                 .get('/questions/2')
                 .expect('Content-Type', /json/)
                 .end(function (err, res) {
+                    expect(err).to.be.null;
                     expect(fakeQuestion).to.be.deep.equal(res.body);
                     done();
                 });
@@ -80,6 +92,7 @@ describe('Questions', () => {
                 .get('/questions/2')
                 .expect('Content-Type', /json/)
                 .end(function (err, res) {
+                    expect(err).to.be.null;
                     expect(res.body).to.haveOwnProperty('options');
                     expect(res.body.options).to.be.an('array');
                     done();
@@ -87,7 +100,26 @@ describe('Questions', () => {
         });
     });
 
-    describe('/PUT questions/:id/option', () => {
+    describe('/POST questions/:id/option', () => {
+        it('should add the option to the question', (done) => {
+            option = dummy(Option, {ignore: '__v', returnDate: true});
+            option.questionId = fakeQuestion._id;
+            optionStub.create.resolves(option);
+            fakeQuestion.options.push(option._id);
+            questionStub.findOneAndUpdate.resolves(fakeQuestion);
+
+            request
+                .post('/questions/2/option')
+                .send(option)
+                .expect('Content-Type', /json/)
+                .expect(201)
+                .end(function (err, res) {
+                    expect(err).to.be.null;
+                    expect(res.body.data).to.haveOwnProperty('options');
+                    expect(res.body.data.options).to.contain(option._id);
+                    done();
+                });
+        });
     });
 });
 
