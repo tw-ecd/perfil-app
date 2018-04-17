@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { QuestionService } from '../../providers/question.service';
 import { Question } from '../../models/question.model';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -35,7 +35,7 @@ export class QuizzComponent implements OnInit {
     private router: Router,
     private activatedRouter: ActivatedRoute,
     private localStorage: LocalStorageService,
-    private renderer: Renderer) { }
+    private renderer: Renderer2) { }
 
   ngOnInit() {
     this.prepare();
@@ -63,10 +63,10 @@ export class QuizzComponent implements OnInit {
   }
 
   setRandomColor() {
-    this.renderer.setElementClass(document.body, this.currentColor, false);
+    this.renderer.removeClass(document.body, this.currentColor);
 
     const colorName = this.colors[Math.floor(Math.random() * 6)];
-    this.renderer.setElementClass(document.body, colorName, true);
+    this.renderer.addClass(document.body, colorName);
 
     this.currentColor = colorName;
   }
@@ -78,7 +78,7 @@ export class QuizzComponent implements OnInit {
 
   onSelected(option: Option) {
     const nextIndex = this.currentQuestion.order + 1;
-    
+
     if (nextIndex < this.questions.length) {
       this.personService.answer(this._id, option).subscribe(
         res => this.nextQuestion(nextIndex, option),

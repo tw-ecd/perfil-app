@@ -7,19 +7,19 @@ export class LocalStorageService {
     HAS_DONE: 'SU-HASDONE',
     USER_ID: 'SU-USERID',
     CURRENT_QUESTION: 'SU-CURRENTQUESTION'
-  }
+  };
 
   constructor() { }
 
-  read(key: string){
+  read(key: string) {
     return localStorage.getItem(key);
   }
 
-  write(key: string, value: string){
+  write(key: string, value: string) {
     localStorage.setItem(key, value);
   }
 
-  clear(){
+  clear() {
     localStorage.clear();
   }
 

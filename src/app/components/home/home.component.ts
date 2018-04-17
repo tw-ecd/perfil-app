@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonService } from '../../providers/person.service';
 
@@ -10,10 +10,10 @@ import { PersonService } from '../../providers/person.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private personService: PersonService, private renderer: Renderer) { }
+  constructor(private router: Router, private personService: PersonService, private renderer: Renderer2) { }
 
-  ngOnInit() { 
-    this.renderer.setElementClass(document.body, 'mask-blue', true);
+  ngOnInit() {
+    this.renderer.addClass(document.body, 'mask-blue');
   }
 
   start() {

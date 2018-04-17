@@ -30,6 +30,6 @@ import { LocalStorageService } from '../providers/local-storage.service';
     QuizzComponent,
     ResultComponent
   ],
-  providers: [PersonService, QuestionService, LocalStorageService ,AppGlobals]
+  providers: [PersonService, QuestionService, LocalStorageService, AppGlobals]
 })
 export class ComponentsModule { }

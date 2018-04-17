@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Renderer } from '@angular/core';
+import { Component, OnInit, Inject,  Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
@@ -22,10 +22,10 @@ export class ResultComponent implements OnInit {
                private personService: PersonService,
                private activedRoute: ActivatedRoute,
                private meta: Meta,
-               private renderer: Renderer) { }
+               private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.renderer.setElementClass(document.body, 'mask-white', true);
+    this.renderer.addClass(document.body, 'mask-white');
     this.activedRoute.params.subscribe(
       params => {
         this.id = params.id;
