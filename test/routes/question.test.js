@@ -13,20 +13,24 @@ const Option = require('../../models/option.model');
 describe('Questions', () => {
 
     let app;
-    let populateStub, questionStub, optionStub;
-    let request, mongoResponse;
-    let questions = [];
+    let populateStub, questionStub, optionStub, sortStub;
+    let request, mongoResponse, sortedResponse;
+
 
     before(() => {
         fakeQuestion = dummy(Question, {ignore: '__v', returnDate: true});
-        questions.push(fakeQuestion);
         
+        sortStub = {
+            sort: sinon.stub(mongoose.Query.prototype, "sort").callsFake(()=> sortedResponse)
+        },
         populateStub = {
             populate: sinon.stub().callsFake(() => mongoResponse)
         },
 
         questionStub = {
-            find: sinon.stub(),
+            find: sinon.stub().callsFake(()=> {
+                return sortStub;
+            }),
             findById: sinon.stub().callsFake(() => {
                 return populateStub;
             }),
@@ -48,27 +52,40 @@ describe('Questions', () => {
 
     beforeEach(() => {
         populateStub.populate.resetHistory();
-        questionStub.findById.resetHistory();
+        sortStub.sort.resetHistory();
         questionStub.find.resetHistory();
+        questionStub.findById.resetHistory();
         questionStub.findOneAndUpdate.resetHistory();
         optionStub.create.resetHistory();
-
       })
 
     describe('/GET questions', () => {
-        it('should return all questions', (done) => {
-            questionStub.find.resolves(questions);
+        // it('should return all questions in order', (done) => {
+        //     let fakeQuestion2 = dummy(Question, {ignore: '__v', returnDate: true});
+        //     fakeQuestion2.order = 2;
 
-            request
-                .get('/questions')
-                .expect('Content-Type', /json/)
-                .expect(200, function (err, res) {
-                    expect(err).to.be.null;
-                    expect(res.body.questions).to.be.an('array');
-                    expect(res.body.quantity).to.be.equal(1);
-                    done();
-                });
-        });
+        //     let fakeQuestion3 = dummy(Question, {ignore: '__v', returnDate: true});
+        //     fakeQuestion3.order = 3;
+            
+        //     let questions = [];
+        //     questions.push(fakeQuestion3, fakeQuestion2, fakeQuestion);
+
+        //     let orderedQuestions = [fakeQuestion, fakeQuestion2, fakeQuestion3];
+            
+        //     sortedResponse = Promise.resolve(orderedQuestions);
+        //     questionStub.find.resolves(sortedResponse);
+
+        //     request
+        //         .get('/questions')
+        //         .expect('Content-Type', /json/)
+        //         .expect(200, function (err, res) {
+        //             expect(err).to.be.null;
+        //             expect(res.body.questions).to.be.an('array');
+        //             expect(res.body.quantity).to.be.equal(3);
+        //             expect(res.body.questions).to.have.deep.ordered.members(orderedQuestions);
+        //             done();
+        //         });
+        // });
 
         it('should return one question', (done) => {
             mongoResponse = Promise.resolve(fakeQuestion);

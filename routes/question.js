@@ -5,19 +5,22 @@ const Option = require('../models/option.model');
 
 module.exports = (app) => {
     const router = express.Router();
-    
+
     app.use('/questions', router);
 
     router.get('/', (req, res) => {
-        Questions.find().then(
-            (result) => {
-                res.json({
-                    quantity: result.length,
-                    questions: result
+
+        Questions.find()
+            .sort('order')
+            .then(
+                (result) => {
+                    res.json({
+                        quantity: result.length,
+                        questions: result
+                    });
+                }, (err) => {
+                    res.send({ success: false, message: 'Erro recuperar questões', data: err });
                 });
-            }, (err) => {
-                res.send({ success: false, message: 'Erro recuperar questões', data: err });
-            });
     });
 
     router.get('/:id', (req, res) => {
@@ -40,15 +43,14 @@ module.exports = (app) => {
             questionId: req.params.id
         }).then(
             (resultado) => {
-                console.log(resultado);
                 findAndUpdateQuestion(resultado);
             },
             (rejected) => {
                 res.status(500).send({ success: false, message: '', data: rejected });
             });
-        
+
         const findAndUpdateQuestion = (opt) => {
-            Questions.findOneAndUpdate({"_id": opt.questionId}, {
+            Questions.findOneAndUpdate({ "_id": opt.questionId }, {
                 $push: {
                     options: opt.id
                 }
