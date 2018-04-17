@@ -1,10 +1,12 @@
-<div class="quizz-component"> 
-    <div class="question" *ngFor="let question of questions; let i=index">
-        <app-question [questionId]="question._id" (selected)="onSelected($event)"></app-question>
+<div class="quizz-component">
+    <div class="question">
+        <section *ngFor="let question of questions; let i=index">
+            <app-question *ngIf="question._id === currentQuestion._id" [questionId]="question._id" (selected)="onSelected($event)"></app-question>
+        </section>
     </div>
     <div class="dots">
         <p>
-            <i class="fa fa-circle active" *ngFor="let number of dots; let i=index"></i>
+            <i class="fa fa-circle active" [ngClass]="{'active': (i <= currentQuestion.order) }" *ngFor="let number of dots; let i=index"></i>
         </p>
     </div>
 </div>

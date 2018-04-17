@@ -4,14 +4,14 @@
             <div class="row">
                 <div class="col-12">
                     <h4>
-                        <span class="font-weight-bold">{{question.order}}.&nbsp;</span>
+                        <span class="font-weight-bold">{{question.order + 1}}.&nbsp;</span>
                         {{question.description}}</h4>
                 </div>
             </div>
         </div>
         <div class="col-8">
             <div class="row">
-                <button class="btn btn-lg btn-block" *ngFor="let option of question.options">
+                <button class="btn btn-lg btn-block" *ngFor="let option of question.options" (click)="selectOption(option)">
                     {{option.description}}
                 </button>
             </div>

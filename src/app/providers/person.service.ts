@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Person } from '../models/person.model';
 import { ResponseModel } from '../models/response.model';
 import { AppGlobals } from '../app-globals.service';
+import { Option } from '../models/option.model';
 
 @Injectable()
 export class PersonService {
@@ -11,6 +12,10 @@ export class PersonService {
   private baseUrl = this.globals.apiURL + '/person/';
 
   constructor(private http: HttpClient, private globals: AppGlobals) {
+  }
+
+  get(id: String) {
+    return this.http.get<Person>(this.baseUrl + id);
   }
 
   getAll() {
@@ -34,7 +39,8 @@ export class PersonService {
     return this.http.put<ResponseModel<Person>>(this.baseUrl + person._id, person);
   }
 
-  get(id: String) {
-    return this.http.get<Person>(this.baseUrl + id);
+  answer(personId: string, option: Option) {
+    return this.http.put<ResponseModel<Person>>(`${this.baseUrl}/person/${personId}/answer/${option._id}`, null);
   }
+
 }
