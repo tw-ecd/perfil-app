@@ -1,3 +1,36 @@
+<div class="result-component">
+  <div class="row justify-content-center">
+    <div class="col-9 text-center">
+      <img src="assets/tw-logo-blue.png" alt="ThoughtWorks Blue Logo" class="tw-logo">
+      <p class="almost-text">
+        AGORA SÓ FALTA TIRAR A SUA FOTO E
+        <span class="bold">REGISTRAR A IMAGEM DA SUA AURA</span> VEJA ABAIXO ALGUMAS INSTRUÇÕES
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-9 code-box">
+      <i class="fa fa-check-circle done" aria-hidden="true"></i>
+      <p>Seu código é</p>
+      <h1>{{id}}</h1>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="result-404" *ngIf="id === 'NOTFOUND'">
   <p>Usuária inválida. Confira o URL.</p>
 </div>
@@ -11,30 +44,30 @@
 
   <div class="result-ready" *ngIf="person.image_url">
     <div class="result-photo-container">
-      <div class="result-photo"
-           [style.background-image]="'url(' + person.image_url + ')'"></div>
+      <div class="result-photo" [style.background-image]="'url(' + person.image_url + ')'"></div>
     </div>
 
     <div class="result-text">
-      <p>Seu perfil é <b>{{ person.profile }}</b></p>
+      <p>Seu perfil é
+        <b>{{ person.profile }}</b>
+      </p>
       <p>Você ... </p>
     </div>
 
     <div class="result-share">
       <div class="result-share-title">Compartilhe o seu resultado:</div>
       <div class="result-share-list">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ href }}&quote=#coragem"
-           target="_blank" class="result-share-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ href }}&quote=#coragem" target="_blank" class="result-share-item">
           <i class="fa fa-facebook-square fa-2x"></i>
         </a>
 
         <a href="https://twitter.com/share?text=Meu perfil de tendencias é {{ person.profile}}. Descubra o seu!&url={{ href }}&hashtags=coragem,thoughtworks,inovecomcoragem"
-           target="_blank" class="result-share-item">
+          target="_blank" class="result-share-item">
           <i class="fa fa-twitter-square fa-2x"></i>
         </a>
 
         <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ href }}&title=Inove Com Coragem&summary=Meu perfil de pessoa inovadora é {{ person.profile }}. Descubra o seu!&source=Thoughtworks"
-           target="_blank" class="result-share-item">
+          target="_blank" class="result-share-item">
           <i class="fa fa-linkedin-square fa-2x"></i>
         </a>
       </div>

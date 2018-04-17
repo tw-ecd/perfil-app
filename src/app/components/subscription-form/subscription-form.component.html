@@ -38,7 +38,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-9 button-box">
-      <button class="btn btn-lg rounded-circle">
+      <button class="btn btn-lg rounded-circle" [disabled]="!personForm.valid" (click)="save()">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
       </button>
     </div>

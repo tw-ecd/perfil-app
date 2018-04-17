@@ -43,7 +43,7 @@ export class SubscriptionFormComponent implements OnInit {
 
     this.personService.update(newPerson)
       .subscribe(
-        result => this.router.navigateByUrl('/quizz/' + this._id),
+        result => this.router.navigateByUrl('/result/' + this._id),
         err => console.log(err));
   }
 
