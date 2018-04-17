@@ -15,21 +15,22 @@
       <h1>{{id}}</h1>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-9 text-center steps">
+      <h3>
+          Passo a passo para 
+          captura da imagem
+      </h3>
+      <ul class="steps-list">
+        <li>1 - descrição do passo no totem</li>
+        <li>2 - descrição do passo no totem</li>
+        <li>3 - descrição do passo no totem</li>
+        <li>4 - descrição do passo no totem</li>
+      </ul>
+    </div>
+  </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="result-404" *ngIf="id === 'NOTFOUND'">
   <p>Usuária inválida. Confira o URL.</p>
@@ -37,10 +38,6 @@
 
 <div class="result-container" *ngIf="person">
   <p>Hello {{ person.name }}</p>
-
-  <div class="result-not-ready" *ngIf="!person.image_url">
-    <p>Tire sua foto com o código: {{ person._id }} </p>
-  </div>
 
   <div class="result-ready" *ngIf="person.image_url">
     <div class="result-photo-container">
