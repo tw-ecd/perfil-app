@@ -40,14 +40,15 @@ module.exports = (app) => {
             questionId: req.params.id
         }).then(
             (resultado) => {
+                console.log(resultado);
                 findAndUpdateQuestion(resultado);
             },
             (rejected) => {
                 res.status(500).send({ success: false, message: '', data: rejected });
             });
-
+        
         const findAndUpdateQuestion = (opt) => {
-            Questions.findOneAndUpdate(opt.questionId, {
+            Questions.findOneAndUpdate({"_id": opt.questionId}, {
                 $push: {
                     options: opt.id
                 }
