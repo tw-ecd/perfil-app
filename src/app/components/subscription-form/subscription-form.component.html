@@ -13,21 +13,25 @@
     <div class="col-9 form-box">
       <form [formGroup]="personForm">
         <div class="form-group">
+          <label [ngClass]="{'shown': name.value}">NOME</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="name.value" (click)="clear(name)"></i>
-          <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.invalid && name.dirty}" placeholder="NOME COMPLETO">
+          <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.invalid && name.dirty}" placeholder="NOME">
           <small class="text-danger" *ngIf="name.invalid && name.dirty">VERIFIQUE SEU NOME.</small>
         </div>
         <div class="form-group">
+            <label [ngClass]="{'shown': company.value}">EMPRESA</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="company.value" (click)="clear(company)"></i>
           <input class="form-control" formControlName="company" [ngClass]="{'is-invalid': company.invalid && company.dirty}" placeholder="EMPRESA">
           <small class="text-danger" *ngIf="company.invalid && company.dirty">VERIFIQUE SUA EMPRESA.</small>
         </div>
         <div class="form-group">
+            <label [ngClass]="{'shown': role.value}">CARGO</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="role.value" (click)="clear(role)"></i>
           <input class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
           <small class="text-danger" *ngIf="role.invalid && role.dirty">VERIFIQUE SEU CARGO.</small>
         </div>
         <div class="form-group">
+            <label [ngClass]="{'shown': email.value}">E-MAIL</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="email.value" (click)="clear(email)"></i>
           <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty}" formControlName="email"
             [email]="true" placeholder="EMAIL">

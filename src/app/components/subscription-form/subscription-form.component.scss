@@ -27,6 +27,21 @@ div.subscription-component {
         .form-group {
             position: relative;
             margin-bottom: 2rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            label {
+                color: #9B9B9B;
+                position: absolute;
+                font-size: .7rem;
+                top: -.9rem;
+                opacity: 0;
+                text-transform: uppercase;
+                transition: all ease-in .3s;
+                &.shown{
+                    opacity: 1;
+                }
+            }
             small.text-danger {
                 font-family: "Open Sans";
                 position: absolute;
