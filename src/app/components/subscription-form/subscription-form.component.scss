@@ -86,7 +86,11 @@ div.subscription-component {
     .button-box {
         text-align: center;
         margin: 2rem 0;
+        .btn[disabled] {
+            background-color: #e6e6e6;
+        }
         .btn {
+            background-color: #074c9d;
             color: #fff;
         }
     }
