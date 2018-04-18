@@ -22,7 +22,6 @@ export class QuizzComponent implements OnInit {
     'mask-green',
     'mask-coral'
   ];
-  private currentColor: string;
 
   questions: Question[];
   answers: Option[];
@@ -63,12 +62,9 @@ export class QuizzComponent implements OnInit {
   }
 
   setRandomColor() {
-    this.renderer.removeClass(document.body, this.currentColor);
-
     const colorName = this.colors[Math.floor(Math.random() * 6)];
+    this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, colorName);
-
-    this.currentColor = colorName;
   }
 
   nextQuestion(index: number, option: Option) {
@@ -79,15 +75,16 @@ export class QuizzComponent implements OnInit {
   onSelected(option: Option) {
     const nextIndex = this.currentQuestion.order + 1;
 
-    if (nextIndex < this.questions.length) {
-      this.personService.answer(this._id, option).subscribe(
-        res => this.nextQuestion(nextIndex, option),
-        err => console.log(err));
-      return;
-    }
+    this.personService.answer(this._id, option).subscribe(
+      res => {
+        if (nextIndex < this.questions.length) {
+          this.nextQuestion(nextIndex, option);
+          return;
+        }
 
-    this.localStorage.write(this.localStorage.keys.HAS_DONE, JSON.stringify(true));
-    this.router.navigateByUrl('/subscribe/' + this._id);
-
+        this.localStorage.write(this.localStorage.keys.HAS_DONE, JSON.stringify(true));
+        this.router.navigateByUrl('/subscribe/' + this._id);
+      },
+      err => console.log(err));
   }
 }

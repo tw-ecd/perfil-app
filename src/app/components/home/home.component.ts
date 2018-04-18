@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonService } from '../../providers/person.service';
+import { LocalStorageService } from '../../providers/local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,15 @@ import { PersonService } from '../../providers/person.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private personService: PersonService, private renderer: Renderer2) { }
+  constructor(
+    private router: Router, 
+    private personService: PersonService, 
+    private renderer: Renderer2, 
+    private localStorage: LocalStorageService) { }
 
   ngOnInit() {
+    this.localStorage.clear();
+    this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, 'mask-blue');
   }
 

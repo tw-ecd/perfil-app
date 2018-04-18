@@ -25,6 +25,7 @@ export class ResultComponent implements OnInit {
                private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, 'mask-white');
     this.activedRoute.params.subscribe(
       params => {

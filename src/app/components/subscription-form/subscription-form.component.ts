@@ -24,6 +24,7 @@ export class SubscriptionFormComponent implements OnInit {
   private _id: String;
 
   ngOnInit() {
+    this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, 'mask-white');
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
