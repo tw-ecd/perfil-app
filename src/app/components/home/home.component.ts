@@ -12,9 +12,9 @@ import { LocalStorageService } from '../../providers/local-storage.service';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private router: Router, 
-    private personService: PersonService, 
-    private renderer: Renderer2, 
+    private router: Router,
+    private personService: PersonService,
+    private renderer: Renderer2,
     private localStorage: LocalStorageService) { }
 
   ngOnInit() {
