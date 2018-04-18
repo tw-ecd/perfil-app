@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const winston = require('winston');
 const Person = require('../models/person.model');
 
 var person = new Person({
@@ -11,12 +12,12 @@ var person = new Person({
 });
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(() => { 
-    console.log('Connected to database');
+    winston.log('info', 'Connected to database');
     person.save().then(
         (result) => {
-            console.log(result._doc);
+            winston.log('info', result._doc);
         },
         (err) => {
-            console.log('Erro ao salvar os dados. Tente novamente!');
+            winston.log('error', err);
         });
 });

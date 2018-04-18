@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const generateId = () => {
     return crc.crc32(new Date().toISOString()).toString(36).toUpperCase();
-}
+};
 
 const PersonSchema = new mongoose.Schema({
     _id: {

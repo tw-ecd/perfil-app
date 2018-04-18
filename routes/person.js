@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const Person = require('../models/person.model');
@@ -32,7 +31,7 @@ router.post('/', function (req, res) {
     var person = new Person(req.body);
     person.save().then(
         (result) => {
-            res.status(201).send({ success: true, message: 'Obrigado!', data: result._doc })
+            res.status(201).send({ success: true, message: 'Obrigado!', data: result._doc });
         },
         (err) => {
             res.status(500).send({ success: false, message: 'Erro ao salvar os dados. Tente novamente!', data: err });
@@ -66,7 +65,7 @@ router.put('/:id', function (req, res) {
 router.delete('/:id', function (req, res) {
     Person.remove({ _id: req.params.id }).then(
         (result) => {
-            res.status(204).send({ success: true, message: 'Pessoa removida!', data: result })
+            res.status(204).send({ success: true, message: 'Pessoa removida!', data: result });
         },
         (err) => {
             res.status(500).send({ success: false, message: 'Erro ao tentar remover pessoa. Tente novamente!', data: err });
@@ -89,7 +88,7 @@ router.put('/:id/answer/:optionId', function (req, res) {
 router.post('/:id/photo', function (req, res) {
     const sendError = function (err) {
         res.status(500).send({ success: false, message: 'Erro ao tentar subir imagem.', data: err });
-    }
+    };
 
     const imageService = new ImageService(req.body);
 
@@ -99,7 +98,7 @@ router.post('/:id/photo', function (req, res) {
         } else {
             Person.findOneAndUpdate({ _id: req.params.id }, result).then(
                 (result) => {
-                    res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result })
+                    res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result });
                 }, sendError);
         }
     });

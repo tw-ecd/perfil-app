@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const express = require('express');
 const Questions = require('../models/question.model');
 const Option = require('../models/option.model');
@@ -34,7 +33,7 @@ module.exports = (app) => {
                 });
     });
 
-    let bodyParser = require('body-parser')()
+    let bodyParser = require('body-parser')();
     router.post('/:id/option', bodyParser, (req, res) => {
 
         Option.create({
@@ -50,7 +49,7 @@ module.exports = (app) => {
             });
 
         const findAndUpdateQuestion = (opt) => {
-            Questions.findOneAndUpdate({ "_id": opt.questionId }, {
+            Questions.findOneAndUpdate({ '_id': opt.questionId }, {
                 $push: {
                     options: opt.id
                 }
@@ -60,12 +59,12 @@ module.exports = (app) => {
                         res.status(500).send({ success: false, message: 'Não foi possível adicionar a opção à questão', data: result });
                     }
                     else {
-                        res.status(201).send({ success: true, message: 'Opção adicionada com sucesso!', data: result })
+                        res.status(201).send({ success: true, message: 'Opção adicionada com sucesso!', data: result });
                     }
                 },
                 (err) => {
                     res.status(500).send({ success: false, message: '', data: err });
                 });
-        }
+        };
     });
 };

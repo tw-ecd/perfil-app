@@ -80,7 +80,7 @@ describe('People', () => {
                 personMock.restore();
                 result.status.should.be.true;
                 done();
-            })
+            });
 
         });
     });

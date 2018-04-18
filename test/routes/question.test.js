@@ -21,7 +21,7 @@ describe('Questions', () => {
         fakeQuestion = dummy(Question, {ignore: '__v', returnDate: true});
         
         sortStub = {
-            sort: sinon.stub(mongoose.Query.prototype, "sort").callsFake(()=> sortedResponse)
+            sort: sinon.stub(mongoose.Query.prototype, 'sort').callsFake(()=> sortedResponse)
         },
         populateStub = {
             populate: sinon.stub().callsFake(() => mongoResponse)
@@ -39,7 +39,7 @@ describe('Questions', () => {
 
         optionStub = {
             create: sinon.stub()
-        }
+        };
 
         app = express();
         questionRoute = proxyquire('../../routes/question', {
@@ -57,7 +57,7 @@ describe('Questions', () => {
         questionStub.findById.resetHistory();
         questionStub.findOneAndUpdate.resetHistory();
         optionStub.create.resetHistory();
-      })
+    });
 
     describe('/GET questions', () => {
         // it('should return all questions in order', (done) => {

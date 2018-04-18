@@ -27,7 +27,7 @@ let data = [
         'model': 'option',
         'documents': []
     }
-]
+];
 
 function setData(question, options) {
     const questionModel = new Question(question);
@@ -45,241 +45,241 @@ function setData(question, options) {
 
 
 setData({
-    "description": "Com qual dessas tendências você mais se identifica? ",
-    "order": 0,
-    "options": [],
-    "type": "TREND",
-    "weight": 2
+    'description': 'Com qual dessas tendências você mais se identifica? ',
+    'order': 0,
+    'options': [],
+    'type': 'TREND',
+    'weight': 2
 },
-    [{
-        "description": "Interações em evolução",
-        "value": 0
-    },
-    {
-        "description": "Crescimento das Plataformas",
-        "value": 1
-    },
-    {
-        "description": "Segurança, privacidade e transparência",
-        "value": 2
-    },
-    {
-        "description": "Físico. Agora digital.",
-        "value": 3
-    },
-    {
-        "description": "Humanidade aumentada",
-        "value": 4
-    }]
+[{
+    'description': 'Interações em evolução',
+    'value': 0
+},
+{
+    'description': 'Crescimento das Plataformas',
+    'value': 1
+},
+{
+    'description': 'Segurança, privacidade e transparência',
+    'value': 2
+},
+{
+    'description': 'Físico. Agora digital.',
+    'value': 3
+},
+{
+    'description': 'Humanidade aumentada',
+    'value': 4
+}]
 );
 
 setData({
-    "description": "Qual dessas tecnologias produzirá o maior impacto sobre os negócios?",
-    "order": 1,
-    "options": [],
-    "type": "TREND",
-    "weight": 1
+    'description': 'Qual dessas tecnologias produzirá o maior impacto sobre os negócios?',
+    'order': 1,
+    'options': [],
+    'type': 'TREND',
+    'weight': 1
 },
-    [{
-        "description": "Assistentes de Voz",
-        "value": 0
-    },
-    {
-        "description": "SAAS",
-        "value": 1
-    },
-    {
-        "description": "Blockchain",
-        "value": 2
-    },
-    {
-        "description": "Biohacking",
-        "value": 3
-    },
-    {
-        "description": "Machine Learning",
-        "value": 4
-    }]
+[{
+    'description': 'Assistentes de Voz',
+    'value': 0
+},
+{
+    'description': 'SAAS',
+    'value': 1
+},
+{
+    'description': 'Blockchain',
+    'value': 2
+},
+{
+    'description': 'Biohacking',
+    'value': 3
+},
+{
+    'description': 'Machine Learning',
+    'value': 4
+}]
 );
 
 setData({
-    "options": [],
-    "description": "O que você sente diante das transformações tecnológicas atuais?",
-    "order": 2,
-    "type": "TREND",
-    "weight": 0
+    'options': [],
+    'description': 'O que você sente diante das transformações tecnológicas atuais?',
+    'order': 2,
+    'type': 'TREND',
+    'weight': 0
 },
-    [{
-        "description": "Curiosidade",
-        "value": 0,
-    },
-    {
-        "description": "Impulso de aprender",
-        "value": 1
-    },
-    {
-        "description": "Inspiração",
-        "value": 2
-    },
-    {
-        "description": "Receio",
-        "value": 3
-    },
-    {
-        "description": "Oportunidades",
-        "value": 4
-    }]
+[{
+    'description': 'Curiosidade',
+    'value': 0,
+},
+{
+    'description': 'Impulso de aprender',
+    'value': 1
+},
+{
+    'description': 'Inspiração',
+    'value': 2
+},
+{
+    'description': 'Receio',
+    'value': 3
+},
+{
+    'description': 'Oportunidades',
+    'value': 4
+}]
 );
 
 setData({
-    "description": "Diante dessas mudanças, qual o seu maior foco?",
-    "order": 3,
-    "type": "PROFILE",
-    "weight": 0,
-    "options": []
+    'description': 'Diante dessas mudanças, qual o seu maior foco?',
+    'order': 3,
+    'type': 'PROFILE',
+    'weight': 0,
+    'options': []
 },
-    [{
-        "description": "Criar coisas novas",
-        "value": 0.3
-    },
-    {
-        "description": "Desenvolver habilidades",
-        "value": 0.4
-    },
-    {
-        "description": "Impulsionar a mudança",
-        "value": 0.5
-    },
-    {
-        "description": "Aprender na prática",
-        "value": 0.6
-    },
-    {
-        "description": "Aproveitar possibilidades",
-        "value": 0.7
-    }]
+[{
+    'description': 'Criar coisas novas',
+    'value': 0.3
+},
+{
+    'description': 'Desenvolver habilidades',
+    'value': 0.4
+},
+{
+    'description': 'Impulsionar a mudança',
+    'value': 0.5
+},
+{
+    'description': 'Aprender na prática',
+    'value': 0.6
+},
+{
+    'description': 'Aproveitar possibilidades',
+    'value': 0.7
+}]
 );
 
 setData({
-    "description": "Qual a sua área de atuação?",
-    "order": 4,
-    "type": "PROFILE",
-    "weight": 0.5,
-    "options": []
+    'description': 'Qual a sua área de atuação?',
+    'order': 4,
+    'type': 'PROFILE',
+    'weight': 0.5,
+    'options': []
 },
-    [{
-        "description": "Marketing",
-        "value": 0.2,
-    },
-    {
-        "description": "Tecnologia",
-        "value": 0.1,
-    },
-    {
-        "description": "Pessoas",
-        "value": 0.0,
-    },
-    {
-        "description": "Produtos",
-        "value": 0.5,
-    },
-    {
-        "description": "Compliance",
-        "value": 0.7,
-    }]
-);
-
-
-setData({
-    "options": [],
-    "description": "Quais são seus maiores desafios atualmente?",
-    "order": 5,
-    "type": "PROFILE",
-    "weight": 0.5
+[{
+    'description': 'Marketing',
+    'value': 0.2,
 },
-    [{
-        "description": "Responder com agilidade",
-        "value": 0.5,
-    },
-    {
-        "description": "Implementar inovações",
-        "value": 1.0,
-    },
-    {
-        "description": "Gerar valor ao negócio",
-        "value": 0.7,
-    },
-    {
-        "description": "Entender a tecnologia",
-        "value": 0.3,
-    },
-    {
-        "description": "Aprender as linguagens",
-        "value": 0.0,
-    }]
+{
+    'description': 'Tecnologia',
+    'value': 0.1,
+},
+{
+    'description': 'Pessoas',
+    'value': 0.0,
+},
+{
+    'description': 'Produtos',
+    'value': 0.5,
+},
+{
+    'description': 'Compliance',
+    'value': 0.7,
+}]
 );
 
 
 setData({
-    "options": [],
-    "description": "Como você se sente em relação ao futuro?",
-    "order": 6,
-    "type": "TREND",
-    "weight": 0
+    'options': [],
+    'description': 'Quais são seus maiores desafios atualmente?',
+    'order': 5,
+    'type': 'PROFILE',
+    'weight': 0.5
 },
-    [{
-        "description": "Otimista",
-        "value": 0,
-    },
-    {
+[{
+    'description': 'Responder com agilidade',
+    'value': 0.5,
+},
+{
+    'description': 'Implementar inovações',
+    'value': 1.0,
+},
+{
+    'description': 'Gerar valor ao negócio',
+    'value': 0.7,
+},
+{
+    'description': 'Entender a tecnologia',
+    'value': 0.3,
+},
+{
+    'description': 'Aprender as linguagens',
+    'value': 0.0,
+}]
+);
 
-        "description": "Apreensiva",
-        "value": 1,
-    },
-    {
 
-        "description": "Curiosa",
-        "value": 2,
-    },
-    {
+setData({
+    'options': [],
+    'description': 'Como você se sente em relação ao futuro?',
+    'order': 6,
+    'type': 'TREND',
+    'weight': 0
+},
+[{
+    'description': 'Otimista',
+    'value': 0,
+},
+{
 
-        "description": "Esperançosa",
-        "value": 3,
-    },
-    {
+    'description': 'Apreensiva',
+    'value': 1,
+},
+{
 
-        "description": "Assustada",
-        "value": 4,
-    }]
+    'description': 'Curiosa',
+    'value': 2,
+},
+{
+
+    'description': 'Esperançosa',
+    'value': 3,
+},
+{
+
+    'description': 'Assustada',
+    'value': 4,
+}]
 );
 
 setData({
-    "options": [],
-    "description": "Qual dessas características você considera mais relevante em uma líder?",
-    "order": 7,
-    "type": "PROFILE",
-    "weight": 0
+    'options': [],
+    'description': 'Qual dessas características você considera mais relevante em uma líder?',
+    'order': 7,
+    'type': 'PROFILE',
+    'weight': 0
 },
-    [{
-        "description": "Coragem",
-        "value": 0.3
-    },
-    {
-        "description": "Rebeldia",
-        "value": 0.4
-    },
-    {
-        "description": "Conhecimento técnico",
-        "value": 0.5
-    },
-    {
-        "description": "Adaptabilidade",
-        "value": 0.6
-    },
-    {
-        "description": "Empatia",
-        "value": 0.7
-    }]
+[{
+    'description': 'Coragem',
+    'value': 0.3
+},
+{
+    'description': 'Rebeldia',
+    'value': 0.4
+},
+{
+    'description': 'Conhecimento técnico',
+    'value': 0.5
+},
+{
+    'description': 'Adaptabilidade',
+    'value': 0.6
+},
+{
+    'description': 'Empatia',
+    'value': 0.7
+}]
 );
 
 
