@@ -11,10 +11,6 @@ const QuestionSchemas = new mongoose.Schema({
         type: Number,
         required: true
     },
-    isLast: {
-        type: Boolean,
-        required: true
-    },
     options: {
         type: [{ type: Schema.Types.ObjectId, ref: 'option' }]
     },
