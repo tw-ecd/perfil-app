@@ -4,6 +4,7 @@ const router = express.Router();
 const Person = require('../models/person.model');
 const Option = require('../models/option.model');
 const ImageService = require('../services/image.service.js');
+const EmailService = require('../services/email.service.js');
 
 router.get('/', (req, res) => {
     Person.find().then(
@@ -47,9 +48,18 @@ router.put('/:id', function (req, res) {
     }).then(
         (result) => {
             res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result })
+            if ((req.body.email !== null) && (req.body._id !== null)){
+                return new EmailService(req.body).sendIntroEmail();
+            }
         },
         (err) => {
             res.status(500).send({ success: false, message: 'Erro ao tentar atualizar pessoa. Tente novamente!', data: err });
+        }).then(
+        (data) => {
+            console.log(data.MessageId);
+        },
+        (err) => {
+            console.log(err);
         });
 });
 

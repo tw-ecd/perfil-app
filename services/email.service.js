@@ -4,14 +4,13 @@ var fs = require('fs');
 AWS.config.update({ region: process.env.AWS_REGION });
 
 function EmailService(user) {
+  this.introHtml = fs.readFileSync('./data/intro.css.html', "utf8");
+  this.introText = fs.readFileSync('./data/intro.txt', "utf8");
+
+  this.introHtml = this.introHtml.replace("{{user._id}}", user._id);
+  this.introText = this.introText.replace("{{user._id}}", user._id);
 
   this.sendIntroEmail = function() {
-    let introHtml = fs.readFileSync('./data/intro.css.html', "utf8");
-    let introText = fs.readFileSync('./data/intro.txt', "utf8");
-
-    introHtml = introHtml.replace("{{user._id}}", user._id);
-    introText = introText.replace("{{user._id}}", user._id);
-
     const params = {
       Destination: {
         ToAddresses: [ user.email ]
