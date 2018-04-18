@@ -40,7 +40,7 @@ export class PersonService {
   }
 
   answer(personId: string, option: Option) {
-    return this.http.put<ResponseModel<Person>>(`${this.baseUrl}/person/${personId}/answer/${option._id}`, null);
+    return this.http.put<ResponseModel<Person>>(`${this.baseUrl}${personId}/answer/${option._id}`, null);
   }
 
 }
