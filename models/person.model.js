@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const crc = require('crc');
 const { Schema } = mongoose;
 
-const generateId  = () => {
+const generateId = () => {
     return crc.crc32(new Date().toISOString()).toString(36).toUpperCase();
 }
 
@@ -35,9 +35,14 @@ const PersonSchema = new mongoose.Schema({
     datetime: {
         type: Date
     },
-    answers: {
-        type: [{type: Schema.Types.ObjectId, ref: 'option'}]
-    }
+    answers:
+        [{
+            question: String,
+            option: String,
+            value: Number,
+            weight: Number,
+            typeOf: String
+        }]
 });
 
 const Person = mongoose.model('person', PersonSchema);

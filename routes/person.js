@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const Person = require('../models/person.model');
+const Option = require('../models/option.model');
 const ImageService = require('../services/image.service.js');
 
 router.get('/', (req, res) => {
@@ -16,10 +17,10 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Person.findById(req.params.id).then(
         (result) => {
-            if(!result) {
-              res.status(500).send({ success: false, message: 'Id não encontrado', data: result });
+            if (!result) {
+                res.status(500).send({ success: false, message: 'Id não encontrado', data: result });
             } else {
-              res.json(result);
+                res.json(result);
             }
         }, (err) => {
             res.status(500).send({ success: false, message: 'Erro recuperar item', data: err });
@@ -62,33 +63,28 @@ router.delete('/:id', function (req, res) {
         });
 });
 
-router.put('/:id/answer/:optionId', function(req,res){
-    Person.findByIdAndUpdate(req.params.id, 
-        {$push: {
-            answers: req.params.optionId}
-        }).then(
-            (result) => {
-                if(!result) {
-                    res.status(500).send({ success: false, message: 'Id não encontrado', data: result });
-                } else {
-                    res.status(201).send({ success: true, message: 'Resposta adicionada com sucesso!', data: result })
-                  }
+router.put('/:id/answer/:optionId', function (req, res) {
+
+    Option.findById(req.params.optionId)
+        .populate('questionId')
+        .then(
+            (option) => {
+                addOptionToAnswers(req, option, res);
             },
             (err) => {
-                res.status(500).send({ success: false, message: '', data: err });
-            }
-        )
+                res.status(500).send({ success: false, message: 'Erro ao selecionar resposta', data: err });
+            });
 });
 
-router.post('/:id/photo', function(req, res) {
-    const sendError = function(err) {
+router.post('/:id/photo', function (req, res) {
+    const sendError = function (err) {
         res.status(500).send({ success: false, message: 'Erro ao tentar subir imagem.', data: err });
     }
 
     const imageService = new ImageService(req.body);
 
     imageService.uploadImage((err, result) => {
-        if(err) {
+        if (err) {
             sendError(err);
         } else {
             Person.findOneAndUpdate({ _id: req.params.id }, result).then(
@@ -102,13 +98,13 @@ router.post('/:id/photo', function(req, res) {
 router.get('/photos/:since', (req, res) => {
     var searchQuery = {
         $and: [
-            { "datetime" : { $gt : req.params.since } },
-            { "accepted_conditions" : true }
+            { "datetime": { $gt: req.params.since } },
+            { "accepted_conditions": true }
         ]
     };
 
     Person.find(searchQuery, { image_url: 1, profile: 1, datetime: 1 })
-        .sort({ "datetime" : -1 })
+        .sort({ "datetime": -1 })
         .then((result) => {
             res.json(result);
         }, (err) => {
@@ -117,3 +113,26 @@ router.get('/photos/:since', (req, res) => {
 });
 
 module.exports = router;
+
+function addOptionToAnswers(req, option, res) {
+    Person.findByIdAndUpdate(req.params.id, {
+        $push: {
+            answers: {
+                question: option.questionId.description,
+                option: option.description,
+                value: option.value,
+                weight: option.questionId.weight,
+                typeOf: option.questionId.type
+            }
+        }
+    }).then((result) => {
+        if (!result) {
+            res.status(500).send({ success: false, message: 'Id não encontrado', data: result });
+        }
+        else {
+            res.status(201).send({ success: true, message: 'Resposta adicionada com sucesso!', data: result });
+        }
+    }, (err) => {
+        res.status(500).send({ success: false, message: '', data: err });
+    });
+}
