@@ -5,12 +5,13 @@ AWS.config.update({ region: process.env.AWS_REGION });
 function ImageService(data) {
 
   this.uploadImage = function(cb) {
-    var base64data = Buffer.from(data.image, 'base64');
-    var s3 = new AWS.S3();
+    const base64data = Buffer.from(data.image, 'base64');
+    const s3 = new AWS.S3();
+    const timestamp = (new Date()).getTime().toString(36).toUpperCase();
 
     const params = {
       Bucket: 'tw-su-auras',
-      Key: data._id + '.jpg',
+      Key: data._id + '_' + timestamp + '.jpg',
       Body: base64data,
       ACL: 'public-read'
     };
