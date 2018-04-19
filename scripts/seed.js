@@ -46,7 +46,7 @@ function setData(question, options) {
 
 setData({
     "description": "Com qual dessas tendências você mais se identifica? ",
-    "order": 5,
+    "order": 0,
     "options": [],
     "type": "TREND",
     "weight": 2
@@ -73,11 +73,9 @@ setData({
     }]
 );
 
-
-
 setData({
     "description": "Qual dessas tecnologias produzirá o maior impacto sobre os negócios?",
-    "order": 6,
+    "order": 1,
     "options": [],
     "type": "TREND",
     "weight": 1
@@ -105,103 +103,9 @@ setData({
 );
 
 setData({
-    "description": "Qual a sua área de atuação?",
-    "order": 1,
-    "type": "PROFILE",
-    "weight": 0.5,
-    "options": []
-},
-    [{
-        "description": "Marketing",
-        "value": 0.2,
-    },
-    {
-        "description": "Tecnologia",
-        "value": 0.1,
-    },
-    {
-        "description": "Pessoas",
-        "value": 0.0,
-    },
-    {
-        "description": "Produtos",
-        "value": 0.5,
-    },
-    {
-        "description": "Compliance",
-        "value": 0.7,
-    }]
-);
-
-
-setData({
-    "options": [],
-    "description": "Quais são seus maiores desafios atualmente?",
-    "order": 2,
-    "type": "PROFILE",
-    "weight": 0.5
-},
-    [{
-        "description": "Responder com agilidade",
-        "value": 0.5,
-    },
-    {
-        "description": "Implementar inovações",
-        "value": 1.0,
-    },
-    {
-        "description": "Gerar valor ao negócio",
-        "value": 0.7,
-    },
-    {
-        "description": "Entender a tecnologia",
-        "value": 0.3,
-    },
-    {
-        "description": "Aprender as linguagens",
-        "value": 0.0,
-    }]
-);
-
-
-setData({
-    "options": [],
-    "description": "Como você se sente em relação ao futuro?",
-    "order": 4,
-    "type": "TREND",
-    "weight": 0
-},
-    [{
-        "description": "Otimista",
-        "value": 0,
-    },
-    {
-
-        "description": "Apreensiva",
-        "value": 1,
-    },
-    {
-
-        "description": "Curiosa",
-        "value": 2,
-    },
-    {
-
-        "description": "Esperançosa",
-        "value": 3,
-    },
-    {
-
-        "description": "Assustada",
-        "value": 4,
-    }]
-);
-
-
-setData({
     "options": [],
     "description": "O que você sente diante das transformações tecnológicas atuais?",
-    "order": 7,
+    "order": 2,
     "type": "TREND",
     "weight": 0
 },
@@ -224,35 +128,6 @@ setData({
     {
         "description": "Oportunidades",
         "value": 4
-    }]
-);
-
-setData({
-    "options": [],
-    "description": "Qual dessas características você considera mais relevante em uma líder?",
-    "order": 0,
-    "type": "PROFILE",
-    "weight": 0
-},
-    [{
-        "description": "Coragem",
-        "value": 0.3
-    },
-    {
-        "description": "Rebeldia",
-        "value": 0.4
-    },
-    {
-        "description": "Conhecimento técnico",
-        "value": 0.5
-    },
-    {
-        "description": "Adaptabilidade",
-        "value": 0.6
-    },
-    {
-        "description": "Empatia",
-        "value": 0.7
     }]
 );
 
@@ -284,3 +159,127 @@ setData({
         "value": 0.7
     }]
 );
+
+setData({
+    "description": "Qual a sua área de atuação?",
+    "order": 4,
+    "type": "PROFILE",
+    "weight": 0.5,
+    "options": []
+},
+    [{
+        "description": "Marketing",
+        "value": 0.2,
+    },
+    {
+        "description": "Tecnologia",
+        "value": 0.1,
+    },
+    {
+        "description": "Pessoas",
+        "value": 0.0,
+    },
+    {
+        "description": "Produtos",
+        "value": 0.5,
+    },
+    {
+        "description": "Compliance",
+        "value": 0.7,
+    }]
+);
+
+
+setData({
+    "options": [],
+    "description": "Quais são seus maiores desafios atualmente?",
+    "order": 5,
+    "type": "PROFILE",
+    "weight": 0.5
+},
+    [{
+        "description": "Responder com agilidade",
+        "value": 0.5,
+    },
+    {
+        "description": "Implementar inovações",
+        "value": 1.0,
+    },
+    {
+        "description": "Gerar valor ao negócio",
+        "value": 0.7,
+    },
+    {
+        "description": "Entender a tecnologia",
+        "value": 0.3,
+    },
+    {
+        "description": "Aprender as linguagens",
+        "value": 0.0,
+    }]
+);
+
+
+setData({
+    "options": [],
+    "description": "Como você se sente em relação ao futuro?",
+    "order": 6,
+    "type": "TREND",
+    "weight": 0
+},
+    [{
+        "description": "Otimista",
+        "value": 0,
+    },
+    {
+
+        "description": "Apreensiva",
+        "value": 1,
+    },
+    {
+
+        "description": "Curiosa",
+        "value": 2,
+    },
+    {
+
+        "description": "Esperançosa",
+        "value": 3,
+    },
+    {
+
+        "description": "Assustada",
+        "value": 4,
+    }]
+);
+
+setData({
+    "options": [],
+    "description": "Qual dessas características você considera mais relevante em uma líder?",
+    "order": 7,
+    "type": "PROFILE",
+    "weight": 0
+},
+    [{
+        "description": "Coragem",
+        "value": 0.3
+    },
+    {
+        "description": "Rebeldia",
+        "value": 0.4
+    },
+    {
+        "description": "Conhecimento técnico",
+        "value": 0.5
+    },
+    {
+        "description": "Adaptabilidade",
+        "value": 0.6
+    },
+    {
+        "description": "Empatia",
+        "value": 0.7
+    }]
+);
+
+
