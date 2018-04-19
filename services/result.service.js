@@ -45,7 +45,11 @@ module.exports = class ResultService {
         const trend = this.calculateTrend();
         const profile = this.calculateProfile();
 
-        return this.profileMatrix[trend][profile];
+        return {
+            'name': this.profileMatrix[trend][profile],
+            'trend': trend,
+            'profile': profile
+        };
     }
 
 };

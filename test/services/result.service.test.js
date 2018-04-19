@@ -79,7 +79,9 @@ describe('Result Service', () => {
             sinon.stub(service, 'calculateTrend').returns('EVO_INTER');
             sinon.stub(service, 'calculateProfile').returns(1);
 
-            service.calculateAuraProfile().should.be.equal('Geradora de Interações');
+            service.calculateAuraProfile().name.should.be.equal('Geradora de Interações');
+            service.calculateAuraProfile().trend.should.be.equal('EVO_INTER');
+            service.calculateAuraProfile().profile.should.be.equal(1);
             done();
         });
 
@@ -87,7 +89,9 @@ describe('Result Service', () => {
             sinon.stub(service, 'calculateTrend').returns('RISE_PLAT');
             sinon.stub(service, 'calculateProfile').returns(0);
 
-            service.calculateAuraProfile().should.be.equal('Criadora de Possibilidades');
+            service.calculateAuraProfile().name.should.be.equal('Criadora de Possibilidades');
+            service.calculateAuraProfile().trend.should.be.equal('RISE_PLAT');
+            service.calculateAuraProfile().profile.should.be.equal(0);
             done();
         });
         
@@ -95,7 +99,10 @@ describe('Result Service', () => {
             sinon.stub(service, 'calculateTrend').returns('HUMAN_AUG');
             sinon.stub(service, 'calculateProfile').returns(1);
 
-            service.calculateAuraProfile().should.be.equal('Criadora do Novo');
+            service.calculateAuraProfile().name.should.be.equal('Criadora do Novo');
+            service.calculateAuraProfile().trend.should.be.equal('HUMAN_AUG');
+            service.calculateAuraProfile().profile.should.be.equal(1);
+
             done();
         });
     });
