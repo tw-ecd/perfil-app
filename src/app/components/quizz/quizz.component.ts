@@ -62,7 +62,7 @@ export class QuizzComponent implements OnInit {
   }
 
   setRandomColor() {
-    const colorName = this.colors[Math.floor(Math.random() * 6)];
+    const colorName = this.colors[Math.floor(Math.random() * 5)];
     this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, colorName);
   }
