@@ -1,6 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser').json();
 const Questions = require('../models/question.model');
 const Option = require('../models/option.model');
+
 
 module.exports = (app) => {
     const router = express.Router();
@@ -33,7 +35,6 @@ module.exports = (app) => {
                 });
     });
 
-    let bodyParser = require('body-parser')();
     router.post('/:id/option', bodyParser, (req, res) => {
 
         Option.create({
