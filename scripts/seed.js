@@ -50,7 +50,8 @@ setData({
     "options": [],
     "type": "TREND",
     "weight": 2
-},[{
+},
+    [{
         "description": "Interações em evolução",
         "value": 0
     },
@@ -78,7 +79,7 @@ setData({
     "description": "Qual dessas tecnologias produzirá o maior impacto sobre os negócios?",
     "order": 1,
     "options": [],
-    "type": "PROFILE",
+    "type": "TREND",
     "weight": 1
 },
     [{
@@ -167,32 +168,33 @@ setData({
     "options": [],
     "description": "Como você se sente em relação ao futuro?",
     "order": 6,
-    "type": "PROFILE",
+    "type": "OTHER",
     "weight": 0
-}, [{
-    "description": "Otimista",
-    "value": 0,
 },
-{
+    [{
+        "description": "Otimista",
+        "value": 0,
+    },
+    {
 
-    "description": "Apreensiva",
-    "value": 1,
-},
-{
+        "description": "Apreensiva",
+        "value": 1,
+    },
+    {
 
-    "description": "Curiosa",
-    "value": 2,
-},
-{
+        "description": "Curiosa",
+        "value": 2,
+    },
+    {
 
-    "description": "Esperançosa",
-    "value": 3,
-},
-{
+        "description": "Esperançosa",
+        "value": 3,
+    },
+    {
 
-    "description": "Assustada",
-    "value": 4,
-}]
+        "description": "Assustada",
+        "value": 4,
+    }]
 );
 
 
@@ -200,7 +202,7 @@ setData({
     "options": [],
     "description": "O que você sente diante das transformações tecnológicas atuais?",
     "order": 2,
-    "type": "TREND",
+    "type": "OTHER",
     "weight": 0
 },
     [{
@@ -229,7 +231,7 @@ setData({
     "options": [],
     "description": "Qual dessas características você considera mais relevante em uma líder?",
     "order": 7,
-    "type": "PROFILE",
+    "type": "OTHER",
     "weight": 0
 },
     [{
@@ -257,7 +259,7 @@ setData({
 setData({
     "description": "Diante dessas mudanças, qual o seu maior foco?",
     "order": 3,
-    "type": "PROFILE",
+    "type": "OTHER",
     "weight": 0,
     "options": []
 },
@@ -282,5 +284,3 @@ setData({
         "value": 4
     }]
 );
-
-
