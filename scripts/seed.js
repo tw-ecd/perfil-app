@@ -53,23 +53,23 @@ setData({
 },
 [{
     'description': 'Interações em evolução',
-    'value': 0
+    'value': 'EVO_INTER'
 },
 {
     'description': 'Crescimento das Plataformas',
-    'value': 1
+    'value': 'RISE_PLAT'
 },
 {
     'description': 'Segurança, privacidade e transparência',
-    'value': 2
+    'value': 'SEC_PRIV'
 },
 {
     'description': 'Físico. Agora digital.',
-    'value': 3
+    'value': 'HUMAN_AUG'
 },
 {
     'description': 'Humanidade aumentada',
-    'value': 4
+    'value': 'RISE_ROBOT'
 }]
 );
 
@@ -82,23 +82,23 @@ setData({
 },
 [{
     'description': 'Assistentes de Voz',
-    'value': 0
+    'value': 'EVO_INTER'
 },
 {
     'description': 'SAAS',
-    'value': 1
+    'value': 'RISE_PLAT'
 },
 {
     'description': 'Blockchain',
-    'value': 2
+    'value': 'SEC_PRIV'
 },
 {
     'description': 'Biohacking',
-    'value': 3
+    'value': 'HUMAN_AUG'
 },
 {
     'description': 'Machine Learning',
-    'value': 4
+    'value': 'RISE_ROBOT'
 }]
 );
 
@@ -111,23 +111,23 @@ setData({
 },
 [{
     'description': 'Curiosidade',
-    'value': 0,
+    'value': 'Curiosidade'
 },
 {
     'description': 'Impulso de aprender',
-    'value': 1
+    'value': 'Impulso de aprender'
 },
 {
     'description': 'Inspiração',
-    'value': 2
+    'value': 'Inspiração'
 },
 {
     'description': 'Receio',
-    'value': 3
+    'value': 'Receio'
 },
 {
     'description': 'Oportunidades',
-    'value': 4
+    'value': 'Oportunidades'
 }]
 );
 
@@ -140,23 +140,23 @@ setData({
 },
 [{
     'description': 'Criar coisas novas',
-    'value': 0.3
+    'value': 'Criar coisas novas'
 },
 {
     'description': 'Desenvolver habilidades',
-    'value': 0.4
+    'value': 'Desenvolver habilidades'
 },
 {
     'description': 'Impulsionar a mudança',
-    'value': 0.5
+    'value': 'Impulsionar a mudança'
 },
 {
     'description': 'Aprender na prática',
-    'value': 0.6
+    'value': 'Aprender na prática'
 },
 {
     'description': 'Aproveitar possibilidades',
-    'value': 0.7
+    'value': 'Aproveitar possibilidades'
 }]
 );
 
@@ -229,27 +229,27 @@ setData({
 },
 [{
     'description': 'Otimista',
-    'value': 0,
+    'value': 'Otimista'
 },
 {
 
     'description': 'Apreensiva',
-    'value': 1,
+    'value': 'Apreensiva'
 },
 {
 
     'description': 'Curiosa',
-    'value': 2,
+    'value': 'Curiosa'
 },
 {
 
     'description': 'Esperançosa',
-    'value': 3,
+    'value': 'Esperançosa'
 },
 {
 
     'description': 'Assustada',
-    'value': 4,
+    'value': 'Assustada',
 }]
 );
 
@@ -262,23 +262,23 @@ setData({
 },
 [{
     'description': 'Coragem',
-    'value': 0.3
+    'value': 'Coragem'
 },
 {
     'description': 'Rebeldia',
-    'value': 0.4
+    'value': 'Rebeldia'
 },
 {
     'description': 'Conhecimento técnico',
-    'value': 0.5
+    'value': 'Conhecimento técnico'
 },
 {
     'description': 'Adaptabilidade',
-    'value': 0.6
+    'value': 'Adaptabilidade'
 },
 {
     'description': 'Empatia',
-    'value': 0.7
+    'value': 'Empatia'
 }]
 );
 

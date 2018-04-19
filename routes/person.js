@@ -38,6 +38,16 @@ router.post('/', function (req, res) {
         });
 });
 
+router.get('/:id/results', function (req, res) {
+    Person.findById(req.params.id).then(
+        (result) => {
+
+        },
+        (err) => {
+
+        });
+});
+
 router.put('/:id', function (req, res) {
     Person.findOneAndUpdate({ _id: req.params.id }, {
         name: req.body.name,
@@ -46,14 +56,29 @@ router.put('/:id', function (req, res) {
         role: req.body.role
     }).then(
         (result) => {
+<<<<<<< HEAD
             res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result });
             if ((req.body.email !== null) && (req.body._id !== null)){
+=======
+            res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result })
+            if ((req.body.email !== null) && (req.body._id !== null)) {
+>>>>>>> [Wagner/Caio] Implemented results calculation based on person's answers
                 return new EmailService(req.body).sendIntroEmail();
             }
         },
         (err) => {
             res.status(500).send({ success: false, message: 'Erro ao tentar atualizar pessoa. Tente novamente!', data: err });
+<<<<<<< HEAD
         });
+=======
+        }).then(
+            (data) => {
+                console.log(data.MessageId);
+            },
+            (err) => {
+                console.log(err);
+            });
+>>>>>>> [Wagner/Caio] Implemented results calculation based on person's answers
 });
 
 router.delete('/:id', function (req, res) {

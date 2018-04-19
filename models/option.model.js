@@ -7,7 +7,7 @@ const OptionSchema = new mongoose.Schema({
         required: true
     },
     value:{
-        type: Number,
+        type: Schema.Types.Mixed,
         required: true
     },
     questionId: {

@@ -8,7 +8,7 @@ let personTest = {
             "_id": "5ad8a25b73067100147b4dc5",
             "question": "Qual dessas características você considera mais relevante em uma líder?",
             "option": "Coragem",
-            "value": 0.3,
+            "value": 'SNKDSDKM',
             "weight": 0,
             "typeOf": "PROFILE"
         },
@@ -48,7 +48,7 @@ let personTest = {
             "_id": "5ad8a26373067100147b4dca",
             "question": "Com qual dessas tendências você mais se identifica? ",
             "option": "Crescimento das Plataformas",
-            "value": 1,
+            "value": 'EVO_INTER',
             "weight": 2,
             "typeOf": "TREND"
         },
@@ -56,7 +56,7 @@ let personTest = {
             "_id": "5ad8a26473067100147b4dcb",
             "question": "Qual dessas tecnologias produzirá o maior impacto sobre os negócios?",
             "option": "Assistentes de Voz",
-            "value": 0,
+            "value": 'SEC_PRIV',
             "weight": 1,
             "typeOf": "TREND"
         },
@@ -79,9 +79,15 @@ let personTest = {
 
 describe('Result Service', () => {
     describe('Calculate profile with {[{v: 0.4, w: 0.5}, {v: 0.6, w: 0.5}]}', () => {
-        it('should return a weighted average of 0.5', (done) => {
+        it('should return a weighted average of 1', (done) => {
             const service = ResultService(personTest);
-            service.calculateProfile().should.be.equal(0.5);
+            service.calculateProfile().should.be.equal(1);
+            done();
+        });
+
+        it('should return a weighted result of EVO_INTER', (done) => {
+            const service = ResultService(personTest);
+            service.calculateTrend().should.be.equal('EVO_INTER');
             done();
         });
     });
