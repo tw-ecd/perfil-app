@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const crc = require('crc');
-const { Schema } = mongoose;
 
 const generateId = () => {
     return crc.crc32(new Date().toISOString()).toString(36).toUpperCase();
