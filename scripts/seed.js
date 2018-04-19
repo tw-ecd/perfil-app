@@ -46,7 +46,7 @@ function setData(question, options) {
 
 setData({
     "description": "Com qual dessas tendências você mais se identifica? ",
-    "order": 0,
+    "order": 5,
     "options": [],
     "type": "TREND",
     "weight": 2
@@ -77,7 +77,7 @@ setData({
 
 setData({
     "description": "Qual dessas tecnologias produzirá o maior impacto sobre os negócios?",
-    "order": 1,
+    "order": 6,
     "options": [],
     "type": "TREND",
     "weight": 1
@@ -106,7 +106,7 @@ setData({
 
 setData({
     "description": "Qual a sua área de atuação?",
-    "order": 4,
+    "order": 1,
     "type": "PROFILE",
     "weight": 0.5,
     "options": []
@@ -137,7 +137,7 @@ setData({
 setData({
     "options": [],
     "description": "Quais são seus maiores desafios atualmente?",
-    "order": 5,
+    "order": 2,
     "type": "PROFILE",
     "weight": 0.5
 },
@@ -167,7 +167,7 @@ setData({
 setData({
     "options": [],
     "description": "Como você se sente em relação ao futuro?",
-    "order": 6,
+    "order": 4,
     "type": "TREND",
     "weight": 0
 },
@@ -201,7 +201,7 @@ setData({
 setData({
     "options": [],
     "description": "O que você sente diante das transformações tecnológicas atuais?",
-    "order": 2,
+    "order": 7,
     "type": "TREND",
     "weight": 0
 },
@@ -230,7 +230,7 @@ setData({
 setData({
     "options": [],
     "description": "Qual dessas características você considera mais relevante em uma líder?",
-    "order": 7,
+    "order": 0,
     "type": "PROFILE",
     "weight": 0
 },
