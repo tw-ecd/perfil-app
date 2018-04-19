@@ -168,7 +168,7 @@ setData({
     "options": [],
     "description": "Como você se sente em relação ao futuro?",
     "order": 6,
-    "type": "OTHER",
+    "type": "TREND",
     "weight": 0
 },
     [{
@@ -202,7 +202,7 @@ setData({
     "options": [],
     "description": "O que você sente diante das transformações tecnológicas atuais?",
     "order": 2,
-    "type": "OTHER",
+    "type": "TREND",
     "weight": 0
 },
     [{
@@ -231,56 +231,56 @@ setData({
     "options": [],
     "description": "Qual dessas características você considera mais relevante em uma líder?",
     "order": 7,
-    "type": "OTHER",
+    "type": "PROFILE",
     "weight": 0
 },
     [{
         "description": "Coragem",
-        "value": 0
+        "value": 0.3
     },
     {
         "description": "Rebeldia",
-        "value": 1
+        "value": 0.4
     },
     {
         "description": "Conhecimento técnico",
-        "value": 2
+        "value": 0.5
     },
     {
         "description": "Adaptabilidade",
-        "value": 3
+        "value": 0.6
     },
     {
         "description": "Empatia",
-        "value": 4
+        "value": 0.7
     }]
 );
 
 setData({
     "description": "Diante dessas mudanças, qual o seu maior foco?",
     "order": 3,
-    "type": "OTHER",
+    "type": "PROFILE",
     "weight": 0,
     "options": []
 },
     [{
         "description": "Criar coisas novas",
-        "value": 0
+        "value": 0.3
     },
     {
         "description": "Desenvolver habilidades",
-        "value": 1
+        "value": 0.4
     },
     {
         "description": "Impulsionar a mudança",
-        "value": 2
+        "value": 0.5
     },
     {
         "description": "Aprender na prática",
-        "value": 3
+        "value": 0.6
     },
     {
         "description": "Aproveitar possibilidades",
-        "value": 4
+        "value": 0.7
     }]
 );
