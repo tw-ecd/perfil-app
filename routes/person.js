@@ -4,6 +4,7 @@ const Person = require('../models/person.model');
 const Option = require('../models/option.model');
 const ImageService = require('../services/image.service.js');
 const EmailService = require('../services/email.service.js');
+const winston = require('winston');
 
 router.get('/', (req, res) => {
     Person.find().then(
