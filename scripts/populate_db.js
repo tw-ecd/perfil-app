@@ -8,6 +8,7 @@ var person = new Person({
     email: 'foo@bar.com',
     company: 'tw',
     role: 'boss',
+    function: 'animal',
     profile: 'mestra dos dados'
 });
 

@@ -29,7 +29,8 @@ describe('People', () => {
                 name: 'test',
                 email: 'api-test@tw.com',
                 company: 'TW',
-                role: 'dev'
+                role: 'Consultora/Consultor',
+                function: 'Desenvolvedora'
             }));
             person = personMock.object;
         });
@@ -54,17 +55,17 @@ describe('People', () => {
         it('should update a person with their details', (done) => {
             const personMock = sinon.mock(Person);
             const person = sinon.mock(new Person({
-                role: 'CEO'
+                role: 'Executiva C-Level'
             })).object;
 
             let expectedResult = { status: true, data: person };
             personMock.expects('findByIdAndUpdate').yields(null, expectedResult);
 
-            Person.findByIdAndUpdate(person._id, { role: 'CEO' }, function (err, result) {
+            Person.findByIdAndUpdate(person._id, { role: 'Executiva C-Level' }, function (err, result) {
                 personMock.verify();
                 personMock.restore();
                 result.status.should.be.true;
-                result.data.role.should.be.equals('CEO');
+                result.data.role.should.be.equals('Executiva C-Level');
                 done();
             });
         });

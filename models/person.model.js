@@ -23,6 +23,9 @@ const PersonSchema = new mongoose.Schema({
     role: {
         type: String
     },
+    function: {
+        type: String
+    },
     profile: {
         type: String
     },

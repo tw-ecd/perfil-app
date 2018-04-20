@@ -53,7 +53,8 @@ router.put('/:id', function (req, res) {
         name: req.body.name,
         email: req.body.email,
         company: req.body.company,
-        role: req.body.role
+        role: req.body.role,
+        function: req.body.function
     }).then(
         (result) => {
             res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result });
