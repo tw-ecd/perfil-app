@@ -14,6 +14,7 @@ import { PersonService } from '../providers/person.service';
 import { QuestionService } from '../providers/question.service';
 import { AppGlobals } from '../app-globals.service';
 import { LocalStorageService } from '../providers/local-storage.service';
+import { ResultComponent } from './result/result.component';
 
 
 
@@ -28,7 +29,8 @@ import { LocalStorageService } from '../providers/local-storage.service';
     HomeComponent,
     QuestionComponent,
     QuizzComponent,
-    CodeComponent
+    CodeComponent,
+    ResultComponent
   ],
   providers: [PersonService, QuestionService, LocalStorageService, AppGlobals]
 })

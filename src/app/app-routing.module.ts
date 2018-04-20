@@ -5,6 +5,7 @@ import { SubscriptionFormComponent } from './components/subscription-form/subscr
 import { HomeComponent } from './components/home/home.component';
 import { QuizzComponent } from './components/quizz/quizz.component';
 import { CodeComponent } from './components/code/code.component';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'code/:id',
     component: CodeComponent
+  },
+  {
+    path: 'result/:id',
+    component: ResultComponent
   }
 ];
 
