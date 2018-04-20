@@ -19,19 +19,48 @@
           <small class="text-danger" *ngIf="name.invalid && name.dirty">VERIFIQUE SEU NOME.</small>
         </div>
         <div class="form-group">
-            <label [ngClass]="{'shown': company.value}">EMPRESA</label>
+          <label [ngClass]="{'shown': company.value}">EMPRESA</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="company.value" (click)="clear(company)"></i>
           <input class="form-control" formControlName="company" [ngClass]="{'is-invalid': company.invalid && company.dirty}" placeholder="EMPRESA">
           <small class="text-danger" *ngIf="company.invalid && company.dirty">VERIFIQUE SUA EMPRESA.</small>
         </div>
         <div class="form-group">
-            <label [ngClass]="{'shown': role.value}">CARGO</label>
-          <i class="fa fa-times" aria-hidden="true" *ngIf="role.value" (click)="clear(role)"></i>
-          <input class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
+          <label [ngClass]="{'shown': role.value}">CARGO</label>
+          <select class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
+            <option value="" disabled selected hidden>CARGO</option>
+            <option>Executiva C-Level</option>
+            <option>Direção ou VP</option>
+            <option>Gerente de Projeto</option>
+            <option>Gerente de Produto</option>
+            <option>Gerente/Outro</option>
+            <option>Consultora/Consultor</option>
+            <option>Outro</option>
+          </select>
           <small class="text-danger" *ngIf="role.invalid && role.dirty">VERIFIQUE SEU CARGO.</small>
         </div>
         <div class="form-group">
-            <label [ngClass]="{'shown': email.value}">E-MAIL</label>
+          <label [ngClass]="{'shown': function.value}">FUNÇÃO</label>
+          <select class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNÇÃO">
+            <option value="" disabled selected hidden>FUNÇÃO</option>
+            <option>Desenvolvedora</option>
+            <option>Arquiteta de Software</option>
+            <option>Gerente de Projetos</option>
+            <option>Analista de Qualidade</option>
+            <option>Analista de Negócios</option>
+            <option>Data Science & Engineering</option>
+            <option>UI / UX Designer</option>
+            <option>Desenvolvedora de Infraestrutura</option>
+            <option>Estrategista de Produto</option>
+            <option>Information Security Consultant</option>
+            <option>Operações de Negócios</option>
+            <option>Líder de Negócios</option>
+            <option>Estudante</option>
+            <option>Outra</option>
+          </select>
+          <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
+        </div>
+        <div class="form-group">
+          <label [ngClass]="{'shown': email.value}">E-MAIL</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="email.value" (click)="clear(email)"></i>
           <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty}" formControlName="email"
             [email]="true" placeholder="EMAIL">

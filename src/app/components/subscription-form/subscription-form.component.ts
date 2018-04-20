@@ -35,7 +35,8 @@ export class SubscriptionFormComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       company: ['', Validators.required],
-      role: ['', Validators.required]
+      role: ['', Validators.required],
+      function: ['', Validators.required]
     });
   }
 
@@ -73,5 +74,7 @@ export class SubscriptionFormComponent implements OnInit {
     return this.personForm.get('role');
   }
 
-
+  get function() {
+    return this.personForm.get('function');
+  }
 }

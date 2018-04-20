@@ -4,4 +4,5 @@ export interface Person {
     email: String;
     company: String;
     role: String;
+    function: String;
 }
