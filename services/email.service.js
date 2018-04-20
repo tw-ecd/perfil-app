@@ -40,6 +40,10 @@ function EmailService(user) {
     };
 
     this.sendResultEmail = function() {
+        user.href = 'https://caiobsouza.github.io/su-auras/result/' + user._id;
+        user.text = 'você...';
+        user.avatar_url = 'https://avatar.com';
+
         this.resultText = this.resultText.replace('{{user.profile}}', user.profile);
         this.resultText = this.resultText.replace('{{user.text}}', user.text);
 

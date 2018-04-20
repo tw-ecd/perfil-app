@@ -135,7 +135,7 @@ router.post('/:id/photo', function (req, res) {
         if (err) {
             sendError(err);
         } else {
-            Person.findOneAndUpdate({ _id: req.params.id }, result).then(
+            Person.findOneAndUpdate({ _id: req.params.id }, result, {new: true}).then(
                 (result) => {
                     res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result });
                 }, sendError);

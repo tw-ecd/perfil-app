@@ -4,3 +4,6 @@ Seu perfil de pessoa inovadora é:
 {{user.profile}}
 
 {{user.text}}
+
+Veja seu perfil completo com foto no link:
+{{user.href}}
