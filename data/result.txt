@@ -1,0 +1,6 @@
+ThoughtWorks: Inove Com Coragem
+
+Seu perfil de pessoa inovadora é:
+{{user.profile}}
+
+{{user.text}}

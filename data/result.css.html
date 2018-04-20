@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,800,800i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/fontawesome.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/brands.css">
+    <title>ThoughtWorks: Inove Com Coragem</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="thoughtworksbr">
+    <meta name="twitter:title" content="Inove Com Coragem">
+    <meta name="twitter:description" content="Meu Perfil de Pessoa Inovadora">
+    <meta name="twitter:creator" content="thoughtworksbr">
+    <meta property="og:title" content="Inove Com Coragem">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{user.href}}">
+    <meta property="og:description" content="Meu Perfil de Pessoa Inovadora">
+    <meta property="og:site_name" content="ThoughtWorks Brasil">
+    <meta property="article:publisher" content="https://www.facebook.com/ThoughtWorksBR">
+    <meta name="twitter:image" content="{{user.avatar_url}}">
+    <meta property="og:image" content="{{user.avatar_url}}">
+  </head>
+  <body class="body">
+    <div class="container" style="width:100%;background-color:#fff;position:relative;">
+      <div class="content" style="width:100%;max-width:330px;margin:0 auto;padding:20px;border:1px #000 solid;background-color:#fff;background-image:url(https://s3.amazonaws.com/tw-su-auras/smoke-blue.jpg);background-position:left center;background-size:cover;background-repeat:no-repeat;">
+        <div class="logo" style="width:100%;height:26px;margin:50px auto 6px;background-image:url(https://s3.amazonaws.com/tw-su-auras/tw-logo-white.png);background-position:center;background-size:contain;background-repeat:no-repeat;"></div>
+        <div class="subtitle" style="font-family:'Open Sans', Helvetica, Verdana, sans-serif;font-size:16px;font-style:italic;line-height:21px;text-align:center;text-transform:uppercase;color:#fff;">Inove com <span class="emp" style="font-weight:800;">coragem</span>
+        </div>
+        <div class="photo-container" style="position:relative;width:65%;box-sizing:border-box;overflow:hidden;text-align:center;margin:42px auto 32px;">
+          <img class="photo" src="{{user.image_url}}" style="width:100%;">
+        </div>
+        <div class="profile-title" style="max-width:50%;margin:0 auto 21px;font-family:'Open Sans', Helvetica, Verdana, sans-serif;font-size:24px;font-style:italic;line-height:34px;text-align:center;color:#fff;text-transform:uppercase;">{{user.profile}}</div>
+        <div class="profile-text" style="max-width:75%;margin:0 auto;font-family:'Open Sans', Helvetica, Verdana, sans-serif;font-weight:400;font-style:normal;font-size:14px;line-height:19px;color:#fff;text-align:center;">{{user.text}}</div>
+        <div class="share-title" style="margin:32px auto 0;font-family:'Open Sans', Helvetica, Verdana, sans-serif;font-weight:800;font-size:16px;font-style:italic;line-height:34px;letter-spacing:0.5px;color:#fff;text-align:center;text-transform:uppercase;">Compartilhar</div>
+        <div class="share-container" style="margin:6px auto 10px;text-align:center;color:#fff;">
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{user.href}}&quote=#coragem" target="_blank" class="result-share-item" style="font-size:24px;text-decoration:none;color:#fff;margin:0 8px;">
+            <i class="fab fa-facebook-f fa-1x"></i>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{user.href}}&title=Inove%20Com%20Coragem&summary=Meu%20perfil%20de%20pessoa%20inovadora%20%C3%A9%20{{user.profile}}.%20Descubra%20o%20seu!&source=ThoughtworksBR" target="_blank" class="result-share-item" style="font-size:24px;text-decoration:none;color:#fff;margin:0 8px;">
+            <i class="fab fa-linkedin-in fa-1x"></i>
+          </a>
+          <a href="whatsapp://send?text={{user.href}}" target="_blank" class="result-share-item" style="font-size:24px;text-decoration:none;color:#fff;margin:0 8px;">
+            <i class="fab fa-whatsapp fa-1x"></i>
+          </a>
+          <a href="https://twitter.com/share?text=Meu%20perfil%20de%20pessoa%20inovadora%20%C3%A9%20{{user.profile}}.%20Descubra%20o%20seu!&url={{user.href}}&hashtags=TWnoSingularityUBr,SUBRsummit" target="_blank" class="result-share-item" style="font-size:24px;text-decoration:none;color:#fff;margin:0 8px;">
+            <i class="fab fa-twitter fa-1x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
