@@ -3,6 +3,7 @@ const router = express.Router();
 const winston = require('winston');
 const Person = require('../models/person.model');
 const Option = require('../models/option.model');
+const Profile = require('../models/profile.model');
 const ImageService = require('../services/image.service.js');
 const EmailService = require('../services/email.service.js');
 const ResultService = require('../services/result.service.js');
@@ -48,7 +49,12 @@ router.get('/:id/results', function (req, res) {
             return;
         }
         try {
-            res.json(new ResultService(person).calculateAuraProfile());
+            const calculated = new ResultService(person).calculateAuraProfile();
+
+            Profile.findOne({ title: calculated.name }, (err, profile) => {
+                calculated.details = profile;
+                res.json(calculated);
+            });
         } catch (error) {
             res.status(500).send({ success: false, message: 'Erro ao recuperar dados do perfil. Tente novamente!', data: error });
         }
