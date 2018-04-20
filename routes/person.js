@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const winston = require('winston');
 const Person = require('../models/person.model');
 const Option = require('../models/option.model');
 const ImageService = require('../services/image.service.js');
 const EmailService = require('../services/email.service.js');
+const ResultService = require('../services/result.service.js');
 
 router.get('/', (req, res) => {
     Person.find().then(
@@ -49,22 +51,43 @@ router.get('/:id/results', function (req, res) {
 });
 
 router.put('/:id', function (req, res) {
-    Person.findOneAndUpdate({ _id: req.params.id }, {
-        name: req.body.name,
-        email: req.body.email,
-        company: req.body.company,
-        role: req.body.role,
-        function: req.body.function
-    }).then(
-        (result) => {
-            res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result });
-            if ((req.body.email !== null) && (req.body._id !== null)) {
-                return new EmailService(req.body).sendIntroEmail();
-            }
-        },
-        (err) => {
+
+    Person.findById(req.params.id, (err, person) => {
+
+        if (err) {
+            winston.error(err);
             res.status(500).send({ success: false, message: 'Erro ao tentar atualizar pessoa. Tente novamente!', data: err });
-        });
+            return;
+        }
+
+        person.name = req.body.name;
+        person.email = req.body.email;
+        person.company = req.body.company;
+        person.role = req.body.role;
+        person.function = req.body.function;
+
+        try {
+            person.profile = new ResultService(person).calculateAuraProfile().name;
+
+            person.save()
+                .then((result) => {
+                    res.status(200).send({ success: true, message: 'Pessoa atualizada!', data: result });
+                    if ((req.body.email !== null) && (req.body._id !== null)) {
+                        return new EmailService(req.body).sendIntroEmail();
+                    }
+                })
+                .catch((saveError) => {
+                    winston.error(saveError);
+                    res.status(500).send({ success: false, message: 'Erro ao tentar atualizar pessoa. Tente novamente!', data: saveError });
+                });
+
+        } catch (error) {
+            res.status(500).send({ success: false, message: 'Erro ao tentar atualizar pessoa. Tente novamente!', data: error });
+            return;
+        }
+
+
+    });
 });
 
 router.delete('/:id', function (req, res) {
