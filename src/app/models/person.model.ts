@@ -5,4 +5,5 @@ export interface Person {
     company: String;
     role: String;
     function: String;
+    profile: String;
 }

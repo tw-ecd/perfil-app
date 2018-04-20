@@ -8,11 +8,11 @@ import { Person } from '../../models/person.model';
 import { MetaTags } from '../../../config/meta-tags';
 
 @Component({
-  selector: 'app-result',
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.scss']
+  selector: 'app-code',
+  templateUrl: './code.component.html',
+  styleUrls: ['./code.component.scss']
 })
-export class ResultComponent implements OnInit {
+export class CodeComponent implements OnInit {
 
   id: string;
   person;
@@ -34,8 +34,6 @@ export class ResultComponent implements OnInit {
         this.personService.get(this.id).subscribe(
           result => {
             this.person = result;
-            // TODO: perfil deve vir no objeto person
-            this.person.profile = 'Mestra dos Dados';
             this.populateMeta();
           }, err => { this.id = 'NOTFOUND'; }
         );

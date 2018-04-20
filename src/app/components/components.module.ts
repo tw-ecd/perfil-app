@@ -7,7 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SubscriptionFormComponent } from './subscription-form/subscription-form.component';
 import { HomeComponent } from './home/home.component';
 import { QuizzComponent } from './quizz/quizz.component';
-import { ResultComponent } from './result/result.component';
+import { CodeComponent } from './code/code.component';
 import { QuestionComponent } from './question/question.component';
 
 import { PersonService } from '../providers/person.service';
@@ -28,7 +28,7 @@ import { LocalStorageService } from '../providers/local-storage.service';
     HomeComponent,
     QuestionComponent,
     QuizzComponent,
-    ResultComponent
+    CodeComponent
   ],
   providers: [PersonService, QuestionService, LocalStorageService, AppGlobals]
 })

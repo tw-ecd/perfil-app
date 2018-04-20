@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SubscriptionFormComponent } from './components/subscription-form/subscription-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { QuizzComponent } from './components/quizz/quizz.component';
-import { ResultComponent } from './components/result/result.component';
+import { CodeComponent } from './components/code/code.component';
 
 const routes: Routes = [
   {
@@ -20,8 +20,8 @@ const routes: Routes = [
     component: SubscriptionFormComponent
   },
   {
-    path: 'result/:id',
-    component: ResultComponent
+    path: 'code/:id',
+    component: CodeComponent
   }
 ];
 
