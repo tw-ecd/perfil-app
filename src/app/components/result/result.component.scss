@@ -16,6 +16,7 @@ div.result-component {
     img.aura-photo{
         width: 100%;
         margin-top: 1.5rem;
+        box-shadow: 0 0 17px 2px rgba(#000,.31);
     }
 
     .profile-text{
@@ -26,6 +27,7 @@ div.result-component {
             padding: 0 3rem;
             margin: 1.3rem 0;
             line-height: 2rem;
+            text-transform: uppercase;
         }
 
         p{

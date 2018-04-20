@@ -1,4 +1,4 @@
-<div class="result-component">
+<div class="result-component" *ngIf="person && result">
   <div class="row justify-content-center">
 
     <div class="col-md-9 col-lg-6 text-center">
@@ -10,19 +10,21 @@
 
       <div class="row justify-content-center">
         <div class="col-8">
-          <img class="aura-photo" src="http://via.placeholder.com/720x960" alt="">
+          <ng-container *ngIf="person.image_url; else nophoto">
+            <img class="aura-photo" [src]="person.image_url" alt="">
+          </ng-container>
+          <ng-template #nophoto>
+              <img class="aura-photo" src="http://via.placeholder.com/720x960" alt="">
+          </ng-template>
+          
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-9 profile-text">
-          <h4>GERADORA DE
-            <span class="font-weight-bold">INTERAÇÕES</span>
+          <h4>{{title}}
+            <span class="font-weight-bold">{{bold}}</span>
           </h4>
-          <p>Você acredita que as novas formas de interação entre pessoas e máquinas vai transformar a maneira como vivemos
-            e nos relacionamos, criando novas possibilidades de engajamento para as marcas. Assistentes de voz, ausência
-            de telas e IoT são só algumas das tecnologias que possibilitam esse mundo novo que você quer criar. A ThoughtWorks
-            pode te acompanhar nessa jornada, desenvolvendo softwares personalizados para que você continue inovando com
-            coragem.
+          <p>{{result.details.description}}
           </p>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Person } from '../models/person.model';
 import { ResponseModel } from '../models/response.model';
+import { Result } from '../models/result.model';
 import { AppGlobals } from '../app-globals.service';
 import { Option } from '../models/option.model';
 
@@ -41,6 +42,10 @@ export class PersonService {
 
   answer(personId: string, option: Option) {
     return this.http.put<ResponseModel<Person>>(`${this.baseUrl}${personId}/answer/${option._id}`, null);
+  }
+
+  result(personId: string){
+    return this.http.get<Result>(`${this.baseUrl}${personId}/results/`);
   }
 
 }
