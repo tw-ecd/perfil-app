@@ -14,6 +14,9 @@ div.home-component {
     height: 100%;
     div.content {
         margin-top: 15%;
+        @media only screen and (min-width: 60rem) {
+            margin-top: 0;
+        }
     }
     img.tw-logo {
         width: 75%;
@@ -27,12 +30,18 @@ div.home-component {
     }
     .button-box {
         margin: 70% 0% 20% 0;
+        @media only screen and (min-width: 60rem) {
+            margin-top: 55%;   
+        }
         .btn {
             margin: 2% 0;
             color: #334373;
             cursor: pointer;
             +h3 {
                 margin-top: 7%;
+                @media only screen and (min-width: 60rem) {
+                    margin-top: 2%; 
+                }
             }
         }
     }

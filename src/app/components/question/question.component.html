@@ -1,15 +1,15 @@
 <div class="question-component">
     <div class="row justify-content-center" *ngIf="question">
-        <div class="col-10">
-            <div class="row">
-                <div class="col-12">
+        <div class="col-10 col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-5">
                     <h4>
                         <span class="font-weight-bold">{{question.order + 1}}.&nbsp;</span>
                         {{question.description}}</h4>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-8 col-lg-5">
             <div class="row">
                 <button class="btn btn-lg btn-block" *ngFor="let option of question.options" (click)="selectOption(option)">
                     {{option.description}}
