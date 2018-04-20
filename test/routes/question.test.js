@@ -60,32 +60,6 @@ describe('Questions', () => {
     });
 
     describe('/GET questions', () => {
-        // it('should return all questions in order', (done) => {
-        //     let fakeQuestion2 = dummy(Question, {ignore: '__v', returnDate: true});
-        //     fakeQuestion2.order = 2;
-
-        //     let fakeQuestion3 = dummy(Question, {ignore: '__v', returnDate: true});
-        //     fakeQuestion3.order = 3;
-            
-        //     let questions = [];
-        //     questions.push(fakeQuestion3, fakeQuestion2, fakeQuestion);
-
-        //     let orderedQuestions = [fakeQuestion, fakeQuestion2, fakeQuestion3];
-            
-        //     sortedResponse = Promise.resolve(orderedQuestions);
-        //     questionStub.find.resolves(sortedResponse);
-
-        //     request
-        //         .get('/questions')
-        //         .expect('Content-Type', /json/)
-        //         .expect(200, function (err, res) {
-        //             expect(err).to.be.null;
-        //             expect(res.body.questions).to.be.an('array');
-        //             expect(res.body.quantity).to.be.equal(3);
-        //             expect(res.body.questions).to.have.deep.ordered.members(orderedQuestions);
-        //             done();
-        //         });
-        // });
 
         it('should return one question', (done) => {
             mongoResponse = Promise.resolve(fakeQuestion);

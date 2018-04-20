@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(()
 //routes
 const person = require('./routes/person');
 const question = require('./routes/question');
+const profile = require('./routes/profile');
 
 const corsOptions = {
     origin: [
@@ -38,6 +39,8 @@ app.get('/', (req, res) => {
 
 app.use('/person', person);
 question(app);
+profile(app);
+
 
 
 let server = app.listen(PORT, () => {
