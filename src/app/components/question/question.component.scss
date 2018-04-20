@@ -20,9 +20,9 @@
         white-space: normal;
         margin-bottom: .5rem;
         color: rgba(74,74,74,1);
-        transition: all ease-in .3s;
+        transition: all ease-in .1s;
 
-        &:active{
+        &:active, &:focus {
             background: darken($color: $bkg-color, $amount: 15%)
         }
     }
