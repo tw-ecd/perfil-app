@@ -41,13 +41,18 @@ router.post('/', function (req, res) {
 });
 
 router.get('/:id/results', function (req, res) {
-    Person.findById(req.params.id).then(
-        (result) => {
-
-        },
-        (err) => {
-
-        });
+    Person.findById(req.params.id, (err, person) => {
+        if (err) {
+            winston.error(err);
+            res.status(500).send({ success: false, message: 'Erro ao recuperar dados do perfil. Tente novamente!', data: err });
+            return;
+        }
+        try {
+            res.json(new ResultService(person).calculateAuraProfile());
+        } catch (error) {
+            res.status(500).send({ success: false, message: 'Erro ao recuperar dados do perfil. Tente novamente!', data: error });
+        }
+    });
 });
 
 router.put('/:id', function (req, res) {
