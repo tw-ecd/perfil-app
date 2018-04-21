@@ -39,7 +39,7 @@ export class ResultComponent implements OnInit {
         this.fetch();
       });
 
-    this.meta.addTag({ property: 'og:url', content: this.href });
+    // this.meta.addTag({ property: 'og:url', content: this.href });
   }
 
   setBackground() {
@@ -64,8 +64,8 @@ export class ResultComponent implements OnInit {
           this.baseHref + 'assets/' +
           this.result.details.identifier + '.png';
 
-    this.meta.addTag({ name: 'twitter:image', content: imgUrl });
-    this.meta.addTag({ property: 'og:image', content: imgUrl });
+    // this.meta.addTag({ name: 'twitter:image', content: imgUrl });
+    // this.meta.addTag({ property: 'og:image', content: imgUrl });
   }
 
   restart() {
