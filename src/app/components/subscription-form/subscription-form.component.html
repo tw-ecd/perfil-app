@@ -25,20 +25,6 @@
           <small class="text-danger" *ngIf="company.invalid && company.dirty">VERIFIQUE SUA EMPRESA.</small>
         </div>
         <div class="form-group">
-          <label [ngClass]="{'shown': role.value}">CARGO</label>
-          <select class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
-            <option value="" disabled selected hidden>CARGO</option>
-            <option>Executiva C-Level</option>
-            <option>Direção ou VP</option>
-            <option>Gerente de Projeto</option>
-            <option>Gerente de Produto</option>
-            <option>Gerente/Outro</option>
-            <option>Consultora/Consultor</option>
-            <option>Outro</option>
-          </select>
-          <small class="text-danger" *ngIf="role.invalid && role.dirty">VERIFIQUE SEU CARGO.</small>
-        </div>
-        <div class="form-group">
           <label [ngClass]="{'shown': function.value}">FUNÇÃO</label>
           <select class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNÇÃO">
             <option value="" disabled selected hidden>FUNÇÃO</option>
@@ -58,6 +44,20 @@
             <option>Outra</option>
           </select>
           <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
+        </div>
+        <div class="form-group">
+          <label [ngClass]="{'shown': role.value}">CARGO</label>
+          <select class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
+            <option value="" disabled selected hidden>CARGO</option>
+            <option>Executiva C-Level</option>
+            <option>Direção ou VP</option>
+            <option>Gerente de Projeto</option>
+            <option>Gerente de Produto</option>
+            <option>Gerente/Outro</option>
+            <option>Consultora/Consultor</option>
+            <option>Outro</option>
+          </select>
+          <small class="text-danger" *ngIf="role.invalid && role.dirty">VERIFIQUE SEU CARGO.</small>
         </div>
         <div class="form-group">
           <label [ngClass]="{'shown': email.value}">E-MAIL</label>
