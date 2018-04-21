@@ -142,6 +142,7 @@ router.post('/:id/photo', function (req, res) {
                 (profile) => {
                     result._id = req.params.id;
                     result.text = profile.description;
+                    result.profile_identifier = profile.identifier;
                     return new EmailService(result).sendResultEmail();
                 }, sendError).then(
                 () => {

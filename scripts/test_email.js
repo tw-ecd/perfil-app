@@ -7,6 +7,7 @@ const user = {
     email: 'thersan@thoughtworks.com',
     image_url: 'https://s3.amazonaws.com/tw-su-auras/YP1QT1_JG77W0BB.jpg',
     profile: 'Geradora de Interações',
+    profile_identifier: 'GERADORA_INTERACOES',
     text: 'Você...'
 };
 

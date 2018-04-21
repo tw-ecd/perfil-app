@@ -41,7 +41,8 @@ function EmailService(user) {
 
     this.sendResultEmail = function() {
         user.profile_b = user.profile.replace(/([^\s]*)$/, '<b>$1</b>');
-        user.href = process.env.CORS_QUIZZ_PROD_ORIGIN + '/su-auras/result/' + user._id;
+        user.href = process.env.CORS_QUIZZ_PROD_ORIGIN + '/su-auras/profile/' +
+            user.profile_identifier.toLowerCase() + '/?id=' + user._id;
 
         this.resultText = this.resultText.replace('{{user.profile}}', user.profile);
         this.resultText = this.resultText.replace('{{user.text}}', user.text);
