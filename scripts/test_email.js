@@ -3,7 +3,7 @@ const winston = require('winston');
 const EmailService = require('../services/email.service.js');
 
 let user = {
-    _id: '14XFCX9',
+    _id: '1AU15T2',
     email: 'thersan@thoughtworks.com',
     image_url: 'https://s3.amazonaws.com/tw-su-auras/YP1QT1_JG77W0BB.jpg',
     profile: 'Geradora de interações'
@@ -11,9 +11,19 @@ let user = {
 
 let emailService = new EmailService(user);
 
-var promise = emailService.sendResultEmail();
+/*
+var intro = emailService.sendIntroEmail();
+intro.then(
+    function(data) {
+        winston.log('info', data.MessageId);
+    }).catch(
+    function(err) {
+        winston.log('err', err.stack);
+    });
+*/
 
-promise.then(
+var result = emailService.sendResultEmail();
+result.then(
     function(data) {
         winston.log('info', data.MessageId);
     }).catch(

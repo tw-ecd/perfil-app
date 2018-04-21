@@ -137,6 +137,14 @@ router.post('/:id/photo', function (req, res) {
         } else {
             Person.findOneAndUpdate({ _id: req.params.id }, result, {new: true}).then(
                 (result) => {
+                    return Profile.findOne({ title: result.profile }).exec();
+                }, sendError).then(
+                (profile) => {
+                    result._id = req.params.id;
+                    result.text = profile.description;
+                    return new EmailService(result).sendResultEmail();
+                }, sendError).then(
+                () => {
                     res.status(200).send({ success: true, message: 'Imagem atualizada!', data: result });
                 }, sendError);
         }

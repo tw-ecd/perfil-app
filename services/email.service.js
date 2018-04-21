@@ -1,5 +1,5 @@
-var AWS = require('aws-sdk');
-var fs = require('fs');
+const fs = require('fs');
+const AWS = require('aws-sdk');
 
 AWS.config.update({ region: process.env.AWS_REGION });
 
@@ -40,17 +40,15 @@ function EmailService(user) {
     };
 
     this.sendResultEmail = function() {
+        user.profile_b = user.profile.replace(/([^\s]*)$/, '<b>$1</b>');
         user.href = 'https://caiobsouza.github.io/su-auras/result/' + user._id;
-        user.text = 'você...';
-        user.avatar_url = 'https://avatar.com';
 
         this.resultText = this.resultText.replace('{{user.profile}}', user.profile);
         this.resultText = this.resultText.replace('{{user.text}}', user.text);
 
-        this.resultHtml = this.resultHtml.replace(/{{user.profile}}/g, user.profile);
+        this.resultHtml = this.resultHtml.replace(/{{user.profile}}/g, user.profile_b);
         this.resultHtml = this.resultHtml.replace(/{{user.text}}/g, user.text);
         this.resultHtml = this.resultHtml.replace(/{{user.href}}/g, user.href);
-        this.resultHtml = this.resultHtml.replace(/{{user.avatar_url}}/g, user.avatar_url);
         this.resultHtml = this.resultHtml.replace(/{{user.image_url}}/g, user.image_url);
 
         const params = {
@@ -75,6 +73,7 @@ function EmailService(user) {
             },
             Source: '"ThoughtWorks - Inove Com Coragem" <inovecomcoragem@thoughtworks.com>'
         };
+
         return new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
     };
 }
