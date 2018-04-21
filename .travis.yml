@@ -18,4 +18,4 @@ before_script:
 
 script:
   - ./node_modules/\@angular/cli/bin/ng build --prod --base-href "/su-auras/"
-  - ./node_modules/angular-cli-ghpages/bin/angular-cli-ghpages --repo=https://$GHTOKEN@github.com/caiobsouza/su-auras.git
+  - ./node_modules/angular-cli-ghpages/bin/angular-cli-ghpages --repo=https://$GHTOKEN@github.com/inovecomcoragem/su-auras.git
