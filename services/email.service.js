@@ -46,7 +46,8 @@ function EmailService(user) {
         this.resultText = this.resultText.replace('{{user.profile}}', user.profile);
         this.resultText = this.resultText.replace('{{user.text}}', user.text);
 
-        this.resultHtml = this.resultHtml.replace(/{{user.profile}}/g, user.profile_b);
+        this.resultHtml = this.resultHtml.replace(/{{user.profile}}/g, user.profile);
+        this.resultHtml = this.resultHtml.replace(/{{user.profile_b}}/g, user.profile_b);
         this.resultHtml = this.resultHtml.replace(/{{user.text}}/g, user.text);
         this.resultHtml = this.resultHtml.replace(/{{user.href}}/g, user.href);
         this.resultHtml = this.resultHtml.replace(/{{user.image_url}}/g, user.image_url);
