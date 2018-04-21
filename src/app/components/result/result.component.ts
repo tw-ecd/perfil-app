@@ -6,7 +6,6 @@ import { APP_BASE_HREF } from '@angular/common';
 import { PersonService } from '../../providers/person.service';
 import { Result } from '../../models/result.model';
 import { Person } from '../../models/person.model';
-import { MetaTags } from '../../../config/meta-tags';
 
 @Component({
   selector: 'app-result',
@@ -40,9 +39,6 @@ export class ResultComponent implements OnInit {
         this.fetch();
       });
 
-    MetaTags.forEach(function(metaTag) {
-      this.meta.addTag(metaTag);
-    }.bind(this));
     this.meta.addTag({ property: 'og:url', content: this.href });
   }
 
