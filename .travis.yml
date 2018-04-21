@@ -10,5 +10,5 @@ deploy:
     secure: dt3VDX8ku3oqhTWwg2lLy7Wm4i9gfaxFMI8i9DPpSuUjt4QdbJtxCcbNA3vPEZ2oi8DErTPWcqEz8Q6rxJGQAoHDc1RlmU080ve8xAB7VNw9mEIynoRSnUuYfDypJlCgC/cwhgeMMKchLKu55zY1WOwFor2oTyfcTmqsNmyQT4KBovORjPjoBDyONJ/VUlZTFba4bne5QYm01ZIoKAYHOtni/JYx+QQM8CBs5gRGTXFrz9kUxj6+N2sOu1rAufJujO63+z7ZL9QYufr8dZ3nYi+c4jxneU0aj/CzC/KTnkg8OaOGmNS+REk7kGaign75i05sbyaMy4X2UPW44QbGtSgyKYfu/aVeo/tq1AtOsmDgOsldEWhjhb0h7sH61RUBrH/9VOzC92pOZmDOHUseHfCt/GD1DlQ14zYD7sCxWrdnH89AXIlaYu+IzFotplZ4216noKM+535eNfc++7Yoa2iKU0ITNibkkob3yOsu6+MEbh0JwFg5VWo3nvjUVxRBwyiyZkKdox4IWp3wS2erEhDEPMv/iceNM5o3KYBHGQbH26DTHQLmBQj61Qm8nJRZi5QeNwjelm19+wTX21UzImc0rsGylR+8atTYb36SVs22jFHw7FdzJ2ZdB/GH//FU8hOTO7TOrEa1Jsl/7RMt9siQEio/RVIKPfDMAK0sVdE=
   app: su-auras
   on:
-    repo: caiobsouza/su-auras
+    repo: inovecomcoragem/su-auras
     branch: api
