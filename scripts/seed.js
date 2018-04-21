@@ -62,7 +62,7 @@ function setProfile(title, text, identifier) {
 setProfile(
     'Geradora de Interações', 
     'Você acredita que as novas formas de interação entre pessoas e máquinas vai transformar a maneira como vivemos e nos relacionamos, criando novas possibilidades de engajamento para as marcas. Assistentes de voz, ausência de telas e IoT são só algumas das tecnologias que possibilitam esse mundo novo que você quer criar. A ThoughtWorks pode te acompanhar nessa jornada, desenvolvendo softwares personalizados para que você continue inovando com coragem.',
-    'GERADORA_ITERACOES'
+    'GERADORA_INTERACOES'
 );
 
 setProfile(
@@ -86,7 +86,7 @@ setProfile(
 setProfile(
     'Guardiã dos Dados', 
     'Você ama dados e sabe como usá-los. Sua curiosidade só é satisfeita quando você se sente capaz de responder perguntas com fatos e dados. Essa dedicação à verdade te torna responsável por alavancar soluções inovadoras para os desafios de sua organização. A ThoughtWorks pode te ajudar a criar novas ferramentas que utilizam informação e tecnologia para gerar diferenciação competitiva.',
-    ''
+    'GUARDIA_DADOS'
 );
 
 setProfile(
