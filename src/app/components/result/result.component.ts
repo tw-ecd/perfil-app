@@ -1,8 +1,12 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
+import { APP_BASE_HREF } from '@angular/common';
+
 import { PersonService } from '../../providers/person.service';
 import { Result } from '../../models/result.model';
-import { ActivatedRoute } from '@angular/router';
 import { Person } from '../../models/person.model';
+import { MetaTags } from '../../../config/meta-tags';
 
 @Component({
   selector: 'app-result',
@@ -12,14 +16,18 @@ import { Person } from '../../models/person.model';
 export class ResultComponent implements OnInit {
 
   private _id: string;
+  href: string;
   result: Result;
   title: String;
   bold: String;
   person: Person;
 
-  constructor(private renderer: Renderer2,
-    private personService: PersonService,
-    private activedRoute: ActivatedRoute) {
+  constructor(@Inject(APP_BASE_HREF) private baseHref: string,
+               private renderer: Renderer2,
+               private personService: PersonService,
+               private meta: Meta,
+               private router: Router,
+               private activedRoute: ActivatedRoute) {
 
   }
 
@@ -28,8 +36,14 @@ export class ResultComponent implements OnInit {
     this.activedRoute.params.subscribe(
       params => {
         this._id = params.id;
+        this.href = window.location.href;
         this.fetch();
       });
+
+    MetaTags.forEach(function(metaTag) {
+      this.meta.addTag(metaTag);
+    }.bind(this));
+    this.meta.addTag({ property: 'og:url', content: this.href });
   }
 
   setBackground() {
@@ -42,10 +56,23 @@ export class ResultComponent implements OnInit {
       this.result = result;
       this.title = result.name.substr(0, result.name.lastIndexOf(' '));
       this.bold = result.name.substr(result.name.lastIndexOf(' '));
+      this.populateImageMeta();
     });
     this.personService.get(this._id).subscribe((person) => {
       this.person = person;
     });
   }
 
+  populateImageMeta() {
+    const imgUrl = window.location.origin +
+          this.baseHref + 'assets/' +
+          this.result.details.identifier + '.png';
+
+    this.meta.addTag({ name: 'twitter:image', content: imgUrl });
+    this.meta.addTag({ property: 'og:image', content: imgUrl });
+  }
+
+  restart() {
+    this.router.navigateByUrl('/');
+  }
 }

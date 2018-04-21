@@ -30,15 +30,28 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-9 share">
-          <h6>COMPARTILHAR</h6>
+          <h6>COMPARTILHE</h6>
           <div class="social-media-icons">
-            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{href}}" target="_blank" class="result-share-item">
+              <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{href}}&title=Inove Com Coragem&summary=Meu perfil de pessoa inovadora é {{result.name}}. Descubra o seu!&source=ThoughtworksBR"
+          target="_blank" class="result-share-item">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://twitter.com/share?text=Meu perfil de pessoa inovadora é {{result.name}}. Descubra o seu!&url={{href}}&hashtags=TWnoSingularityUBr,SUBRsummit"
+          target="_blank" class="result-share-item">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
-
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-9 home">
+          <h6 (click)="restart()">DESCUBRA O SEU PERFIL</h6>
+        </div>
       </div>
 
     </div>
