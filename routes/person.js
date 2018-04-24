@@ -9,12 +9,7 @@ const EmailService = require('../services/email.service.js');
 const ResultService = require('../services/result.service.js');
 
 router.get('/', (req, res) => {
-    Person.find().then(
-        (result) => {
-            res.json(result);
-        }, (err) => {
-            res.status(500).send({ success: false, message: 'Erro recuperar item', data: err });
-        });
+  res.status(200).json({ message: 'person API OK' });
 });
 
 router.get('/:id', (req, res) => {
