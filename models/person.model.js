@@ -3,7 +3,8 @@ const crc = require('crc');
 const { Schema } = mongoose;
 
 const generateId = () => {
-    return crc.crc32(new Date().toISOString()).toString(36).toUpperCase();
+    let id = crc.crc32(new Date().toISOString()).toString(24) + '12345678';
+    return id.toUpperCase().slice(0, 6);
 };
 
 const PersonSchema = new mongoose.Schema({
