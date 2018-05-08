@@ -9,7 +9,7 @@ var person = new Person({
     company: 'tw',
     role: 'boss',
     function: 'animal',
-    profile: 'mestra dos dados'
+    profile: 'Mestra dos Números'
 });
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(() => { 
@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(()
     person.save().then(
         (result) => {
             winston.log('info', result._doc);
+            mongoose.connection.close();
         },
         (err) => {
             winston.log('error', err);
