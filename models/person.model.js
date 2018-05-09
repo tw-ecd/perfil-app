@@ -27,6 +27,9 @@ const PersonSchema = new mongoose.Schema({
     function: {
         type: String
     },
+    wants_email: {
+        type: Boolean
+    },
     profile: {
         type: String
     },
