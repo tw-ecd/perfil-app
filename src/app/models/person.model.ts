@@ -5,7 +5,7 @@ export interface Person {
     company: String;
     role: String;
     function: String;
-    wants_email: boolean;
+    wants_emails: boolean;
     image_url?: String;
     accepted_conditions?: boolean;
     profile: String;
