@@ -66,6 +66,19 @@ div.subscription-component {
                 color: #495057;
             }
         }
+        .checkbox-group {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            label {
+                position: relative;
+                margin: 0;
+                top: 0;
+                padding-left: 8%;
+            }
+        }
         input, select {
             $color: #979797;
             $invalid-color: #D0021B;
@@ -92,6 +105,13 @@ div.subscription-component {
                     color: $invalid-color;
                 }
             }
+        }
+        input[type='checkbox'] {
+            width: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            transform: scale(1.5);
         }
     }
     .button-box {

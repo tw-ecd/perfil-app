@@ -66,6 +66,10 @@
             [email]="true" placeholder="EMAIL">
             <small class="text-danger" *ngIf="email.invalid && email.dirty">VERIFIQUE SEU E-MAIL. ESTÁ CORRETO?</small>
         </div>
+        <div class="form-group checkbox-group">
+          <input type="checkbox" class="form-control" formControlName="wants_email">
+          <label class="shown">Quero receber email sobre atividades e eventos da ThoughtWorks Brasil</label>
+        </div>
       </form>
     </div>
   </div>
@@ -76,7 +80,4 @@
       </button>
     </div>
   </div>
-
-
-
 </div>

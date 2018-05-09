@@ -36,7 +36,8 @@ export class SubscriptionFormComponent implements OnInit {
       email: ['', Validators.required],
       company: ['', Validators.required],
       role: ['', Validators.required],
-      function: ['', Validators.required]
+      function: ['', Validators.required],
+      wants_email: [false]
     });
   }
 
