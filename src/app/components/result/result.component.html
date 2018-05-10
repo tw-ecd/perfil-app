@@ -11,7 +11,8 @@
       <div class="row justify-content-center">
         <div class="col-8">
           <ng-container *ngIf="person.image_url; else nophoto">
-            <img class="aura-photo" [src]="person.image_url" alt="">
+            <img class="aura-photo" [src]="person.image_url" alt=""
+                 [class.aura-profile-icon]="person.image_url.includes('profile')">
           </ng-container>
           <ng-template #nophoto>
               <img class="aura-photo" src="http://via.placeholder.com/720x960" alt="">
