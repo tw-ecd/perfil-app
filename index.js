@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/auras').then(() => { 
-    winston.log('info', 'Connected to database');
+    winston.log('info', 'Connected to database...');
 });
 
 //routes
