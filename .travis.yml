@@ -8,9 +8,8 @@ notifications:
   email: false
 deploy:
   provider: heroku
-  api_key:
-    secure: BnnQI3HvmmqAh8pUkqfBJk6KJNptU3qjsPC8Cnb+ltVHOFSndrvZ/csrmkZh3uCi4rig9xTMpDbdMivrk5U9xcPX/nTcM2YW1OHPLu3+zy5Ql/Cvl6O8Yg0qg2iSNyWsJGKQFpYbgIPKncPt+84fpq7ZMoXyPg4N/XiJrZ8m++9yi+hBKxHUlfPk/z8wUWSoLFYn+EFPXAkilOrhwZNakV1a+v5qayPprVniazqkzaxa3GxnFLDIh8BvRasVjmHx/SvOqiDzhEtQeHhqPbH5uLur235ZNJB1Shpywi/rdEOESmHnnPxoNGxYPhQbaKzA66WkNEikvdMeo6tlhhZpjnb54nFvV8HJjU3wsJxgGImYAV/EwdX45unV4GdM8gtPUCH5ZYSqVGTgzN7lbiAlcUt17EAKBxNscLmTO/7wHWROUp6lGxd0HYxuYHrH1bWPjnjcpvC0/SbpZYxq596yPnHm+jp5xSC5Clpj2xelfOEZB6CNUzPaEpRD2IRtwqnUJY2wx5qsMvuOHdw+nG7m3KE1mmiPfYieu97zad04IVUtYQ2BZu03ZEDsxpCdYYu73DAtpiV+kqU8bx+DpJeWHRZC0wk+L7cV81ulV6ixaUbwbFnbtMivjfr2hvgfinTl0Vgdxzj+fTL7M+KoIZhi01A7e8CpzVcT1RMeww/w1ZM=
-  app: su-auras
+  api_key: $HEROKU_KEY
+  app: auras-app
   on:
-    repo: inovecomcoragem/su-auras
+    repo: inovecomcoragem/auras-app
     branch: api
