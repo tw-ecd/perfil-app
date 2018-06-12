@@ -30,7 +30,7 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       },
-      "baseHref": "/su-auras/"
+      "baseHref": "/auras-app/"
     }
   ],
   "e2e": {

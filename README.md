@@ -1,12 +1,12 @@
 # Auras
 
 ## API
-[![Build Status](https://travis-ci.org/inovecomcoragem/su-auras.svg?branch=master)](https://travis-ci.org/inovecomcoragem/su-auras)
+[![Build Status](https://travis-ci.org/inovecomcoragem/auras-app.svg?branch=master)](https://travis-ci.org/inovecomcoragem/auras-app)
 
-[API code base](https://github.com/inovecomcoragem/su-auras/tree/api)
+[API code base](https://github.com/inovecomcoragem/auras-app/tree/api)
 
 ## Project URL
-https://inovecomcoragem.github.io/su-auras/
+https://inovecomcoragem.github.io/auras-app/
 
 ## Development server
 
