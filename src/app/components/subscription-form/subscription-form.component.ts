@@ -37,7 +37,9 @@ export class SubscriptionFormComponent implements OnInit {
       company: ['', Validators.required],
       role: ['', Validators.required],
       function: ['', Validators.required],
-      wants_emails: [false]
+      career_email_permission: [false],
+      access_events_permission: [false],
+      information_share_permission: [false]
     });
   }
 
