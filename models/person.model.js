@@ -33,7 +33,7 @@ const PersonSchema = new mongoose.Schema({
     profile: {
         type: String
     },
-    accepted_conditions: {
+    image_permission: {
         type: Boolean
     },
     image_url: {

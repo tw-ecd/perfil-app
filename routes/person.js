@@ -152,7 +152,7 @@ router.get('/photos/:since', (req, res) => {
     var searchQuery = {
         $and: [
             { 'datetime': { $gt: req.params.since } },
-            { 'accepted_conditions': true }
+            { 'image_permission': true }
         ]
     };
 
