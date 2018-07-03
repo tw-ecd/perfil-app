@@ -27,7 +27,13 @@ const PersonSchema = new mongoose.Schema({
     function: {
         type: String
     },
-    wants_emails: {
+    career_email_permission: {
+        type: Boolean
+    },
+    access_events_permission: {
+        type: Boolean
+    },
+    information_share_permission: {
         type: Boolean
     },
     profile: {

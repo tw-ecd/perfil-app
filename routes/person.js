@@ -71,7 +71,9 @@ router.put('/:id', function (req, res) {
         person.company = req.body.company;
         person.role = req.body.role;
         person.function = req.body.function;
-        person.wants_emails = req.body.wants_emails;
+        person.career_email_permission = req.body.career_email_permission;
+        person.access_events_permission = req.body.access_events_permission;
+        person.information_share_permission = req.body.information_share_permission;
 
         try {
             person.profile = new ResultService(person).calculateAuraProfile().name;
