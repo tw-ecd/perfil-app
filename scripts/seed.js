@@ -120,7 +120,7 @@ setProfile(
 );
 
 setQuestion({
-    'description': 'Com qual dessas tendências você mais se identifica? ',
+    'description': 'Com qual dessas macrotendências tecnológicas você mais se identifica? ',
     'order': 0,
     'options': [],
     'type': 'TREND',
@@ -149,7 +149,7 @@ setQuestion({
 );
 
 setQuestion({
-    'description': 'Qual dessas tecnologias produzirá o maior impacto sobre os negócios?',
+    'description': 'Qual dessas tecnologias produzirá o maior impacto no mercado de TI?',
     'order': 1,
     'options': [],
     'type': 'TREND',
@@ -273,7 +273,7 @@ setQuestion({
     'weight': 0.5
 },
 [{
-    'description': 'Responder com agilidade',
+    'description': 'Agir com agilidade',
     'value': 0.5,
 },
 {
@@ -285,11 +285,11 @@ setQuestion({
     'value': 0.7,
 },
 {
-    'description': 'Entender a tecnologia',
+    'description': 'Entender novas tecnologias',
     'value': 0.3,
 },
 {
-    'description': 'Aprender as linguagens',
+    'description': 'Aprender linguagens',
     'value': 0.0,
 }]
 );
