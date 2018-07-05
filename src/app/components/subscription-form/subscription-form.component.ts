@@ -5,6 +5,8 @@ import { PersonService } from '../../providers/person.service';
 import { Person } from '../../models/person.model';
 import { ActivatedRouteSnapshot, ActivatedRoute, Router } from '@angular/router';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-subscription-form',
   templateUrl: './subscription-form.component.html',
@@ -13,6 +15,7 @@ import { ActivatedRouteSnapshot, ActivatedRoute, Router } from '@angular/router'
 export class SubscriptionFormComponent implements OnInit {
 
   personForm: FormGroup;
+  fullForm: boolean;
 
   constructor(
     private personService: PersonService,
@@ -28,15 +31,16 @@ export class SubscriptionFormComponent implements OnInit {
     this.renderer.addClass(document.body, 'mask-white');
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
+    this.fullForm = environment.fullForm;
   }
 
   createForm() {
     this.personForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', (this.fullForm && Validators.required)],
       email: ['', Validators.required],
-      company: ['', Validators.required],
-      role: ['', Validators.required],
-      function: ['', Validators.required],
+      company: ['', (this.fullForm && Validators.required)],
+      role: ['', (this.fullForm && Validators.required)],
+      function: ['', (this.fullForm && Validators.required)],
       career_email_permission: [false],
       access_events_permission: [false],
       information_share_permission: [false]
