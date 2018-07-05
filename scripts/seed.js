@@ -149,7 +149,7 @@ setQuestion({
 );
 
 setQuestion({
-    'description': 'Qual dessas tecnologias produzirá o maior impacto no mercado de TI?',
+    'description': 'Qual dessas tecnologias produzirá o maior impacto no ecosistema de TI?',
     'order': 1,
     'options': [],
     'type': 'TREND',
