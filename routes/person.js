@@ -72,7 +72,9 @@ router.put('/:id', function (req, res) {
         person.role = req.body.role;
         person.function = req.body.function;
         person.career_email_permission = req.body.career_email_permission;
-        person.access_events_permission = req.body.access_events_permission;
+        person.access_permission = req.body.access_permission;
+        person.events_permission = req.body.access_permission || req.body.events_permission;
+        person.radar_permission = req.body.radar_permission;
         person.information_share_permission = req.body.information_share_permission;
 
         try {
