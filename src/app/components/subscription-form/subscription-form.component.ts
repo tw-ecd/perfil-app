@@ -15,7 +15,8 @@ import { environment } from '../../../environments/environment';
 export class SubscriptionFormComponent implements OnInit {
 
   personForm: FormGroup;
-  fullForm: boolean;
+  accessForm: boolean;
+  radarForm: boolean;
 
   constructor(
     private personService: PersonService,
@@ -31,18 +32,22 @@ export class SubscriptionFormComponent implements OnInit {
     this.renderer.addClass(document.body, 'mask-white');
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
-    this.fullForm = environment.fullForm;
   }
 
   createForm() {
+    this.accessForm = (environment.formType === 'access');
+    this.radarForm = (environment.formType === 'radar');
+
     this.personForm = this.fb.group({
-      name: ['', (this.fullForm && Validators.required)],
+      name: ['', (this.accessForm && Validators.required)],
       email: ['', Validators.required],
-      company: ['', (this.fullForm && Validators.required)],
-      role: ['', (this.fullForm && Validators.required)],
-      function: ['', (this.fullForm && Validators.required)],
+      company: ['', (this.accessForm && Validators.required)],
+      role: ['CARGO', (this.accessForm && Validators.required)],
+      function: ['', ((this.accessForm || this.radarForm ) && Validators.required)],
       career_email_permission: [false],
-      access_events_permission: [false],
+      access_permission: [false],
+      events_permission: [false],
+      radar_permission: [false],
       information_share_permission: [false]
     });
   }

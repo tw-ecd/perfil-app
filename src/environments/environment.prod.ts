@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  fullForm: false
+  formType: 'radar'
 };

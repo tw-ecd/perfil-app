@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  fullForm: false
+  formType: 'radar'
 };

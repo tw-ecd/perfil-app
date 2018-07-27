@@ -12,40 +12,53 @@
   <div class="row justify-content-center">
     <div class="col-9 form-box">
       <form [formGroup]="personForm">
-        <div class="form-group" *ngIf="fullForm">
+        <div class="form-group" *ngIf="accessForm">
           <label [ngClass]="{'shown': name.value}">NOME</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="name.value" (click)="clear(name)"></i>
           <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.invalid && name.dirty}" placeholder="NOME">
           <small class="text-danger" *ngIf="name.invalid && name.dirty">VERIFIQUE SEU NOME.</small>
         </div>
-        <div class="form-group" *ngIf="fullForm">
+        <div class="form-group" *ngIf="accessForm">
           <label [ngClass]="{'shown': company.value}">EMPRESA</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="company.value" (click)="clear(company)"></i>
           <input class="form-control" formControlName="company" [ngClass]="{'is-invalid': company.invalid && company.dirty}" placeholder="EMPRESA">
           <small class="text-danger" *ngIf="company.invalid && company.dirty">VERIFIQUE SUA EMPRESA.</small>
         </div>
-        <div class="form-group" *ngIf="fullForm">
+        <div class="form-group">
+          <label [ngClass]="{'shown': email.value}">E-MAIL</label>
+          <i class="fa fa-times" aria-hidden="true" *ngIf="email.value" (click)="clear(email)"></i>
+          <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty}" formControlName="email"
+            [email]="true" placeholder="EMAIL">
+            <small class="text-danger" *ngIf="email.invalid && email.dirty">VERIFIQUE SEU E-MAIL. ESTÁ CORRETO?</small>
+        </div>
+        <div class="form-group" *ngIf="accessForm || radarForm">
           <label [ngClass]="{'shown': function.value}">FUNÇÃO</label>
           <select class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNÇÃO">
             <option value="" disabled selected hidden>FUNÇÃO</option>
-            <option>Desenvolvedora</option>
-            <option>Arquiteta de Software</option>
-            <option>Gerente de Projetos</option>
-            <option>Analista de Qualidade</option>
             <option>Analista de Negócios</option>
+            <option>Analista de Qualidade</option>
+            <option>Arquiteta de Estratégia e Produtos</option>
+            <option>Arquiteta de Software</option>
+            <option>Consultora de Segurança</option>
+            <option>Consultora de Transformação</option>
             <option>Data Science & Engineering</option>
-            <option>UI / UX Designer</option>
-            <option>Desenvolvedora de Infraestrutura</option>
+            <option>Desenvolvedora</option>
+            <option>DevOps / Consultora de Infraestrutura</option>
+            <option>Direção ou VP</option>
             <option>Estrategista de Produto</option>
-            <option>Information Security Consultant</option>
-            <option>Operações de Negócios</option>
-            <option>Líder de Negócios</option>
             <option>Estudante</option>
+            <option>Executiva / C-Level</option>
+            <option>Gerente de Produto</option>
+            <option>Gerente de Projetos</option>
+            <option>Gerente / Outra</option>
+            <option>Líder de Negócios</option>
+            <option>Operações de Negócios</option>
+            <option>UI / UX Designer</option>
             <option>Outra</option>
           </select>
           <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
         </div>
-        <div class="form-group" *ngIf="fullForm">
+        <div class="form-group" *ngIf="false">
           <label [ngClass]="{'shown': role.value}">CARGO</label>
           <select class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
             <option value="" disabled selected hidden>CARGO</option>
@@ -59,22 +72,23 @@
           </select>
           <small class="text-danger" *ngIf="role.invalid && role.dirty">VERIFIQUE SEU CARGO.</small>
         </div>
-        <div class="form-group">
-          <label [ngClass]="{'shown': email.value}">E-MAIL</label>
-          <i class="fa fa-times" aria-hidden="true" *ngIf="email.value" (click)="clear(email)"></i>
-          <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty}" formControlName="email"
-            [email]="true" placeholder="EMAIL">
-            <small class="text-danger" *ngIf="email.invalid && email.dirty">VERIFIQUE SEU E-MAIL. ESTÁ CORRETO?</small>
-        </div>
-        <div class="form-group checkbox-group" *ngIf="fullForm">
+        <div class="form-group checkbox-group" *ngIf="accessForm">
           <input type="checkbox" class="form-control" formControlName="career_email_permission">
           <label class="shown">Quero receber emails de recrutamento e sobre outras oportunidades profissionais.</label>
         </div>
-        <div class="form-group checkbox-group" *ngIf="fullForm">
-          <input type="checkbox" class="form-control" formControlName="access_events_permission">
-          <label class="shown">Assine ao Access ThoughtWorks e a mailing list de eventos.</label>
+        <div class="form-group checkbox-group" *ngIf="accessForm">
+          <input type="checkbox" class="form-control" formControlName="access_permission">
+          <label class="shown">Assine ao Access ThoughtWorks e à nossa mailing list de eventos.</label>
         </div>
-        <div class="form-group checkbox-group" *ngIf="fullForm">
+        <div class="form-group checkbox-group" *ngIf="radarForm">
+          <input type="checkbox" class="form-control" formControlName="events_permission">
+          <label class="shown">Assine à nossa mailing list de eventos.</label>
+        </div>
+        <div class="form-group checkbox-group" *ngIf="radarForm">
+          <input type="checkbox" class="form-control" formControlName="radar_permission">
+          <label class="shown">Assine à mailing list do Technology Radar.</label>
+        </div>
+        <div class="form-group checkbox-group" *ngIf="accessForm || radarForm">
           <input type="checkbox" class="form-control" formControlName="information_share_permission">
           <label class="shown">Concordo em compartilhar meus dados com a ThoughtWorks e entendo que serão usados conforme descrito na <a href="https://www.thoughtworks.com/privacy-policy" target="_blank">política de privacidade.</a></label>
         </div>
