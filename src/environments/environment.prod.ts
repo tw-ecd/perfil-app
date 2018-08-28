@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  formType: 'radar'
+  formType: 'access'
 };
