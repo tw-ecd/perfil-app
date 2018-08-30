@@ -31,30 +31,21 @@
             [email]="true" placeholder="EMAIL">
             <small class="text-danger" *ngIf="email.invalid && email.dirty">VERIFIQUE SEU E-MAIL. ESTÁ CORRETO?</small>
         </div>
-        <div class="form-group" *ngIf="accessForm || radarForm">
+        <div class="form-group" *ngIf="accessForm">
           <label [ngClass]="{'shown': function.value}">FUNÇÃO</label>
           <select class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNÇÃO">
             <option value="" disabled selected hidden>FUNÇÃO</option>
-            <option>Analista de Negócios</option>
-            <option>Analista de Qualidade</option>
-            <option>Arquiteta de Estratégia e Produtos</option>
-            <option>Arquiteta de Software</option>
-            <option>Consultora de Segurança</option>
-            <option>Consultora de Transformação</option>
-            <option>Data Science & Engineering</option>
-            <option>Desenvolvedora</option>
+            <option>Analista de Negócios (BA)</option>
+            <option>Analista de Qualidade (QA)</option>
+            <option>Cientista de Dados / Engineering</option>
             <option>DevOps / Consultora de Infraestrutura</option>
-            <option>Direção ou VP</option>
-            <option>Estrategista de Produto</option>
+            <option>Designer de Experiência</option>
             <option>Estudante</option>
-            <option>Executiva / C-Level</option>
             <option>Gerente de Produto</option>
+            <option>Gerente de Programa</option>
             <option>Gerente de Projetos</option>
-            <option>Gerente / Outra</option>
-            <option>Líder de Negócios</option>
-            <option>Operações de Negócios</option>
-            <option>UI / UX Designer</option>
-            <option>Outra</option>
+            <option>Desenvolvedora de Software</option>
+            <option>Outro</option>
           </select>
           <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
         </div>
@@ -74,9 +65,9 @@
         </div>
         <div class="form-group checkbox-group" *ngIf="accessForm">
           <input type="checkbox" class="form-control" formControlName="career_email_permission">
-          <label class="shown">Quero receber emails de recrutamento e sobre outras oportunidades profissionais.</label>
+          <label class="shown">Quero receber emails sobre vagas e outras oportunidades de carreira.</label>
         </div>
-        <div class="form-group checkbox-group" *ngIf="accessForm">
+        <div class="form-group checkbox-group" *ngIf="false">
           <input type="checkbox" class="form-control" formControlName="access_permission">
           <label class="shown">Assine ao Access ThoughtWorks e à nossa mailing list de eventos.</label>
         </div>
