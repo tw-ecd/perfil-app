@@ -43,7 +43,6 @@ var findNoPicture = function() {
                 download(person.image_url, options, function(err){
                     if (err) throw err;
                 });
-                // winston.log('info', person);
             });
             mongoose.connection.close();
         }, (err) => {
