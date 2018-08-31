@@ -18,6 +18,7 @@
     "cors": "^2.8.4",
     "crc": "^3.5.0",
     "dotenv": "^5.0.1",
+    "download-file": "^0.1.5",
     "express": "^4.16.3",
     "flickr-sdk": "^3.7.0",
     "mongoose": "^5.0.12",
