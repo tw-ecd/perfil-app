@@ -7,6 +7,8 @@ import { ActivatedRouteSnapshot, ActivatedRoute, Router } from '@angular/router'
 
 import { environment } from '../../../environments/environment';
 
+declare var MktoForms2: any;
+
 @Component({
   selector: 'app-subscription-form',
   templateUrl: './subscription-form.component.html',
@@ -41,7 +43,7 @@ export class SubscriptionFormComponent implements OnInit {
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
     this.activedRoute.queryParams.subscribe(params => {
-      if(params.aliId) {
+      if (params.aliId) {
         this.router.navigateByUrl('/code/' + this._id);
       }
     });
@@ -54,7 +56,7 @@ export class SubscriptionFormComponent implements OnInit {
     if (this.accessForm) {
       setTimeout(function() {
         MktoForms2.loadForm('https://app-e.marketo.com', '199-QDE-291', 9089, function() {
-          const btn = document.getElementsByClassName('mktoButton')[0];
+          const btn = <HTMLElement>document.getElementsByClassName('mktoButton')[0];
           btn.classList.add('btn', 'btn-lg');
           btn.innerHTML = 'CONFIRMAR';
           btn.style['background-color'] = '#074c9d';
@@ -85,16 +87,17 @@ export class SubscriptionFormComponent implements OnInit {
   }
 
   save() {
-    if(this.accessForm) {
-      this.personForm.value.email = document.getElementById('Email').value;
+    if (this.accessForm) {
+      this.personForm.value.email =
+        (<HTMLInputElement>document.getElementById('Email')).value;
       this.personForm.value.name =
-        document.getElementById('FirstName').value + ' ' +
-        document.getElementById('LastName').value;
+        (<HTMLInputElement>document.getElementById('FirstName')).value + ' ' +
+        (<HTMLInputElement>document.getElementById('LastName')).value;
 
       if (this.personForm.value.email === '') {
         return false;
       }
-    } else if(this.personForm.invalid) {
+    } else if (this.personForm.invalid) {
       return false;
     }
 
@@ -104,7 +107,7 @@ export class SubscriptionFormComponent implements OnInit {
     this.personService.update(newPerson)
       .subscribe(
         result => {
-          if(this.accessForm) {
+          if (this.accessForm) {
             console.log(result);
           } else {
             this.router.navigateByUrl('/code/' + this._id);
