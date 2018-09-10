@@ -15,14 +15,14 @@ var findNoPicture = function() {
     var searchQuery = {
         $and: [
             { 'email': { $ne: null } },
-            { 'datetime': { $gte : new Date('2018-07-09') } }
+            { 'datetime': { $gte : new Date('2018-09-09') } }
         ]
     };
 
     Person.find(searchQuery)
         .then((result) => {
             result.forEach((person) => {
-                winston.log('info', person.email);
+                winston.log('info', person.email + ' ' + person.id);
             });
             mongoose.connection.close();
         }, (err) => {
