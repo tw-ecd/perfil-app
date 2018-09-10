@@ -10,7 +10,11 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-9 form-box">
+    <div class="col-9 form-box" *ngIf="accessForm">
+      <form [formGroup]="personForm" id="mktoForm_9089"></form>
+    </div>
+
+    <div class="col-9 form-box" *ngIf="radarForm">
       <form [formGroup]="personForm">
         <div class="form-group">
           <label [ngClass]="{'shown': name.value}">NOME</label>
@@ -31,7 +35,7 @@
             [email]="true" placeholder="EMAIL">
             <small class="text-danger" *ngIf="email.invalid && email.dirty">VERIFIQUE SEU E-MAIL. ESTÁ CORRETO?</small>
         </div>
-        <div class="form-group" *ngIf="accessForm">
+        <div class="form-group">
           <label [ngClass]="{'shown': function.value}">FUNÇÃO</label>
           <select class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNÇÃO">
             <option value="" disabled selected hidden>FUNÇÃO</option>
@@ -49,44 +53,22 @@
           </select>
           <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
         </div>
-        <div class="form-group" *ngIf="false">
-          <label [ngClass]="{'shown': role.value}">CARGO</label>
-          <select class="form-control" formControlName="role" [ngClass]="{'is-invalid': role.invalid && role.dirty}" placeholder="CARGO">
-            <option value="" disabled selected hidden>CARGO</option>
-            <option>Executiva C-Level</option>
-            <option>Direção ou VP</option>
-            <option>Gerente de Projeto</option>
-            <option>Gerente de Produto</option>
-            <option>Gerente/Outro</option>
-            <option>Consultora/Consultor</option>
-            <option>Outro</option>
-          </select>
-          <small class="text-danger" *ngIf="role.invalid && role.dirty">VERIFIQUE SEU CARGO.</small>
-        </div>
-        <div class="form-group checkbox-group" *ngIf="accessForm">
-          <input type="checkbox" class="form-control" formControlName="career_email_permission">
-          <label class="shown">Quero receber emails sobre vagas e outras oportunidades de carreira.</label>
-        </div>
-        <div class="form-group checkbox-group" *ngIf="false">
-          <input type="checkbox" class="form-control" formControlName="access_permission">
-          <label class="shown">Assine ao Access ThoughtWorks e à nossa mailing list de eventos.</label>
-        </div>
-        <div class="form-group checkbox-group" *ngIf="radarForm">
+        <div class="form-group checkbox-group">
           <input type="checkbox" class="form-control" formControlName="events_permission">
           <label class="shown">Assine à nossa mailing list de eventos.</label>
         </div>
-        <div class="form-group checkbox-group" *ngIf="radarForm">
+        <div class="form-group checkbox-group">
           <input type="checkbox" class="form-control" formControlName="radar_permission">
           <label class="shown">Assine à mailing list do Technology Radar.</label>
         </div>
-        <div class="form-group checkbox-group" *ngIf="accessForm || radarForm">
+        <div class="form-group checkbox-group">
           <input type="checkbox" class="form-control" formControlName="information_share_permission">
           <label class="shown">Concordo em compartilhar meus dados com a ThoughtWorks e entendo que serão usados conforme descrito na <a href="https://www.thoughtworks.com/privacy-policy" target="_blank">política de privacidade.</a></label>
         </div>
       </form>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" *ngIf="radarForm">
     <div class="col-9 button-box">
       <button class="btn btn-lg rounded-circle" [disabled]="!personForm.valid" (click)="save()">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>

@@ -26,6 +26,7 @@ div.subscription-component {
     }
     .form-box {
         padding: 10% 6%;
+        margin-bottom: 2rem;
 
         @media only screen and (min-width: 60rem) {
             padding: 4% 4%;
@@ -116,7 +117,7 @@ div.subscription-component {
     }
     .button-box {
         text-align: center;
-        margin: 2rem 0;
+        margin: 0 0 2rem;
         .btn[disabled] {
             background-color: #e6e6e6;
         }

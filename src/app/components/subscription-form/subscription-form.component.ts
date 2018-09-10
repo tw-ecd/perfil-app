@@ -27,23 +27,55 @@ export class SubscriptionFormComponent implements OnInit {
 
   private _id: String;
 
+  includeJs(jsFilePath) {
+    const js = document.createElement('script');
+    js.type = 'text/javascript';
+    js.src = jsFilePath;
+    document.body.appendChild(js);
+  }
+
   ngOnInit() {
     this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, 'mask-white');
+    this.includeJs('https://app-e.marketo.com/js/forms2/js/forms2.min.js');
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
+    this.activedRoute.queryParams.subscribe(params => {
+      if(params.aliId) {
+        this.router.navigateByUrl('/code/' + this._id);
+      }
+    });
   }
 
   createForm() {
     this.accessForm = (environment.formType === 'access');
     this.radarForm = (environment.formType === 'radar');
 
+    if (this.accessForm) {
+      setTimeout(function() {
+        MktoForms2.loadForm('https://app-e.marketo.com', '199-QDE-291', 9089, function() {
+          const btn = document.getElementsByClassName('mktoButton')[0];
+          btn.classList.add('btn', 'btn-lg');
+          btn.innerHTML = 'CONFIRMAR';
+          btn.style['background-color'] = '#074c9d';
+          btn.style['background-image'] = 'none';
+          btn.style['border'] = 'none';
+          btn.style['margin'] = '2rem 0 0';
+
+          const emailInput = document.getElementById('Email');
+          emailInput.addEventListener('focusout', function() {
+            this.save();
+          }.bind(this), false);
+        }.bind(this));
+      }.bind(this), 1000);
+    }
+
     this.personForm = this.fb.group({
-      name: ['', (this.accessForm && Validators.required)],
+      name: ['', Validators.required],
       email: ['', Validators.required],
-      company: ['', (this.accessForm && Validators.required)],
-      role: ['CARGO', (this.accessForm && Validators.required)],
-      function: ['', ((this.accessForm || this.radarForm ) && Validators.required)],
+      company: ['', Validators.required],
+      role: ['CARGO'],
+      function: ['', Validators.required],
       career_email_permission: [false],
       access_permission: [false],
       events_permission: [false],
@@ -53,7 +85,16 @@ export class SubscriptionFormComponent implements OnInit {
   }
 
   save() {
-    if (this.personForm.invalid) {
+    if(this.accessForm) {
+      this.personForm.value.email = document.getElementById('Email').value;
+      this.personForm.value.name =
+        document.getElementById('FirstName').value + ' ' +
+        document.getElementById('LastName').value;
+
+      if (this.personForm.value.email === '') {
+        return false;
+      }
+    } else if(this.personForm.invalid) {
       return false;
     }
 
@@ -62,7 +103,13 @@ export class SubscriptionFormComponent implements OnInit {
 
     this.personService.update(newPerson)
       .subscribe(
-        result => this.router.navigateByUrl('/code/' + this._id),
+        result => {
+          if(this.accessForm) {
+            console.log(result);
+          } else {
+            this.router.navigateByUrl('/code/' + this._id);
+          }
+        },
         err => console.log(err));
   }
 
