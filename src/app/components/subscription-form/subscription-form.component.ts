@@ -64,6 +64,11 @@ export class SubscriptionFormComponent implements OnInit {
           btn.style['border'] = 'none';
           btn.style['margin'] = '2rem 0 0';
 
+          const phoneElementRow = document.getElementById('Phone').parentElement.parentElement.parentElement;
+          const foodElementRow = document.getElementById('event_Dietary_Requirements').parentElement.parentElement.parentElement;
+          phoneElementRow.parentNode.removeChild(phoneElementRow);
+          foodElementRow.parentNode.removeChild(foodElementRow);
+
           const emailInput = document.getElementById('Email');
           emailInput.addEventListener('focusout', function() {
             this.save();
