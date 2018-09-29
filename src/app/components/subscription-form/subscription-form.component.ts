@@ -29,17 +29,9 @@ export class SubscriptionFormComponent implements OnInit {
 
   private _id: String;
 
-  includeJs(jsFilePath) {
-    const js = document.createElement('script');
-    js.type = 'text/javascript';
-    js.src = jsFilePath;
-    document.body.appendChild(js);
-  }
-
   ngOnInit() {
     this.renderer.removeAttribute(document.body, 'class');
     this.renderer.addClass(document.body, 'mask-white');
-    this.includeJs('https://app-e.marketo.com/js/forms2/js/forms2.min.js');
     this.createForm();
     this.activedRoute.params.subscribe(params => this._id = params.id);
     this.activedRoute.queryParams.subscribe(params => {
