@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AppGlobals {
 
-  private api_url = 'https://auras-app.herokuapp.com';
+  private api_url = 'https://perfil-app.herokuapp.com/';
   private photo_url = 'https://inovecomcoragem.github.io/auras-photo/login';
   private auto_photo_login = true;
 
