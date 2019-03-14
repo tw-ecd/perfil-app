@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "auras-app": {
+    "perfil-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -15,7 +15,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "baseHref": "/auras-app/",
+            "baseHref": "/perfil-app/",
             "deleteOutputPath": false,
             "polyfills": "src/polyfills.ts",
             "assets": [
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "auras-app:build"
+            "browserTarget": "perfil-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "auras-app:build:production"
+              "browserTarget": "perfil-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "auras-app:build"
+            "browserTarget": "perfil-app:build"
           }
         },
         "test": {
@@ -105,7 +105,7 @@
         }
       }
     },
-    "auras-app-e2e": {
+    "perfil-app-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -114,7 +114,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "auras-app:serve"
+            "devServerTarget": "perfil-app:serve"
           }
         },
         "lint": {
@@ -131,7 +131,7 @@
       }
     }
   },
-  "defaultProject": "auras-app",
+  "defaultProject": "perfil-app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

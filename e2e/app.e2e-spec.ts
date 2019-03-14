@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('auras-app App', () => {
+describe('perfil-app App', () => {
   let page: AppPage;
 
   beforeEach(() => {
