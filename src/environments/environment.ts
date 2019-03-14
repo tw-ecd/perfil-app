@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  formType: 'access'
+  formType: 'radar'
 };

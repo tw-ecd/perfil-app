@@ -5,7 +5,7 @@ export class AppGlobals {
 
   private api_url = 'https://perfil-app.herokuapp.com';
   private photo_url = 'https://inovecomcoragem.github.io/auras-photo/login';
-  private auto_photo_login = true;
+  private auto_photo_login = false;
 
   constructor() { }
 
