@@ -1,2 +1,2 @@
-# auras-app
-[![Build Status](https://travis-ci.org/inovecomcoragem/auras-app.svg?branch=api)](https://travis-ci.org/inovecomcoragem/auras-app)
+# perfil-app
+[![Build Status](https://travis-ci.org/tw-ecd/perfil-app.svg?branch=api)](https://travis-ci.org/tw-ecd/perfil-app)

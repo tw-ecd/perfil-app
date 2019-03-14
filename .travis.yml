@@ -9,7 +9,7 @@ notifications:
 deploy:
   provider: heroku
   api_key: $HEROKU_KEY
-  app: auras-app
+  app: perfil-app
   on:
-    repo: inovecomcoragem/auras-app
+    repo: tw-ecd/perfil-app
     branch: api
