@@ -178,66 +178,8 @@ setQuestion({
 );
 
 setQuestion({
-    'options': [],
-    'description': 'O que você sente diante das transformações tecnológicas atuais?',
-    'order': 2,
-    'type': 'TREND',
-    'weight': 0
-},
-[{
-    'description': 'Curiosidade',
-    'value': 'Curiosidade'
-},
-{
-    'description': 'Impulso de aprender',
-    'value': 'Impulso de aprender'
-},
-{
-    'description': 'Inspiração',
-    'value': 'Inspiração'
-},
-{
-    'description': 'Receio',
-    'value': 'Receio'
-},
-{
-    'description': 'Oportunidades',
-    'value': 'Oportunidades'
-}]
-);
-
-setQuestion({
-    'description': 'Diante dessas mudanças, qual o seu maior foco?',
-    'order': 3,
-    'type': 'PROFILE',
-    'weight': 0,
-    'options': []
-},
-[{
-    'description': 'Criar coisas novas',
-    'value': 'Criar coisas novas'
-},
-{
-    'description': 'Desenvolver habilidades',
-    'value': 'Desenvolver habilidades'
-},
-{
-    'description': 'Impulsionar a mudança',
-    'value': 'Impulsionar a mudança'
-},
-{
-    'description': 'Aprender na prática',
-    'value': 'Aprender na prática'
-},
-{
-    'description': 'Aproveitar possibilidades',
-    'value': 'Aproveitar possibilidades'
-}]
-);
-
-setQuestion({
     'description': 'Qual a sua área de atuação?',
-    'order': 4,
+    'order': 2,
     'type': 'PROFILE',
     'weight': 0.5,
     'options': []
@@ -268,7 +210,7 @@ setQuestion({
 setQuestion({
     'options': [],
     'description': 'Quais são seus maiores desafios atualmente?',
-    'order': 5,
+    'order': 3,
     'type': 'PROFILE',
     'weight': 0.5
 },
@@ -289,12 +231,72 @@ setQuestion({
     'value': 0.3,
 },
 {
-    'description': 'Aprender linguagens',
+    'description': 'Aprender na prática',
     'value': 0.0,
 }]
 );
 
+setQuestion({
+    'options': [],
+    'description': 'O que você sente diante das transformações tecnológicas atuais?',
+    'order': 4,
+    'type': 'TREND',
+    'weight': 0
+},
+[{
+    'description': 'Curiosidade',
+    'value': 'Curiosidade'
+},
+{
+    'description': 'Impulso de aprender',
+    'value': 'Impulso de aprender'
+},
+{
+    'description': 'Inspiração',
+    'value': 'Inspiração'
+},
+{
+    'description': 'Receio',
+    'value': 'Receio'
+},
+{
+    'description': 'Oportunidades',
+    'value': 'Oportunidades'
+}]
+);
 
+/*
+setQuestion({
+    'options': [],
+    'description': 'Diante dessas mudanças, qual o seu maior foco?',
+    'order': 5,
+    'type': 'PROFILE',
+    'weight': 0
+},
+[{
+    'description': 'Criar coisas novas',
+    'value': 'Criar coisas novas'
+},
+{
+    'description': 'Desenvolver habilidades',
+    'value': 'Desenvolver habilidades'
+},
+{
+    'description': 'Impulsionar a mudança',
+    'value': 'Impulsionar a mudança'
+},
+{
+    'description': 'Aprender na prática',
+    'value': 'Aprender na prática'
+},
+{
+    'description': 'Aproveitar possibilidades',
+    'value': 'Aproveitar possibilidades'
+}]
+);
+*/
+
+/*
 setQuestion({
     'options': [],
     'description': 'Como você se sente em relação ao futuro?',
@@ -327,7 +329,9 @@ setQuestion({
     'value': 'Assustada',
 }]
 );
+*/
 
+/*
 setQuestion({
     'options': [],
     'description': 'Qual dessas características você considera mais relevante em uma líder?',
@@ -356,5 +360,5 @@ setQuestion({
     'value': 'Empatia'
 }]
 );
-
+*/
 
