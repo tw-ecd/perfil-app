@@ -3,8 +3,8 @@
     <div class="col-9 text-center">
       <img src="assets/tw-logo-blue.png" alt="ThoughtWorks Blue Logo" class="tw-logo">
       <p class="almost-text">
-        Estamos quase terminando. Para
-        <span class="bold">REVELAR SUA IMAGEM</span> preencha
+        Estamos quase terminando. Para receber
+        <span class="bold">SEU PERFIL DE PESSOA INOVADORA</span> preencha
         <span class="bold">OS DADOS ABAIXO</span>
       </p>
     </div>
@@ -53,11 +53,11 @@
           </select>
           <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
         </div>
-        <div class="form-group checkbox-group">
+        <div class="form-group checkbox-group" *ngIf="false">
           <input type="checkbox" class="form-control" formControlName="events_permission">
           <label class="shown">Assine à nossa mailing list de eventos.</label>
         </div>
-        <div class="form-group checkbox-group">
+        <div class="form-group checkbox-group" *ngIf="false">
           <input type="checkbox" class="form-control" formControlName="radar_permission">
           <label class="shown">Assine à mailing list do Technology Radar.</label>
         </div>

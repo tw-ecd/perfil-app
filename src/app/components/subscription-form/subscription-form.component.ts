@@ -79,7 +79,7 @@ export class SubscriptionFormComponent implements OnInit {
       access_permission: [false],
       events_permission: [false],
       radar_permission: [false],
-      information_share_permission: [false]
+      information_share_permission: [false, Validators.requiredTrue]
     });
   }
 
