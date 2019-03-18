@@ -120,47 +120,47 @@ setProfile(
 );
 
 setQuestion({
-    'description': 'Com qual dessas macrotendências tecnológicas você mais se identifica? ',
+    'description': '¿Con cuál de estas macrotendencias tecnológicas te identificas más?',
     'order': 0,
     'options': [],
     'type': 'TREND',
     'weight': 2
 },
 [{
-    'description': 'Interações em evolução',
+    'description': 'Interacciones en evolución',
     'value': 'EVO_INTER'
 },
 {
-    'description': 'Crescimento das Plataformas',
+    'description': 'Crecimiento de las Plataformas',
     'value': 'RISE_PLAT'
 },
 {
-    'description': 'Segurança, privacidade e transparência',
+    'description': 'Seguridad, privacidad y transparencia',
     'value': 'SEC_PRIV'
 },
 {
-    'description': 'Físico. Agora digital.',
+    'description': 'Físico, ahora digital',
     'value': 'HUMAN_AUG'
 },
 {
-    'description': 'Humanidade aumentada',
+    'description': 'Humanidad aumentada',
     'value': 'RISE_ROBOT'
 }]
 );
 
 setQuestion({
-    'description': 'Qual dessas tecnologias produzirá o maior impacto no ecosistema de TI?',
+    'description': '¿Cuál de estas tecnologías producirá el mayor impacto en el ecosistema de TI?',
     'order': 1,
     'options': [],
     'type': 'TREND',
     'weight': 1
 },
 [{
-    'description': 'Assistentes de Voz',
+    'description': 'Asistentes de Voz',
     'value': 'EVO_INTER'
 },
 {
-    'description': 'SAAS',
+    'description': 'SaaS',
     'value': 'RISE_PLAT'
 },
 {
@@ -178,7 +178,7 @@ setQuestion({
 );
 
 setQuestion({
-    'description': 'Qual a sua área de atuação?',
+    'description': '¿Cuál es tu área de acción?',
     'order': 2,
     'type': 'PROFILE',
     'weight': 0.5,
@@ -189,15 +189,15 @@ setQuestion({
     'value': 0.2,
 },
 {
-    'description': 'Tecnologia',
+    'description': 'Tecnología',
     'value': 1.0,
 },
 {
-    'description': 'Pessoas',
+    'description': 'Personas (Recursos Humanos)',
     'value': 0.0,
 },
 {
-    'description': 'Produtos',
+    'description': 'Productos',
     'value': 0.5,
 },
 {
@@ -206,61 +206,60 @@ setQuestion({
 }]
 );
 
-
 setQuestion({
     'options': [],
-    'description': 'Quais são seus maiores desafios atualmente?',
+    'description': '¿Cuáles son tus mayores desafíos hoy?',
     'order': 3,
     'type': 'PROFILE',
     'weight': 0.5
 },
 [{
-    'description': 'Agir com agilidade',
+    'description': 'Actuar de forma ágil',
     'value': 0.5,
 },
 {
-    'description': 'Implementar inovações',
+    'description': 'Implementar innovaciones',
     'value': 1.0,
 },
 {
-    'description': 'Gerar valor ao negócio',
+    'description': 'Generar valor al negocio',
     'value': 0.7,
 },
 {
-    'description': 'Entender novas tecnologias',
+    'description': 'Entender nuevas tecnologías',
     'value': 0.3,
 },
 {
-    'description': 'Aprender na prática',
+    'description': 'Aprender con la práctica',
     'value': 0.0,
 }]
 );
 
 setQuestion({
     'options': [],
-    'description': 'O que você sente diante das transformações tecnológicas atuais?',
+    'description': '¿Qué sientes ante las transformaciones tecnológicas actuales?',
     'order': 4,
     'type': 'TREND',
     'weight': 0
 },
 [{
-    'description': 'Curiosidade',
+    'description': 'Curiosidad',
     'value': 'Curiosidade'
 },
 {
-    'description': 'Impulso de aprender',
+    'description': 'Motivación para aprender',
     'value': 'Impulso de aprender'
 },
 {
-    'description': 'Inspiração',
+    'description': 'Inspiración',
     'value': 'Inspiração'
 },
 {
-    'description': 'Receio',
+    'description': 'Miedo',
     'value': 'Receio'
 },
 {
-    'description': 'Oportunidades',
+    'description': 'Optimismo por las oportunidades',
     'value': 'Oportunidades'
 }]
 );
