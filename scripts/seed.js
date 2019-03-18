@@ -160,7 +160,7 @@ setQuestion({
     'value': 'EVO_INTER'
 },
 {
-    'description': 'SaaS',
+    'description': 'Software as a service (SaaS)',
     'value': 'RISE_PLAT'
 },
 {
