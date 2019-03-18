@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const winston = require('winston');
+const seedrandom = require('seedrandom');
 const Person = require('../models/person.model');
 const Option = require('../models/option.model');
 const Profile = require('../models/profile.model');
@@ -9,7 +10,29 @@ const EmailService = require('../services/email.service.js');
 const ResultService = require('../services/result.service.js');
 
 router.get('/', (req, res) => {
-  res.status(200).json({ message: 'person API OK' });
+    res.status(200).json({ message: 'person API OK' });
+});
+
+router.get('/sorteo/:num?', (req, res) => {
+    Person.find({}, { _id: 0, name: 1, email: 1, datetime: 1 })
+        .sort({ 'datetime': -1 })
+        .then((result) => {
+            const numPeople = Math.min(req.params.num || 1, result.length);
+            const randomPeriodInMinutes = 1;
+            const timeSensitiveSeed = Math.floor(new Date() / (1000 * 60 * randomPeriodInMinutes));
+            const seededRandom = seedrandom(timeSensitiveSeed);
+
+            const rands = Array.from({length: numPeople}, () => {
+                const randomIndex = Math.floor(seededRandom() * result.length);
+                const thisElement = result.splice(randomIndex, 1);
+                return thisElement[0];
+            });
+
+            rands.forEach((e) => e.datetime = undefined);
+            res.json(rands);
+        }, (err) => {
+            res.status(500).send({ success: false, message: 'Erro na busca', data: err });
+        });
 });
 
 router.get('/:id', (req, res) => {
