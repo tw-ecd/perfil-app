@@ -17,41 +17,29 @@
     <div class="col-9 form-box" *ngIf="radarForm">
       <form [formGroup]="personForm">
         <div class="form-group">
-          <label [ngClass]="{'shown': name.value}">NOME</label>
+          <label [ngClass]="{'shown': name.value}">NOMBRE</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="name.value" (click)="clear(name)"></i>
-          <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.invalid && name.dirty}" placeholder="NOME">
-          <small class="text-danger" *ngIf="name.invalid && name.dirty">VERIFIQUE SEU NOME.</small>
+          <input class="form-control" formControlName="name" [ngClass]="{'is-invalid': name.invalid && name.dirty}" placeholder="NOMBRE">
+          <small class="text-danger" *ngIf="name.invalid && name.dirty">COMPRUEBA TU NOMBRE.</small>
         </div>
         <div class="form-group">
           <label [ngClass]="{'shown': company.value}">EMPRESA</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="company.value" (click)="clear(company)"></i>
           <input class="form-control" formControlName="company" [ngClass]="{'is-invalid': company.invalid && company.dirty}" placeholder="EMPRESA">
-          <small class="text-danger" *ngIf="company.invalid && company.dirty">VERIFIQUE SUA EMPRESA.</small>
+          <small class="text-danger" *ngIf="company.invalid && company.dirty">COMPRUEBA TU EMPRESA.</small>
         </div>
         <div class="form-group">
           <label [ngClass]="{'shown': email.value}">E-MAIL</label>
           <i class="fa fa-times" aria-hidden="true" *ngIf="email.value" (click)="clear(email)"></i>
           <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.dirty}" formControlName="email"
             [email]="true" placeholder="EMAIL">
-            <small class="text-danger" *ngIf="email.invalid && email.dirty">VERIFIQUE SEU E-MAIL. ESTÁ CORRETO?</small>
+            <small class="text-danger" *ngIf="email.invalid && email.dirty">COMPRUEBA TU E-MAIL.</small>
         </div>
         <div class="form-group">
-          <label [ngClass]="{'shown': function.value}">FUNÇÃO</label>
-          <select class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNÇÃO">
-            <option value="" disabled selected hidden>FUNÇÃO</option>
-            <option>Analista de Negócios (BA)</option>
-            <option>Analista de Qualidade (QA)</option>
-            <option>Cientista de Dados / Engineering</option>
-            <option>DevOps / Consultora de Infraestrutura</option>
-            <option>Designer de Experiência</option>
-            <option>Estudante</option>
-            <option>Gerente de Produto</option>
-            <option>Gerente de Programa</option>
-            <option>Gerente de Projetos</option>
-            <option>Desenvolvedora de Software</option>
-            <option>Outro</option>
-          </select>
-          <small class="text-danger" *ngIf="function.invalid && function.dirty">VERIFIQUE SUA FUNÇÃO.</small>
+          <label [ngClass]="{'shown': function.value}">FUNCIÓN / CARGO</label>
+          <i class="fa fa-times" aria-hidden="true" *ngIf="function.value" (click)="clear(function)"></i>
+          <input class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNCIÓN / CARGO">
+          <small class="text-danger" *ngIf="function.invalid && function.dirty">COMPRUEBA TU CARGO.</small>
         </div>
         <div class="form-group checkbox-group" *ngIf="false">
           <input type="checkbox" class="form-control" formControlName="events_permission">
