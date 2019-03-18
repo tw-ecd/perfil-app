@@ -1,4 +1,4 @@
-ThoughtWorks: Inove Com Coragem
+ThoughtWorks: eCommerce Day 2019
 
 Seu perfil de pessoa inovadora é:
 {{user.profile}}

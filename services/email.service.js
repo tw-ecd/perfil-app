@@ -34,7 +34,7 @@ function EmailService(user) {
                     Data: 'Seu Perfil de Pessoa Inovadora'
                 }
             },
-            Source: '"ThoughtWorks - Inove Com Coragem" <inovecomcoragem@thoughtworks.com>'
+            Source: '"ThoughtWorks - eCommerce Day 2019" <inovecomcoragem@thoughtworks.com>'
         };
         return new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
     };
@@ -73,7 +73,7 @@ function EmailService(user) {
                     Data: 'Resultado de Perfil de Pessoa Inovadora'
                 }
             },
-            Source: '"ThoughtWorks - Inove Com Coragem" <inovecomcoragem@thoughtworks.com>'
+            Source: '"ThoughtWorks - eCommerce Day 2019" <inovecomcoragem@thoughtworks.com>'
         };
 
         return new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
