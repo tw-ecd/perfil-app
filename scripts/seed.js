@@ -60,62 +60,62 @@ function setProfile(title, text, identifier) {
 }
 
 setProfile(
-    'Geradora de Interações', 
-    'Você acredita que as novas formas de interação entre pessoas e máquinas transformarão a maneira como vivemos e nos relacionamos, criando novas possibilidades de engajamento para as marcas. Assistentes de voz, ausência de telas e IoT são só algumas das tecnologias que possibilitam esse mundo novo que você quer criar. A ThoughtWorks pode te acompanhar nessa jornada, desenvolvendo softwares personalizados para que você continue inovando com coragem.',
+    'Generadora de Interacciones',
+    'Crees que las nuevas formas de interacción entre personas y máquinas transformarán la manera en que vivimos y nos relacionamos, creando nuevas posibilidades de compromiso con los consumidores y clientes. Asistentes de voz, ausencia de pantallas e IoT son sólo algunas de las tecnologías que posibilitan este mundo nuevo que deseas crear. ThoughtWorks te puede acompañar en esta jornada, desarrollando software personalizado para que continúes innovando con coraje.',
     'GERADORA_INTERACOES'
 );
 
 setProfile(
-    'Engenheira de Hábitos', 
-    'Você é responsável por criar novas formas de interação entre pessoas e máquinas, transformando a maneira como vivemos e nos relacionamos. Suas habilidades criam novas possibilidades de engajamento para as marcas. Com grandes poderes você também tem grandes responsabilidades. A ThoughtWorks pode te ajudar a desenvolver essas novas tecnologias, garantindo segurança e excelência técnica, ao mesmo tempo em que buscamos evitar os vieses cognitivos para inovar com responsabilidade. ',
+    'Ingeniera de Hábitos',
+    'Eres responsable por crear nuevas formas de interacción entre personas y máquinas, transformando la manera en que vivimos y nos relacionamos. Tus habilidades crean nuevas posibilidades de compromiso con los consumidores y clientes. Con grandes poderes también tienes grandes responsabilidades. ThoughtWorks puede ayudarte a desarrollar estas nuevas tecnologías, garantizando la seguridad y la excelencia técnica, al tiempo que buscamos evitar parcialidades y prejuicios para innovar con responsabilidad.',
     'ENGENHEIRA_HABITOS'
 );
 
 setProfile(
-    'Formadora de Plataformas', 
-    'Você acredita que plataformas digitais possibilitam a inovação em escala através da utilização estratégica do legado tecnológico de uma organização. Seu pensamento sistêmico é capaz de garantir a competitividade de uma marca no longo prazo. A ThoughtWorks pode te ajudar a remover barreiras para habilitar a entrega rápida de novos produtos e criar diferenciação por meio da tecnologia.',
+    'Formadora de Plataformas',
+    'Crees que las plataformas digitales posibilitan la innovación en escala a través del uso estratégico del legado tecnológico de tu organización. Tu pensamiento sistémico es capaz de garantizar la competitividad de un negocio a largo plazo. ThoughtWorks puede ayudarte a eliminar las barreras para habilitar la entrega rápida de nuevos productos y crear diferenciación a través de la tecnología.',
     'FORMADORA_PLATAFORMAS'
 );
 
 setProfile(
-    'Criadora de Possibilidades', 
-    'Você cria plataformas digitais que possibilitam a inovação em escala por meio da utilização estratégica do legado tecnológico de uma organização. Seu conhecimento técnico aliado ao seu pensamento sistêmico são capazes de garantir a competitividade de uma marca no longo prazo. A ThoughtWorks te ajuda a remover barreiras para habilitar a entrega rápida de novos produtos e criar diferenciação através da tecnologia.',
+    'Creadora de posibilidades',
+    'Creas plataformas digitales que posibilitan la innovación en escala a través del uso estratégico del legado tecnológico de una organización. Tu conocimiento técnico aliado a tu pensamiento sistémico son capaces de garantizar la competitividad de un negocio a largo plazo. ThoughtWorks te ayuda a eliminar barreras para habilitar la entrega rápida de nuevos productos y crear diferenciación a través de la tecnología.',
     'CRIADORA_POSSIBILIDADES'
 );
 
 setProfile(
-    'Guardiã dos Dados', 
-    'Você ama dados e sabe como usá-los. Sua curiosidade só é satisfeita quando você se sente capaz de responder perguntas com fatos e dados. Essa dedicação à verdade te torna responsável por alavancar soluções inovadoras para os desafios de sua organização. A ThoughtWorks pode te ajudar a criar novas ferramentas que utilizam informação e tecnologia para gerar diferenciação competitiva.',
+    'Guardián de los datos',
+    'Amas los datos y sabes cómo utilizarlos. Tu curiosidad sólo se satisface cuando te sientes capaz de responder preguntas con hechos y datos. Esta dedicación a la verdad te hace responsable de aprovechar soluciones innovadoras para los desafíos de tu organización. ThoughtWorks puede ayudarte a crear nuevas herramientas que utilicen información y tecnología para generar diferenciación competitiva.',
     'GUARDIA_DADOS'
 );
 
 setProfile(
-    'Mestra dos Números', 
-    'Você é uma pessoa pragmática que acredita que os números têm as respostas. Sua curiosidade só é satisfeita quando você se sente capaz de desenvolver sistemas que respondem perguntas com precisão. Essa dedicação à verdade te torna responsável por desenvolver soluções inovadoras para os desafios de sua organização. A ThoughtWorks pode te ajudar a criar novas ferramentas que utilizam informação e tecnologia para gerar diferenciação competitiva.',
+    'Maestra de los Números',
+    'Eres una persona pragmática que cree que los números tienen respuestas. Tu curiosidad sólo se satisface cuando te sientes capaz de desarrollar sistemas que responden preguntas con precisión. Esta dedicación a la verdad te hace responsable por desarrollar soluciones innovadoras para los desafíos de tu organización. ThoughtWorks puede ayudarte a crear nuevas herramientas que utilicen información y tecnología para generar diferenciación competitiva.',
     'MESTRA_NUMEROS'
 );
 
 setProfile(
-    'Criadora do Novo', 
-    'Você acredita que a inovação precisa ser centrada na pessoa usuária e busca sempre responder aos desafios de sua organização pensando nas pessoas. Seu foco em criar novas experiências que respondam a anseios existentes te posiciona como uma pessoa chave para qualquer empresa que queira ser competitiva no futuro. A ThoughtWorks pode te ajudar nessa missão de entender as necessidades humanas para criar produtos e serviços apaixonantes.',
+    'Creadora de lo Nuevo',
+    'Crees que la innovación necesita ser centrada en la persona usuaria y buscas siempre responder a los desafíos de tu organización pensando en las personas. Tu enfoque en crear nuevas experiencias que respondan a deseos existentes, te posiciona como una persona clave para cualquier empresa que quiera ser competitiva en el futuro. ThoughtWorks puede ayudarte en esta misión de entender las necesidades humanas para crear productos y servicios apasionantes.',
     'CRIADORA_NOVO'
 );
 
 setProfile(
-    'Realizadora de Possibilidades', 
-    'Você inova sempre pensando na pessoa usuária, respondendo aos desafios da sua organização pensando nas pessoas. Seu conhecimento é capaz de criar novas experiências que respondem a anseios existentes e te posiciona como uma pessoa chave para qualquer empresa que queira ser competitiva no futuro. A ThoughtWorks pode te ajudar nessa missão de entender as necessidades humanas para desenvolver produtos e serviços apaixonantes.',
+    'Realizadora de Posibilidades',
+    'Innovas siempre pensando en la persona usuaria, respondiendo a los desafíos de tu organización. Tu conocimiento es capaz de crear nuevas experiencias que responden a deseos existentes y te posiciona como una persona clave para cualquier empresa que quiera ser competitiva en el futuro. ThoughtWorks te puede ayudar en esta misión de entender las necesidades humanas para desarrollar productos y servicios apasionantes.',
     'REALIZADORA_POSSIBILIDADES'
 );
 
 setProfile(
-    'Mestra de Robôs', 
-    'Você acredita na capacidade dos robôs de ajudar organizações a se manterem competitivas no presente e no futuro. A singularidade não é um medo, e sim uma oportunidade. Você conhece os desafios da cooperação entre pessoas e máquinas e está disposta a liderar esse movimento. Você inova como uma rebelde. A ThoughtWorks pode te ajudar a entender como usar a tecnologia para alavancar os negócios. ',
+    'Maestra de Robots',
+    'Crees en la capacidad de los robots de ayudar a las organizaciones a mantenerse competitivas en el presente y en el futuro. La singularidad no es un miedo, sino una oportunidad. Conoces los desafíos de la cooperación entre personas y máquinas y estas dispuesta a liderar ese movimiento. ThoughtWorks puede ayudarte a entender cómo utilizar la tecnología para aprovechar los negocios.',
     'MESTRA_ROBOS'
 );
 
 setProfile(
-    'Líder das Máquinas', 
-    'Você sabe como fazer as máquinas ajudarem organizações a se manterem competitivas no presente e no futuro. A singularidade não é um medo, e sim uma oportunidade. Seu conhecimento te permite criar a cooperação entre pessoas e máquinas, liderando esse movimento com ética e responsabilidade. Você inova como uma rebelde. A ThoughtWorks pode te ajudar a entender como usar a tecnologia para alavancar os negócios.',
+    'Líder de las máquinas',
+    'Sabes cómo hacer que las máquinas ayuden a las organizaciones a mantenerse competitivas en el presente y en el futuro. La singularidad no es un miedo, sino una oportunidad. Tu conocimiento te permite crear la cooperación entre personas y máquinas, liderando ese movimiento con ética y responsabilidad. ThoughtWorks puede ayudarte a entender cómo utilizar la tecnología para aprovechar los negocios.',
     'LIDER_MAQUINAS'
 );
 
