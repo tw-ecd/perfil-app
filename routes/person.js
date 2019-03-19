@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/sorteo/:num?', (req, res) => {
-    Person.find({}, { _id: 0, name: 1, email: 1, datetime: 1 })
+    Person.find({'email': {$ne: null }}, { _id: 0, name: 1, email: 1, datetime: 1 })
         .sort({ 'datetime': -1 })
         .then((result) => {
             const numPeople = Math.min(req.params.num || 1, result.length);
