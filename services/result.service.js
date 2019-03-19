@@ -6,11 +6,11 @@ module.exports = class ResultService {
         this.profileAnswers = person.answers.filter(a => a.typeOf === 'PROFILE' && a.weight > 0);
 
         this.profileMatrix = {
-            'EVO_INTER': ['Engenheira de Hábitos', 'Geradora de Interações'],
-            'RISE_PLAT': ['Criadora de Possibilidades', 'Formadora de Plataformas'],
-            'SEC_PRIV': ['Mestra dos Números', 'Guardiã dos Dados'],
-            'HUMAN_AUG': ['Realizadora de Possibilidades', 'Criadora do Novo'],
-            'RISE_ROBOT': ['Líder das Máquinas', 'Mestra de Robôs'],
+            'EVO_INTER': ['ENGENHEIRA_HABITOS', 'GERADORA_INTERACOES'],
+            'RISE_PLAT': ['CRIADORA_POSSIBILIDADES', 'FORMADORA_PLATAFORMAS'],
+            'SEC_PRIV': ['MESTRA_NUMEROS', 'GUARDIA_DADOS'],
+            'HUMAN_AUG': ['REALIZADORA_POSSIBILIDADES', 'CRIADORA_NOVO'],
+            'RISE_ROBOT': ['LIDER_MAQUINAS', 'MESTRA_ROBOS'],
         };
     }
 
@@ -46,7 +46,7 @@ module.exports = class ResultService {
         const profile = this.calculateProfile();
 
         return {
-            'name': this.profileMatrix[trend][profile],
+            'identifier': this.profileMatrix[trend][profile],
             'trend': trend,
             'profile': profile
         };

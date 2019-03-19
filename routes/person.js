@@ -69,7 +69,7 @@ router.get('/:id/results', function (req, res) {
         try {
             const calculated = new ResultService(person).calculateAuraProfile();
 
-            Profile.findOne({ title: calculated.name }, (err, profile) => {
+            Profile.findOne({ identifier: calculated.identifier }, (err, profile) => {
                 calculated.details = profile;
                 res.json(calculated);
             });
@@ -102,13 +102,13 @@ router.put('/:id', function (req, res) {
         person.radar_permission = req.body.radar_permission;
         person.information_share_permission = req.body.information_share_permission;
         person.datetime = new Date();
-        person.profile = new ResultService(person).calculateAuraProfile().name;
+        person.profile_identifier = new ResultService(person).calculateAuraProfile().identifier;
 
-        Profile.findOne({ title: person.profile }).then(
+        Profile.findOne({ identifier: person.profile_identifier }).then(
             (profile) => {
                 person._id = req.params.id;
                 person.text = profile.description;
-                person.profile_identifier = profile.identifier;
+                person.profile = profile.title;
                 person.image_url = `https://s3.amazonaws.com/tw-su-auras/profile/${profile.identifier.toLowerCase()}.png`;
 
                 person.save().then(

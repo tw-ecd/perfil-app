@@ -75,31 +75,31 @@ describe('Result Service', () => {
             done();
         });
 
-        it('should return \'Geradora de Interações\' as aura profile', (done) => {
+        it('should return GERADORA_INTERACOES as aura profile', (done) => {
             sinon.stub(service, 'calculateTrend').returns('EVO_INTER');
             sinon.stub(service, 'calculateProfile').returns(1);
 
-            service.calculateAuraProfile().name.should.be.equal('Geradora de Interações');
+            service.calculateAuraProfile().identifier.should.be.equal('GERADORA_INTERACOES');
             service.calculateAuraProfile().trend.should.be.equal('EVO_INTER');
             service.calculateAuraProfile().profile.should.be.equal(1);
             done();
         });
 
-        it('should return \'Criadora de Possibilidades\' as aura profile when get RISE_PLAT and Profile is 0', (done) => {
+        it('should return CRIADORA_POSSIBILIDADES as aura profile when get RISE_PLAT and Profile is 0', (done) => {
             sinon.stub(service, 'calculateTrend').returns('RISE_PLAT');
             sinon.stub(service, 'calculateProfile').returns(0);
 
-            service.calculateAuraProfile().name.should.be.equal('Criadora de Possibilidades');
+            service.calculateAuraProfile().identifier.should.be.equal('CRIADORA_POSSIBILIDADES');
             service.calculateAuraProfile().trend.should.be.equal('RISE_PLAT');
             service.calculateAuraProfile().profile.should.be.equal(0);
             done();
         });
         
-        it('should return \'Criadora do Novo\' as aura profile when get HUMAN_AUG and Profile is 1', (done) => {
+        it('should return CRIADORA_NOVO as aura profile when get HUMAN_AUG and Profile is 1', (done) => {
             sinon.stub(service, 'calculateTrend').returns('HUMAN_AUG');
             sinon.stub(service, 'calculateProfile').returns(1);
 
-            service.calculateAuraProfile().name.should.be.equal('Criadora do Novo');
+            service.calculateAuraProfile().identifier.should.be.equal('CRIADORA_NOVO');
             service.calculateAuraProfile().trend.should.be.equal('HUMAN_AUG');
             service.calculateAuraProfile().profile.should.be.equal(1);
 
