@@ -66,7 +66,7 @@ setProfile(
 );
 
 setProfile(
-    'Ingeniera de Hábitos',
+    'Ingeniera de Tendencias',
     'Eres responsable por crear nuevas formas de interacción entre personas y máquinas, transformando la manera en que vivimos y nos relacionamos. Tus habilidades crean nuevas posibilidades de compromiso con los consumidores y clientes. Con grandes poderes también tienes grandes responsabilidades. ThoughtWorks puede ayudarte a desarrollar estas nuevas tecnologías, garantizando la seguridad y la excelencia técnica, al tiempo que buscamos evitar parcialidades y prejuicios para innovar con responsabilidad.',
     'ENGENHEIRA_HABITOS'
 );
