@@ -90,25 +90,25 @@ setProfile(
 );
 
 setProfile(
-    'Maestra de los Números',
+    'Master de los Números',
     'Eres una persona pragmática que cree que los números tienen respuestas. Tu curiosidad sólo se satisface cuando te sientes capaz de desarrollar sistemas que responden preguntas con precisión. Esta dedicación a la verdad te hace responsable por desarrollar soluciones innovadoras para los desafíos de tu organización. ThoughtWorks puede ayudarte a crear nuevas herramientas que utilicen información y tecnología para generar diferenciación competitiva.',
     'MESTRA_NUMEROS'
 );
 
 setProfile(
-    'Creadora de lo Nuevo',
+    'Artífice de lo Nuevo',
     'Crees que la innovación necesita ser centrada en la persona usuaria y buscas siempre responder a los desafíos de tu organización pensando en las personas. Tu enfoque en crear nuevas experiencias que respondan a deseos existentes, te posiciona como una persona clave para cualquier empresa que quiera ser competitiva en el futuro. ThoughtWorks puede ayudarte en esta misión de entender las necesidades humanas para crear productos y servicios apasionantes.',
     'CRIADORA_NOVO'
 );
 
 setProfile(
-    'Realizadora de Posibilidades',
+    'Agente que cristaliza posibilidades',
     'Innovas siempre pensando en la persona usuaria, respondiendo a los desafíos de tu organización. Tu conocimiento es capaz de crear nuevas experiencias que responden a deseos existentes y te posiciona como una persona clave para cualquier empresa que quiera ser competitiva en el futuro. ThoughtWorks te puede ayudar en esta misión de entender las necesidades humanas para desarrollar productos y servicios apasionantes.',
     'REALIZADORA_POSSIBILIDADES'
 );
 
 setProfile(
-    'Maestra de Robots',
+    'Master de Robots',
     'Crees en la capacidad de los robots de ayudar a las organizaciones a mantenerse competitivas en el presente y en el futuro. La singularidad no es un miedo, sino una oportunidad. Conoces los desafíos de la cooperación entre personas y máquinas y estas dispuesta a liderar ese movimiento. ThoughtWorks puede ayudarte a entender cómo utilizar la tecnología para aprovechar los negocios.',
     'MESTRA_ROBOS'
 );
@@ -127,19 +127,19 @@ setQuestion({
     'weight': 2
 },
 [{
-    'description': 'Interacciones en evolución',
+    'description': 'Evolucionando las interacciones',
     'value': 'EVO_INTER'
 },
 {
-    'description': 'Crecimiento de las Plataformas',
+    'description': 'Plataformas como catalizadores',
     'value': 'RISE_PLAT'
 },
 {
-    'description': 'Seguridad, privacidad y transparencia',
+    'description': 'Reconstruyendo la confianza',
     'value': 'SEC_PRIV'
 },
 {
-    'description': 'Físico, ahora digital',
+    'description': 'Antes físico, ahora digital',
     'value': 'HUMAN_AUG'
 },
 {
