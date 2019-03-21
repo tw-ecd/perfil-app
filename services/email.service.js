@@ -31,7 +31,7 @@ function EmailService(user) {
                 },
                 Subject: {
                     Charset: 'UTF-8',
-                    Data: 'Seu Perfil de Pessoa Inovadora'
+                    Data: 'Tu Perfil de Persona Innovadora'
                 }
             },
             Source: '"ThoughtWorks - eCommerce Day 2019" <inovecomcoragem@thoughtworks.com>'
@@ -70,7 +70,7 @@ function EmailService(user) {
                 },
                 Subject: {
                     Charset: 'UTF-8',
-                    Data: 'Resultado de Perfil de Pessoa Inovadora'
+                    Data: 'Resultado de Perfil de Persona Innovadora'
                 }
             },
             Source: '"ThoughtWorks - eCommerce Day 2019" <inovecomcoragem@thoughtworks.com>'
