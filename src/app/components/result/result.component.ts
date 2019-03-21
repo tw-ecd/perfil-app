@@ -45,8 +45,8 @@ export class ResultComponent implements OnInit {
   fetch() {
     this.personService.result(this._id).subscribe((result) => {
       this.result = result;
-      this.title = result.name.substr(0, result.name.lastIndexOf(' '));
-      this.bold = result.name.substr(result.name.lastIndexOf(' '));
+      this.title = result.details.title.substr(0, result.details.title.lastIndexOf(' '));
+      this.bold = result.details.title.substr(result.details.title.lastIndexOf(' '));
       this.setShareHref();
     });
     this.personService.get(this._id).subscribe((person) => {
