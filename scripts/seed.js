@@ -60,19 +60,19 @@ function setProfile(title, text, identifier) {
 }
 
 setProfile(
-    'Generadora de Interacciones',
+    'Artista de Interacciones',
     'Crees que las nuevas formas de interacción entre personas y máquinas transformarán la manera en que vivimos y nos relacionamos, creando nuevas posibilidades de compromiso con los consumidores y clientes. Asistentes de voz, ausencia de pantallas e IoT son sólo algunas de las tecnologías que posibilitan este mundo nuevo que deseas crear. ThoughtWorks te puede acompañar en esta jornada, desarrollando software personalizado para que continúes innovando con coraje.',
     'GERADORA_INTERACOES'
 );
 
 setProfile(
-    'Ingeniera de Tendencias',
+    'Especialista de Tendencias',
     'Eres responsable por crear nuevas formas de interacción entre personas y máquinas, transformando la manera en que vivimos y nos relacionamos. Tus habilidades crean nuevas posibilidades de compromiso con los consumidores y clientes. Con grandes poderes también tienes grandes responsabilidades. ThoughtWorks puede ayudarte a desarrollar estas nuevas tecnologías, garantizando la seguridad y la excelencia técnica, al tiempo que buscamos evitar parcialidades y prejuicios para innovar con responsabilidad.',
     'ENGENHEIRA_HABITOS'
 );
 
 setProfile(
-    'Formadora de Plataformas',
+    'Agente de Plataformas',
     'Crees que las plataformas digitales posibilitan la innovación en escala a través del uso estratégico del legado tecnológico de tu organización. Tu pensamiento sistémico es capaz de garantizar la competitividad de un negocio a largo plazo. ThoughtWorks puede ayudarte a eliminar las barreras para habilitar la entrega rápida de nuevos productos y crear diferenciación a través de la tecnología.',
     'FORMADORA_PLATAFORMAS'
 );
@@ -84,7 +84,7 @@ setProfile(
 );
 
 setProfile(
-    'Guardián de los datos',
+    'Centinela de los datos',
     'Amas los datos y sabes cómo utilizarlos. Tu curiosidad sólo se satisface cuando te sientes capaz de responder preguntas con hechos y datos. Esta dedicación a la verdad te hace responsable de aprovechar soluciones innovadoras para los desafíos de tu organización. ThoughtWorks puede ayudarte a crear nuevas herramientas que utilicen información y tecnología para generar diferenciación competitiva.',
     'GUARDIA_DADOS'
 );
@@ -193,7 +193,7 @@ setQuestion({
     'value': 1.0,
 },
 {
-    'description': 'Personas (Recursos Humanos)',
+    'description': 'Personas',
     'value': 0.0,
 },
 {
