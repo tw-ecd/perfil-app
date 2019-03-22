@@ -201,7 +201,7 @@ setQuestion({
     'value': 0.5,
 },
 {
-    'description': 'Compliance',
+    'description': 'Estrategia',
     'value': 0.7,
 }]
 );
