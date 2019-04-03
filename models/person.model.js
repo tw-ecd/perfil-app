@@ -27,21 +27,6 @@ const PersonSchema = new mongoose.Schema({
     function: {
         type: String
     },
-    career_email_permission: {
-        type: Boolean
-    },
-    access_permission: {
-        type: Boolean
-    },
-    events_permission: {
-        type: Boolean
-    },
-    radar_permission: {
-        type: Boolean
-    },
-    information_share_permission: {
-        type: Boolean
-    },
     profile: {
         type: String
     },

@@ -96,11 +96,6 @@ router.put('/:id', function (req, res) {
         person.company = req.body.company;
         person.role = req.body.role;
         person.function = req.body.function;
-        person.career_email_permission = req.body.career_email_permission;
-        person.access_permission = req.body.access_permission;
-        person.events_permission = req.body.access_permission || req.body.events_permission;
-        person.radar_permission = req.body.radar_permission;
-        person.information_share_permission = req.body.information_share_permission;
         person.datetime = new Date();
         person.profile_identifier = new ResultService(person).calculateAuraProfile().identifier;
 
