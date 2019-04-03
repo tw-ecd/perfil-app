@@ -24,7 +24,8 @@
               "src/profile"
             ],
             "styles": [
-              "src/styles.scss",
+              "src/css/styles.scss",
+              "src/css/marketo.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.min.css"
             ],
@@ -80,7 +81,8 @@
               "src/js/mkto/forms2.min.js"
             ],
             "styles": [
-              "src/styles.scss",
+              "src/css/styles.scss",
+              "src/css/marketo.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.min.css"
             ],

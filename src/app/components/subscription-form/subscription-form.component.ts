@@ -17,8 +17,8 @@ declare var MktoForms2: any;
 export class SubscriptionFormComponent implements OnInit {
 
   personForm: FormGroup;
-  accessForm: boolean;
-  radarForm: boolean;
+  marketoForm: boolean;
+  mongoForm: boolean;
 
   constructor(
     private personService: PersonService,
@@ -42,19 +42,14 @@ export class SubscriptionFormComponent implements OnInit {
   }
 
   createForm() {
-    this.accessForm = (environment.formType === 'access');
-    this.radarForm = (environment.formType === 'radar');
+    this.marketoForm = (environment.formType === 'marketo');
+    this.mongoForm = (environment.formType === 'mongo');
 
-    if (this.accessForm) {
+    if (this.marketoForm) {
       setTimeout(function() {
         MktoForms2.loadForm('https://app-e.marketo.com', '199-QDE-291', 9089, function() {
           const btn = <HTMLElement>document.getElementsByClassName('mktoButton')[0];
-          btn.classList.add('btn', 'btn-lg');
           btn.innerHTML = 'CONFIRMAR';
-          btn.style['background-color'] = '#074c9d';
-          btn.style['background-image'] = 'none';
-          btn.style['border'] = 'none';
-          btn.style['margin'] = '2rem 0 0';
 
           const phoneElementRow = document.getElementById('Phone').parentElement.parentElement.parentElement;
           const foodElementRow = document.getElementById('event_Dietary_Requirements').parentElement.parentElement.parentElement;
@@ -84,7 +79,7 @@ export class SubscriptionFormComponent implements OnInit {
   }
 
   save() {
-    if (this.accessForm) {
+    if (this.marketoForm) {
       this.personForm.value.email =
         (<HTMLInputElement>document.getElementById('Email')).value;
       this.personForm.value.name =
@@ -104,7 +99,7 @@ export class SubscriptionFormComponent implements OnInit {
     this.personService.update(newPerson)
       .subscribe(
         result => {
-          if (this.accessForm) {
+          if (this.marketoForm) {
             console.log(result);
           } else {
             this.router.navigateByUrl('/code/' + this._id);
