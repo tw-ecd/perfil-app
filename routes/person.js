@@ -171,12 +171,7 @@ router.post('/:id/photo', function (req, res) {
 });
 
 router.get('/photos/:since', (req, res) => {
-    var searchQuery = {
-        $and: [
-            { 'datetime': { $gt: req.params.since } },
-            { 'image_permission': true }
-        ]
-    };
+    var searchQuery = { 'datetime': { $gt: req.params.since } };
 
     Person.find(searchQuery, { image_url: 1, profile: 1, datetime: 1 })
         .sort({ 'datetime': -1 })
