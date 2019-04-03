@@ -11,7 +11,7 @@
         </div>
         <div class="col-8 col-lg-5">
             <div class="row">
-                <button class="btn btn-lg btn-block" *ngFor="let option of question.options" (click)="selectOption(option)">
+                <button class="question-btn btn-lg btn-block" *ngFor="let option of question.options" (click)="selectOption(option)">
                     {{option.description}}
                 </button>
             </div>

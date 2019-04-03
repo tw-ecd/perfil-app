@@ -65,9 +65,10 @@ div.result-component {
         .btn[disabled] {
             background-color: #e6e6e6;
         }
-        .btn {
+        .code-btn {
             background-color: #074c9d;
             color: #fff;
+            cursor: pointer;
             +h3 {
                 margin-top: 3%;
                 text-transform: uppercase;

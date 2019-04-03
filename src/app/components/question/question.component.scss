@@ -9,7 +9,7 @@
         line-height: 34px;
         margin: 1.5rem 0;
     }
-    .btn {
+    .question-btn {
         $bkg-color:rgba(255, 255, 255, 1);
         background: $bkg-color;
         border: none;
@@ -20,6 +20,7 @@
         margin-bottom: .5rem;
         color: rgba(74,74,74,1);
         transition: all ease-in .1s;
+        cursor: pointer;
 
         &:active, &:focus {
             background: darken($color: $bkg-color, $amount: 15%)

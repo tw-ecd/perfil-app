@@ -1,5 +1,5 @@
 import { Component, OnInit,  Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { PersonService } from '../../providers/person.service';
 import { Person } from '../../models/person.model';
@@ -18,6 +18,7 @@ export class CodeComponent implements OnInit {
 
   constructor(private personService: PersonService,
                private activedRoute: ActivatedRoute,
+               private router: Router,
                private renderer: Renderer2,
                private globals: AppGlobals
               ) { }
@@ -37,5 +38,9 @@ export class CodeComponent implements OnInit {
           }, err => { this.id = 'NOTFOUND'; }
         );
       });
+  }
+
+  home() {
+    this.router.navigateByUrl('/');
   }
 }
