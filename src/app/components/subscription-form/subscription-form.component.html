@@ -40,14 +40,7 @@
           <input class="form-control" formControlName="function" [ngClass]="{'is-invalid': function.invalid && function.dirty}" placeholder="FUNCIÓN / CARGO">
           <small class="text-danger" *ngIf="function.invalid && function.dirty">COMPRUEBA TU CARGO.</small>
         </div>
-        <div class="form-group checkbox-group" *ngIf="false">
-          <input type="checkbox" class="form-control" formControlName="events_permission">
-          <label class="shown">Assine à nossa mailing list de eventos.</label>
-        </div>
-        <div class="form-group checkbox-group" *ngIf="false">
-          <input type="checkbox" class="form-control" formControlName="radar_permission">
-          <label class="shown">Assine à mailing list do Technology Radar.</label>
-        </div>
+
         <div class="form-group checkbox-group">
           <input type="checkbox" class="form-control" formControlName="information_share_permission">
           <label class="shown">Estoy de acuerdo en compartir mis datos con ThoughtWorks y estoy consciente que se utilizarán según la <a href="https://www.thoughtworks.com/es/privacy-policy" target="_blank">política de privacidad.</a></label>
