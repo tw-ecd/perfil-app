@@ -168,7 +168,6 @@ label {
     padding: 12.5px 25px!important
 }
 
-.mktFormSelect,
 input[type=email] {
     display: inline-block!important;
     box-sizing: border-box!important;
@@ -269,8 +268,10 @@ input[type=checkbox]:focus {
     margin-bottom: 10px!important
 }
 
+.mktoEmailField,
 .mktoTextField {
-  font-size: 1.2em!important
+  font-size: 1.2em!important;
+  padding: 2px 12px!important
 }
 
 .mktoButtonRow {
