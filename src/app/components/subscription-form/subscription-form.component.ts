@@ -19,6 +19,7 @@ export class SubscriptionFormComponent implements OnInit {
   personForm: FormGroup;
   marketoForm: boolean;
   mongoForm: boolean;
+  sentMail: boolean;
 
   constructor(
     private personService: PersonService,
@@ -44,17 +45,37 @@ export class SubscriptionFormComponent implements OnInit {
   createForm() {
     this.marketoForm = (environment.formType === 'marketo');
     this.mongoForm = (environment.formType === 'mongo');
+    this.sentMail = false;
 
     if (this.marketoForm) {
       setTimeout(function() {
         MktoForms2.loadForm('https://app-e.marketo.com', '199-QDE-291', 9635, function() {
-          const btn = <HTMLElement>document.getElementsByClassName('mktoButton')[0];
-          // btn.innerHTML = 'ENVIAR';
-
           const emailInput = document.getElementById('Email');
+          const firstNameInput = document.getElementById('FirstName');
+          const lastNameInput = document.getElementById('LastName');
+          const titleInput = document.getElementById('Title');
+          const campaignInput = document.getElementById('nameofCampaign');
+          const consentCheck = document.getElementById('consent_Privacy_Policy');
+
           emailInput.addEventListener('focusout', function() {
-            this.save();
+            this.updateValidateForm();
           }.bind(this), false);
+          firstNameInput.addEventListener('focusout', function() {
+            this.updateValidateForm();
+          }.bind(this), false);
+          lastNameInput.addEventListener('focusout', function() {
+            this.updateValidateForm();
+          }.bind(this), false);
+          titleInput.addEventListener('focusout', function() {
+            this.updateValidateForm();
+          }.bind(this), false);
+          campaignInput.addEventListener('focusout', function() {
+            this.updateValidateForm();
+          }.bind(this), false);
+          consentCheck.addEventListener('click', function() {
+            this.updateValidateForm();
+          }.bind(this), false);
+
         }.bind(this));
       }.bind(this), 1000);
     }
@@ -63,27 +84,38 @@ export class SubscriptionFormComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       company: ['', Validators.required],
-      role: ['CARGO', Validators.required],
       function: ['', Validators.required],
       information_share_permission: [true, Validators.requiredTrue]
     });
   }
 
-  save() {
+  updateValidateForm() {
     if (this.marketoForm) {
-      this.personForm.value.email =
-        (<HTMLInputElement>document.getElementById('Email')).value;
       this.personForm.value.name =
         (<HTMLInputElement>document.getElementById('FirstName')).value + ' ' +
         (<HTMLInputElement>document.getElementById('LastName')).value;
+      this.personForm.value.email = (<HTMLInputElement>document.getElementById('Email')).value;
+      this.personForm.value.function = (<HTMLInputElement>document.getElementById('Title')).value;
+      this.personForm.value.information_share_permission = (<HTMLInputElement>document.getElementById('consent_Privacy_Policy')).checked;
 
-      if (this.personForm.value.email === '') {
-        return false;
+      const isValid = (this.personForm.value.name !== '') &&
+                      (this.personForm.value.email !== '') &&
+                      (this.personForm.value.email.includes('@')) &&
+                      (this.personForm.value.email.includes('.')) &&
+                      (this.personForm.value.function !== '') &&
+                      (this.personForm.value.information_share_permission);
+
+      console.log('valid?: ' + isValid);
+      if (isValid && !this.sentMail) {
+        this.sentMail = true;
+        this.save();
       }
-    } else if (this.personForm.invalid) {
+    } else {
       return false;
     }
+  }
 
+  save() {
     const newPerson: Person = this.personForm.value;
     newPerson._id = this._id;
 
