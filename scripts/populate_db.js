@@ -7,7 +7,6 @@ var person = new Person({
     name: 'John Wayne',
     email: 'foo@bar.com',
     company: 'tw',
-    role: 'boss',
     function: 'animal',
     profile: 'Mestra dos Números'
 });

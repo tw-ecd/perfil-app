@@ -21,9 +21,6 @@ const PersonSchema = new mongoose.Schema({
     company: {
         type: String
     },
-    role: {
-        type: String
-    },
     function: {
         type: String
     },
