@@ -47,14 +47,9 @@ export class SubscriptionFormComponent implements OnInit {
 
     if (this.marketoForm) {
       setTimeout(function() {
-        MktoForms2.loadForm('https://app-e.marketo.com', '199-QDE-291', 9089, function() {
+        MktoForms2.loadForm('https://app-e.marketo.com', '199-QDE-291', 9635, function() {
           const btn = <HTMLElement>document.getElementsByClassName('mktoButton')[0];
-          btn.innerHTML = 'CONFIRMAR';
-
-          const phoneElementRow = document.getElementById('Phone').parentElement.parentElement.parentElement;
-          const foodElementRow = document.getElementById('event_Dietary_Requirements').parentElement.parentElement.parentElement;
-          phoneElementRow.parentNode.removeChild(phoneElementRow);
-          foodElementRow.parentNode.removeChild(foodElementRow);
+          // btn.innerHTML = 'ENVIAR';
 
           const emailInput = document.getElementById('Email');
           emailInput.addEventListener('focusout', function() {
