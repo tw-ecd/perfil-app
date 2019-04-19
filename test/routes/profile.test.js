@@ -18,7 +18,7 @@ describe('Profiles', () => {
     let request, mongoResponse, sortedResponse;
 
     before(() => {
-        fakeProfile = dummy(Profile, { ignore: '__v', returnDate: true });
+        fakeProfile = dummy(Profile, { ignore: ['__v'], returnDate: true });
 
         profileStub = {
             findOne: sinon.stub()

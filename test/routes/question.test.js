@@ -18,7 +18,7 @@ describe('Questions', () => {
 
 
     before(() => {
-        fakeQuestion = dummy(Question, {ignore: '__v', returnDate: true});
+        fakeQuestion = dummy(Question, {ignore: ['__v'], returnDate: true});
         
         sortStub = {
             sort: sinon.stub(mongoose.Query.prototype, 'sort').callsFake(()=> sortedResponse)
@@ -93,7 +93,7 @@ describe('Questions', () => {
 
     describe('/POST questions/:id/option', () => {
         it('should add the option to the question', (done) => {
-            option = dummy(Option, {ignore: '__v', returnDate: true});
+            option = dummy(Option, {ignore: ['__v'], returnDate: true});
             option.questionId = fakeQuestion._id;
             optionStub.create.resolves(option);
             fakeQuestion.options.push(option._id);
